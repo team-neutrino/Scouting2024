@@ -982,8 +982,8 @@ function placebets() {
 
   if (red > -1 || blue > -1) {
     actionList.splice(red && blue, 1);
-  } 
- 
+  }
+
   console.log(actionList);
   //console.log(compressedList);
 }
@@ -1148,7 +1148,7 @@ function GO(team, match, scout) {
     incmatchnumber = match;
     sessionStorage.setItem("ScoutInitials", scout);
     sessionStorage.setItem("matchnumber", incmatchnumber);
-    window.location.href = "./newAuton.html";
+    window.location.href = "./Auton.html";
   }
 }
 
@@ -1222,3 +1222,5 @@ function saveQR() {
     localStorage.setItem(compSavename,JSON.stringify(compressedList));
     localStorage.setItem(EDsaveName,JSON.stringify(extraData));
 }
+
+    
