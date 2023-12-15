@@ -1,0 +1,139 @@
+<html>
+	<head>
+		<title style="color:white" class="title">Auton</title>
+		<link id="theme" rel="stylesheet" type="text/css" href="newStyleing.css" />
+		<script src="Code/app.js"></script>
+		<style>
+			.grid-container {
+				display: grid;
+				width: 100vw;
+				height: 100vh;
+				/* place-items: center;  */
+				grid-template-areas:
+					"teamNum header header header matchNum"
+					"leftbuttongroup button1 button2 button3 rightbuttongroup"
+					"leftbuttongroup leftGap button5 rightGap rightbuttongroup"
+					"leftbuttongroup leftGap terminal rightGap rightbuttongroup"
+					"leftbuttongroup leftGap score rightGap rightbuttongroup";
+			}
+		</style>
+	</head>
+
+	<body onload="pullArray();score()">
+		<div class="grid-container" onload="setValues()">
+			<div class="teamNum">
+				<input class="genericBox" type="text" id="teamnum" readonly />
+			</div>
+			<div class="header">
+				<h1 id="auton" onClick="antonMode()">Teleop</h1>
+			</div>
+
+			<div class="matchNumber">
+				<input class="genericBox" type="text" id="matchnum" readonly />
+			</div>
+			<div class="button1">
+				<button
+					class="altButtonColour1"
+					id="Docked (A)"
+					onclick="newValidation('auton');addAction(this.id,3);saveArray();score()"
+				>
+					Docked
+				</button>
+			</div>
+			<div class="button2">
+				<button
+					class="altButtonColour5"
+					id="Failed to Dock (A)"
+					onclick="newValidation('auton');addAction(this.id,22);score()"
+				>
+					Failed to Dock
+				</button>
+			</div>
+			<div class="button3">
+				<button
+					class="altButtonColour2"
+					id="Docked & Engaged (A)"
+					onclick="newValidation('auton');addAction(this.id,4);saveArray();score()"
+				>
+					Docked
+					<br />
+					& Engaged
+				</button>
+			</div>
+			<div class="button5">
+				<button onclick="Undo();saveArray();score()">Undo</button>
+			</div>
+			<div class="leftbuttongroup">
+				<img src="Images/cone_no_shadow.png" height="125vh" width="125vw" />
+				<br />
+				<button
+					id="Cone High (T)"
+					onclick="addAction(this.id,12);saveArray();score()"
+				>
+					Cone High</button
+				><br />
+				<button
+					id="Cone Mid (T)"
+					onclick="addAction(this.id,13);saveArray();score()"
+				>
+					Cone Mid</button
+				><br />
+				<button
+					id="Cone Low (T)"
+					onclick="addAction(this.id,14);saveArray();score()"
+				>
+					Cone Low</button
+				><br />
+				<button
+					onclick="window.location.href='./newAuton.html';saveArray();score()"
+				>
+					&larr;
+				</button>
+			</div>
+			<div class="rightbuttongroup">
+				<img src="Images/cube_no_shadow.png" height="125vh" width="125vw" />
+				<img />
+				<br />
+				<button
+					id="Cube High (T)"
+					onclick="addAction(this.id,15);saveArray();score()"
+				>
+					Cube High</button
+				><br />
+				<button
+					id="Cube Mid (T)"
+					onclick="addAction(this.id,16);saveArray();score()"
+				>
+					Cube Mid</button><br />
+				<button
+					id="Cube Low (T)"
+					onclick="addAction(this.id,17);saveArray();score()"
+				>
+					Cube Low</button
+				><br />
+				<button
+					id="a"
+					onclick="window.location.href='./endgameNew.html';commentBox();saveArray();score()"
+				>
+					&rarr;
+				</button>
+			</div>
+			<div class="terminal">
+				<textarea
+					placeholder="Nothing to Undo"
+					id="teamLog1"
+					readonly
+				></textarea>
+			</div>
+			<div class="score">
+				<p>
+					<b>Your Robot's Score:</b>
+				</p>
+				<input type="text" id="scoreInput" class="genericBox" readonly />
+			</div>
+
+			<div class="leftGap"></div>
+			<div class="rightGap"></div>
+		</div>
+	</body>
+</html>

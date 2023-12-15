@@ -1,0 +1,90 @@
+<!doctype html>
+<html manifest="manifest.appcache">
+	<head>
+		<link rel="stylesheet" type="text/css" href="newStyleing.css" />
+		<title>Index</title>
+		<style>
+			.grid-container {
+				display: grid;
+				width: 100vw;
+				height: 100vh;
+				/* place-items: center;  */
+				grid-template-areas:
+					"teamNum header header header matchNum"
+					". button1 button2 button3 ."
+					"leftGap . button4 . rightGap"
+					"leftGap . button5 . rightGap"
+					"leftGap . button6 . rightGap";
+			}
+		</style>
+
+		<script src="./newAppJS.js"></script>
+	</head>
+
+	<body class="body">
+		<div class="grid-container">
+			<div class="teamNum"></div>
+			<div class="header">
+        <img /></div>
+			<div class="matchNum"></div>
+			<div class="button1">
+				<input
+					placeholder="Team Number"
+					id="enterteam"
+					maxlength="4"
+					oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+				/>
+			</div>
+			<div class="button2">
+				<input
+					type="text"
+					id="enterscout"
+					placeholder="Scout Initials"
+					maxlength="3"
+					oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase();"
+				/>
+			</div>
+			<div class="button3">
+				<input
+					class="matchnumber"
+					type="number"
+					id="entermatch"
+					placeholder="Match Number"
+					min="1"
+					max="999"
+					oninput="if(this.value.length > 3) { this.value = this.value.slice(0,3); }"
+					onchange="setTeam(this.value)"
+				/>
+			</div>
+			<div class="button4">
+				<button
+					class="redAlliance"
+					id="Red Alliance"
+					onclick="setAlliance(this.id)"
+				>
+					Red Alliance
+				</button>
+			</div>
+			<div class="button5">
+				<button
+					class="blueAlliance"
+					id="Blue Alliance"
+					onclick="setAlliance(this.id)"
+				>
+					Blue Alliance
+				</button>
+			</div>
+			<div class="button6">
+				<button
+					class="go"
+					id="a"
+					onclick="GO()"
+				>
+					GO!
+				</button>
+			</div>
+			<div class="leftGap"></div>
+			<div class="rightGap"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>QR Code</title>
+		<link id="theme" rel="stylesheet" type="text/css" href="newStyleing.css" />
+		<script src="Code/app.js"></script>
+		<style>
+			.grid-container {
+				display: grid;
+				width: 100vw;
+				height: 100vh;
+				/* place-items: center;  */
+				grid-template-areas:
+					"teamNum header matchNum"
+					"qr qr qr"
+					"back regen reset"
+			}
+		</style>
+	</head>
+
+	<body onload="pullArray();score()" class="body">
+	      <div class="grid-container" onload="setValues()">
+	            <div class="teamNum">
+				<input class="genericBox" type="text" id="teamnum" readonly />
+			</div>
+			<div class="header">
+				<h1 id="auton" onClick="antonMode()">QR Code</h1>
+			</div>
+			<div class="matchNumber">
+				<input class="genericBox" type="text" id="matchnum" readonly />
+			</div>
+			<div class="qr">
+			      
+			</div>
+			<div class="back" onclick="window.location.href='./newEndgame.html'"><button  class="QRArrow">&larr;</button></div>
+			<div class="regen"><button class="regenerateQR">Regenerate QR</button></div>
+			<div class="reset"><button onclick="window.location.href='./newIndex.html'" class="QRArrow">&rarr;</button></div>
+	            
+	            
+	            </div>
+	            
+	            </body>
+	            </html>

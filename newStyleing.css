@@ -1,0 +1,220 @@
+
+/* Grid layout things */
+
+* { box-sizing: border-box; 
+padding: 0; 
+margin: 0; 
+font-family: monospace; 
+text-align: center; 
+      
+}
+
+
+
+.grid-container > div {  border: 1px solid #686E97; }
+
+
+.teamNum { grid-area: teamNum;  height: 15vh;  width:20vw;}
+
+.header { grid-area: header; height: 15vh; width:60vw; }
+
+.matchNumber { grid-area:matchNum;  height: 15vh; width:20vw;}
+
+.leftbuttongroup { grid-area: leftbuttongroup; width: 20vw; height: 85vh;}
+
+.rightbuttongroup { grid-area: rightbuttongroup; width: 20vw; height: 85vh;}
+
+.button1 { grid-area: button1; width: 20vw; height: 20vh;}
+
+.button2 { grid-area: button2; width: 20vw; height: 20vh;}
+
+.button3 { grid-area: button3; width: 20vw; height: 20vh;}
+
+.button4 { grid-area: button4; width: 20vw; height: 20vh;}
+
+.button5 { grid-area: button5; width: 20vw; height: 20vh;}
+
+.button6 { grid-area: button6; width: 20vw; height: 20vh;}
+
+.terminal {width: 20vw; height: 35vh; grid-area: terminal; }
+
+.leftGap { grid-area: leftGap; width: 20vw; height: 65vh;}
+
+.rightGap { grid-area: rightGap; width: 20vw; height: 65vh;}
+
+.score { grid-area: score; height: 10vh;}
+
+.comment { grid-area: comment; width: 60vw; height: 20vh;}
+
+.qr { grid-area: qr; height: 70vh;}
+
+.back { grid-area: back; height: 15vh; width:20vw;}
+
+.regen { grid-area: regen; height: 15vh; width:60vw;}
+
+.reset { grid-area: reset; height: 15vh; width:20vw;}
+
+
+
+/* Text Box Styling */
+
+.genericBox { /* team num and match number and such */ 
+      text-align: center;
+      width: 7vw;
+      height: 4vh;
+      border: 3px solid black;
+      border-radius: 5px;
+}
+
+.terminalBox {
+}
+
+.commentBox {
+}
+
+/* button colours, so the COLOURS ONLY of the buttons, */
+.body{
+	background-color: #252c38;
+}
+
+.title{
+	color: #FFFFFF;
+	font-size: 35px;
+}
+
+.coneHigh {
+	background-color: #fcf2b6;
+}
+
+.coneMid {
+	background-color: #fcf2b6;
+}
+
+.coneLow {
+	background-color: #fcf2b6;
+}
+
+.mobility {
+	background-color: #c5ff00;
+}
+
+.docked{
+	background-color: #a8ddb5;
+}
+
+.failedToDock {
+	background-color: #7bccc4;
+}
+
+.dockedAndEngaged {
+	background-color: #43a2ca;
+}
+
+.undo {
+	background-color: #ff7f7b;
+}
+
+.cubeHigh{
+	background-color: #9e9ac8;
+}
+
+.cubeMid{
+	background-color: #9e9ac8;
+}
+
+.cubeLow{
+	background-color: #9e9ac8;
+}
+
+.leftArrow{
+	background-color: #31a289;
+	position: absolute;
+	bottom:3vh;
+	margin-left:-6.0%;
+	font-size: 5vh;
+}
+.QRArrow{
+	background-color: #31a289;
+	font-size: 5vh;
+	position: relative;
+}
+.rightArrow{
+	background-color: #31a289;
+	position: absolute;
+	bottom:3vh;
+	margin-left:-6%;
+	font-size: 5vh;
+}
+.parked{
+	background-color: #97dae6;
+}
+.foul{
+	background-color: #f5a742;
+}
+
+.techFoul{
+	background-color: #f5a742;
+}
+.redAlliance{
+	background-color: #bf212f;
+	color: #FFFFFF;
+}
+.blueAlliance{
+	background-color: #264b96;
+	color: #FFFFFF;
+}
+
+.go{
+	background-color: #27b376;
+	color: #FFFFFF;
+}
+.score{
+	color: #FFFFFF;
+	font-size: 2.1vh;
+}
+.regenerateQR{
+	background-color: #c5ff00;
+	height: 12vh;
+	width: 12vw;
+}
+.defense{
+	background-color: #879ce8;
+	position: absolute;
+	bottom:30vh;
+	margin-left:-6.0%;
+}
+.gridFull{
+	background-color: #c5ff00;
+	position: absolute;
+	bottom:30vh;
+	margin-left:-6.0%;
+}
+
+/* ids below */
+#Auton{
+	color: white;
+	font-size: 35px;
+}
+
+#Mobility{
+	margin: 15%;
+}
+
+/* whole class styling */
+
+/* selector goes here */ button {
+	height: 6vw;
+	width: 12vw;
+	border: 3px solid black;
+	border-radius: 8px;
+	margin: 1.5%;
+	font-size: 1.25vw;
+}
+	
+input {
+	height: 6vh;
+	width: 8vw;
+	background-color: #FFFFFF;
+	border-radius: 4px;
+	opacity: 0.75;
+}
