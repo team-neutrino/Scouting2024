@@ -1,1 +1,101 @@
-
+<!DOCTYPE html> 
+ <html> 
+ <head> 
+ <title>Allen</title> 
+ </head> 
+ 
+ <style> 
+ .grid-container { 
+ display: grid; 
+ grid-template-areas: 'A1 B1D1 B1D1 B1D1 E1 ' 'A2 B2 C2 D2 E2 ' 'A3 B3B5 C3 D3D5 E3 ' 'A4 B3B5 C4C5 D3D5 E4 ' 'A5 B3B5 C4C5 D3D5 E5 ' ;
+ grid-gap: 10px; 
+ background-color: white; 
+ padding: 10px; 
+ height: 100vh; 
+ width: 100vw; 
+ } 
+.A1 { 
+ grid-area: A1; 
+ } 
+.B1D1 { 
+ grid-area: B1D1; 
+ } 
+.E1 { 
+ grid-area: E1; 
+ } 
+.A2 { 
+ grid-area: A2; 
+ } 
+.B2 { 
+ grid-area: B2; 
+ } 
+.C2 { 
+ grid-area: C2; 
+ } 
+.D2 { 
+ grid-area: D2; 
+ } 
+.E2 { 
+ grid-area: E2; 
+ } 
+.A3 { 
+ grid-area: A3; 
+ } 
+.B3B5 { 
+ grid-area: B3B5; 
+ } 
+.C3 { 
+ grid-area: C3; 
+ } 
+.D3D5 { 
+ grid-area: D3D5; 
+ } 
+.E3 { 
+ grid-area: E3; 
+ } 
+.A4 { 
+ grid-area: A4; 
+ } 
+.C4C5 { 
+ grid-area: C4C5; 
+ } 
+.E4 { 
+ grid-area: E4; 
+ } 
+.A5 { 
+ grid-area: A5; 
+ } 
+.E5 { 
+ grid-area: E5; 
+ } 
+.grid-container > div { 
+ background-color: rgba(255, 255, 255, 0.8); 
+ text-align: center; 
+ padding: 20px 0; 
+ font-size: 30px; 
+ } 
+</style> 
+ 
+ <body> 
+  <div class="grid-container"> 
+<div style="background-color:#9900ff" class="A1">TEAM #</div> 
+<div style="background-color:#9900ff" class="B1D1">Crescendo</div> 
+<div style="background-color:#9900ff" class="E1">MATCH #</div> 
+<div style="background-color:#ffff00" class="A2"></div> 
+<div style="background-color:#00ffff" class="B2">Leave</div> 
+<div style="background-color:#00ffff" class="C2">Auton Note</div> 
+<div style="background-color:#00ffff" class="D2">Auton Amp</div> 
+<div style="background-color:#ffff00" class="E2"></div> 
+<div style="background-color:#00ffff" class="A3">Climb</div> 
+<div style="background-color:#ffff00" class="B3B5"></div> 
+<div style="background-color:#ffff00" class="C3"></div> 
+<div style="background-color:#ffff00" class="D3D5"></div> 
+<div style="background-color:#00ffff" class="E3">Note</div> 
+<div style="background-color:#00ffff" class="A4">Human Player Note</div> 
+<div style="background-color:#ff0000" class="C4C5"></div> 
+<div style="background-color:#00ffff" class="E4">Amp Note</div> 
+<div style="background-color:#00ffff" class="A5">Trap</div> 
+<div style="background-color:#00ffff" class="E5">Amp</div> 
+ </div> 
+ </body> 
+ </html>
