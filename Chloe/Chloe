@@ -1,1 +1,176 @@
+function myFunction2() {
+  var sheet = SpreadsheetApp.getActiveSheet();
+
+  var range = sheet.getDataRange();
+  var values = range.getValues();
+  
+  var numRows = sheet.getMaxRows();
+  var numCols = sheet.getMaxColumns()
+  console.log(numCols);
+  console.log(numRows);
+
+  var mergedRanges = range.getMergedRanges();
+  var gridTemplate = " grid-template-areas: '";
+  var style = "";
+  var html = "<div class=\"grid-container\"> \n";
+var k = 0;
+    for (var i = 0; i < numCols; i++) {
+        for (var j = 0; j < numRows; j++) {
+            var cellNum = sheet.getRange(i+1, j+1);
+            var cell = cellNum.getA1Notation();
+            var bgColor = cellNum.getBackground();
+    //        var cellText = values[i][j].toString();
+     //       console.log(cellText);
+            if(cellNum.isPartOfMerge() == true) {
+             if (mergedRanges[k] == null) {
+              var name = findMergedRangeForCell(cell);
+              if(html.includes(name.replace(":", "")) == true) {
+                gridTemplate += name.replace(":", "") + " ";
+              } else {  
+                gridTemplate += name.replace(":", "") + " ";
+         //       console.log(gridTemplate);
+                style += "." + name.replace(":", "") + " { \n grid-area: " + name.replace(":", "") + "; \n } \n";
+         //       console.log(style);
+                   if(values[i][j].includes("Button??") == true) {
+                      console.log("yes");
+                      html += "<div style=\"background-color:" +  bgColor  + "\" class=\"" + name.replace(":", "") +  "\"> \n" + "<button class=\"button\">" + values[i][j] + "</button> \n" + "</div> \n";
+
+              } else {
+                        html += "<div style=\"background-color:" +  bgColor  + "\" class=\"" + name.replace(":", "") +  "\">" + values[i][j] + "</div> \n";
+      //          console.log(html);
+      }
+               
+              }
+              console.log(k);
+             } else {
+          //    console.log(cell);
+              var name = findMergedRangeForCell(cell);
+              if(html.includes(name.replace(":", "")) == true) {
+                gridTemplate += name.replace(":", "") + " ";
+              } else {  
+                gridTemplate += name.replace(":", "") + " ";
+                console.log(gridTemplate);
+                style += "." + name.replace(":", "") + " { \n grid-area: " + name.replace(":", "") + "; \n } \n";
+                console.log(style);
+                if(values[i][j].includes("Button??") == true) {
+                      console.log("yes");
+                      html += "<div style=\"background-color:" +  bgColor  + "\" class=\"" + name.replace(":", "") +  "\"> \n" + "<button class=\"button\">" + values[i][j] + "</button> \n" + "</div> \n";
+
+              } else {
+                        html += "<div style=\"background-color:" +  bgColor  + "\" class=\"" + name.replace(":", "") +  "\">" + values[i][j] + "</div> \n";
+               console.log(html);
+      }
+               
+              }
+             }
+
+      
+              
+
+            } else {
+              if(html.includes(cell) == true) {
+                gridTemplate += cell + " ";
+              } else {  
+                gridTemplate += cell + " ";
+                console.log(gridTemplate);
+                style += "." + cell + " { \n grid-area: " + cell + "; \n } \n";
+                console.log(style);
+      /*          html += "<div style=\"background-color:" +  bgColor  + "\" class=\"" + cell +  "\">" + values[i][j] + "</div> \n"; */
+       if(values[i][j].includes("Button??") == true) {
+                      console.log("yes");
+                      html += "<div style=\"background-color:" +  bgColor  + "\" class=\"" + cell +  "\"> \n" + "<button class=\"button\">" + values[i][j] + "</button> \n" + "</div> \n";
+
+              } else {
+                        html += "<div style=\"background-color:" +  bgColor  + "\" class=\"" + cell +  "\">" + values[i][j] + "</div> \n";
+      //          console.log(html);
+      }
+               
+              }
+              }
+ 
+            
+            }
+            if( i < numCols-1) {
+              gridTemplate += "' '";
+            } else {
+            gridTemplate += "' ;";
+            }
+             
+}
+ console.log(gridTemplate);
+             var title = SpreadsheetApp.getActiveSheet().getName();
+             var styleCode = "<!DOCTYPE html> \n <html> \n <head> \n <title>" + title + "</title> \n </head> \n \n <style> \n .grid-container { \n display: grid; \n" + gridTemplate + "\n grid-gap: 10px; \n background-color: white; \n padding: 10px; \n height: 100vh; \n width: 100vw; \n } \n" + style + ".grid-container > div { \n background-color: rgba(255, 255, 255, 0.8); \n text-align: center; \n padding: 20px 0; \n font-size: 30px; \n } \n .button { \n height: 100px; \n width: 200px; \n border: 5px solid black; \n border-radius: 8px; \n font-size: 25px; \n margin: 20px; \n cursor: pointer; \n color: black; \n background-size: 75px 100px; \n text-align: center; \n } \n textarea { \n border-color: black; \n border: 5px solid black; \n border-radius: 5px; \n text-align: center; \n margin-top: 15px; \n background-size: 75px 100px; \n box-shadow: 0px 0px 25px black; \n font-size: 19px; \n resize: none; \n min-width: 100%; \n min-height: 100%; \n max-width: 100%; \n max-height: 100%; \n box-sizing: border-box; \n width: 240px; \n } \n  </style>";
+              console.log(styleCode);
+              var htmlCode = " \n \n <body> \n  " + html + " </div> \n </body> \n </html>"
+              console.log(htmlCode);
+              var fullCode = styleCode + htmlCode;
+              console.log(fullCode);
+            }
+           
+            
+  function getMergedCellRanges() {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var range = sheet.getDataRange();
+  var mergedRanges = sheet.getRange(1, 1, sheet.getMaxRows(), sheet.getMaxColumns()).getMergedRanges();
+  var mergedRangesData = {};
+
+  for (var i = 0; i < mergedRanges.length; i++) {
+    var mergedRange = mergedRanges[i];
+    var numRows = mergedRange.getNumRows();
+    var numCols = mergedRange.getNumColumns();
+    var startRow = mergedRange.getRow();
+    var startCol = mergedRange.getColumn();
+    var a1Notations = [];
+
+    for (var rowOffset = 0; rowOffset < numRows; rowOffset++) {
+      for (var colOffset = 0; colOffset < numCols; colOffset++) {
+        var a1Notation = sheet.getRange(startRow + rowOffset, startCol + colOffset).getA1Notation();
+        a1Notations.push(a1Notation);
+      }
+    }
+
+    var rangeData = {
+      range: mergedRange.getA1Notation(),
+      a1Notations: a1Notations
+    };
+
+    mergedRangesData[rangeData.range] = rangeData.a1Notations;
+  }
+
+  return mergedRangesData;
+}
+
+
+function search() {
+  var cell = "\'B1\',";
+  var bigOBJ = getMergedCellRanges();
+  console.log(typeof bigOBJ);
+  var bigArray = Object.values(bigOBJ).includes;
+ console.log(typeof bigArray);
+  console.log();
+  if(false == true) {
+    console.log(true)
+  } else {
+    console.log(false)
+  }
+}
+
+function findMergedRangeForCell(cell) {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var mergedRangesData = getMergedCellRanges(); // assuming you have defined the getMergedCellRanges function as provided in the previous example
+
+  for (var range in mergedRangesData) {
+    var cells = mergedRangesData[range];
+    if (cells.indexOf(cell) !== -1) {
+      console.log(range);
+      return range;
+    }
+  }
+
+  return null; // if the cell is not part of any merged range
+}
+
+
+/* textarea { \n border-color: black; \n border: 5px solid black; \n border-radius: 5px; \n text-align: center; \n margin-top: 15px; \n background-size: 75px 100px; \n box-shadow: 0px 0px 25px black; \n font-size: 19px; \n resize: none; \n min-width: 100%; \n min-height: 100%; \n max-width: 100%; \n max-height: 100%; \n box-sizing: border-box; \n width: 240px; \n } \n */
+
 
