@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chloe</title>
+</head>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-areas: 'A1 B1 C1H1 C1H1 C1H1 C1H1 C1H1 C1H1 I1 J1 ' 'A2J2 A2J2 A2J2 A2J2 A2J2 A2J2 A2J2 A2J2 A2J2 A2J2 ' 'A3A4 B3C4 B3C4 D3D4 E3F4 E3F4 G3G4 H3I4 H3I4 J3J4 ' 'A3A4 B3C4 B3C4 D3D4 E3F4 E3F4 G3G4 H3I4 H3I4 J3J4 ' 'A5J5 A5J5 A5J5 A5J5 A5J5 A5J5 A5J5 A5J5 A5J5 A5J5 ' 'A6B8 A6B8 C6C8 D6G8 D6G8 D6G8 D6G8 H6H8 I6J8 I6J8 ' 'A6B8 A6B8 C6C8 D6G8 D6G8 D6G8 D6G8 H6H8 I6J8 I6J8 ' 'A6B8 A6B8 C6C8 D6G8 D6G8 D6G8 D6G8 H6H8 I6J8 I6J8 ' 'A9J9 A9J9 A9J9 A9J9 A9J9 A9J9 A9J9 A9J9 A9J9 A9J9 ' 'A10B10 A10B10 C10 D10G10 D10G10 D10G10 D10G10 H10 I10J10 I10J10 ';
+    grid-gap: 10px;
+    background-color: white;
+    padding: 10px;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .A1 {
+    grid-area: A1;
+  }
+
+  .B1 {
+    grid-area: B1;
+  }
+
+  .C1H1 {
+    grid-area: C1H1;
+  }
+
+  .I1 {
+    grid-area: I1;
+  }
+
+  .J1 {
+    grid-area: J1;
+  }
+
+  .A2J2 {
+    grid-area: A2J2;
+  }
+
+  .A3A4 {
+    grid-area: A3A4;
+  }
+
+  .B3C4 {
+    grid-area: B3C4;
+  }
+
+  .D3D4 {
+    grid-area: D3D4;
+  }
+
+  .E3F4 {
+    grid-area: E3F4;
+  }
+
+  .G3G4 {
+    grid-area: G3G4;
+  }
+
+  .H3I4 {
+    grid-area: H3I4;
+  }
+
+  .J3J4 {
+    grid-area: J3J4;
+  }
+
+  .A5J5 {
+    grid-area: A5J5;
+  }
+
+  .A6B8 {
+    grid-area: A6B8;
+  }
+
+  .C6C8 {
+    grid-area: C6C8;
+  }
+
+  .D6G8 {
+    grid-area: D6G8;
+  }
+
+  .H6H8 {
+    grid-area: H6H8;
+  }
+
+  .I6J8 {
+    grid-area: I6J8;
+  }
+
+  .A9J9 {
+    grid-area: A9J9;
+  }
+
+  .A10B10 {
+    grid-area: A10B10;
+  }
+
+  .C10 {
+    grid-area: C10;
+  }
+
+  .D10G10 {
+    grid-area: D10G10;
+  }
+
+  .H10 {
+    grid-area: H10;
+  }
+
+  .I10J10 {
+    grid-area: I10J10;
+  }
+
+  .grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+</style>
+
+
+
+<body>
+  <div class="grid-container">
+    <div style="background-color:#eea668" class="A1">Team #</div>
+    <div style="background-color:#fff4e4" class="B1"></div>
+    <div style="background-color:#dc6d18" class="C1H1">Auton</div>
+    <div style="background-color:#fff4e4" class="I1"></div>
+    <div style="background-color:#eea668" class="J1">Match #</div>
+    <div style="background-color:#fff4e4" class="A2J2">GAP</div>
+    <div style="background-color:#fff4e4" class="A3A4">GAP</div>
+    <div style="background-color:#dc6d18" class="B3C4">GAME FUNNNN</div>
+    <div style="background-color:#fff4e4" class="D3D4">GAP</div>
+    <div style="background-color:#ffa268" class="E3F4">Undo</div>
+    <div style="background-color:#fff4e4" class="G3G4">GAP</div>
+    <div style="background-color:#dc6d18" class="H3I4">Foul</div>
+    <div style="background-color:#fff4e4" class="J3J4"> GAP</div>
+    <div style="background-color:#fff4e4" class="A5J5">GAP</div>
+    <div style="background-color:#ffa268" class="A6B8">Speaker</div>
+    <div style="background-color:#fff4e4" class="C6C8">GAP</div>
+    <div style="background-color:#dc6d18" class="D6G8">Terminal</div>
+    <div style="background-color:#fff4e4" class="H6H8">GAP</div>
+    <div style="background-color:#ffa268" class="I6J8">Amp</div>
+    <div style="background-color:#fff4e4" class="A9J9">GAP</div>
+    <div style="background-color:#eea668" class="A10B10">🔙</div>
+    <div style="background-color:#fff4e4" class="C10">GAP</div>
+    <div style="background-color:#ffa268" class="D10G10"> Score</div>
+    <div style="background-color:#fff4e4" class="H10">GAP</div>
+    <div style="background-color:#eea668" class="I10J10">🔜</div>
+  </div>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chloe 5 X 5</title>
+</head>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-areas: 'A1 B1 C1H1 C1H1 C1H1 C1H1 C1H1 C1H1 I1 J1 ' 'A2J2 A2J2 A2J2 A2J2 A2J2 A2J2 A2J2 A2J2 A2J2 A2J2 ' 'A3A4 B3C4 B3C4 D3D4 E3F4 E3F4 G3G4 H3I4 H3I4 J3J4 ' 'A3A4 B3C4 B3C4 D3D4 E3F4 E3F4 G3G4 H3I4 H3I4 J3J4 ' 'A5J5 A5J5 A5J5 A5J5 A5J5 A5J5 A5J5 A5J5 A5J5 A5J5 ' 'A6B8 A6B8 C6C8 D6G8 D6G8 D6G8 D6G8 H6H8 I6J8 I6J8 ' 'A6B8 A6B8 C6C8 D6G8 D6G8 D6G8 D6G8 H6H8 I6J8 I6J8 ' 'A6B8 A6B8 C6C8 D6G8 D6G8 D6G8 D6G8 H6H8 I6J8 I6J8 ' 'A9J9 A9J9 A9J9 A9J9 A9J9 A9J9 A9J9 A9J9 A9J9 A9J9 ' 'A10B10 A10B10 C10 D10G10 D10G10 D10G10 D10G10 H10 I10J10 I10J10 ';
+    grid-gap: 10px;
+    background-color: white;
+    padding: 10px;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .A1 {
+    grid-area: A1;
+  }
+
+  .B1 {
+    grid-area: B1;
+  }
+
+  .C1H1 {
+    grid-area: C1H1;
+  }
+
+  .I1 {
+    grid-area: I1;
+  }
+
+  .J1 {
+    grid-area: J1;
+  }
+
+  .A2J2 {
+    grid-area: A2J2;
+  }
+
+  .A3A4 {
+    grid-area: A3A4;
+  }
+
+  .B3C4 {
+    grid-area: B3C4;
+  }
+
+  .D3D4 {
+    grid-area: D3D4;
+  }
+
+  .E3F4 {
+    grid-area: E3F4;
+  }
+
+  .G3G4 {
+    grid-area: G3G4;
+  }
+
+  .H3I4 {
+    grid-area: H3I4;
+  }
+
+  .J3J4 {
+    grid-area: J3J4;
+  }
+
+  .A5J5 {
+    grid-area: A5J5;
+  }
+
+  .A6B8 {
+    grid-area: A6B8;
+  }
+
+  .C6C8 {
+    grid-area: C6C8;
+  }
+
+  .D6G8 {
+    grid-area: D6G8;
+  }
+
+  .H6H8 {
+    grid-area: H6H8;
+  }
+
+  .I6J8 {
+    grid-area: I6J8;
+  }
+
+  .A9J9 {
+    grid-area: A9J9;
+  }
+
+  .A10B10 {
+    grid-area: A10B10;
+  }
+
+  .C10 {
+    grid-area: C10;
+  }
+
+  .D10G10 {
+    grid-area: D10G10;
+  }
+
+  .H10 {
+    grid-area: H10;
+  }
+
+  .I10J10 {
+    grid-area: I10J10;
+  }
+
+  .grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+</style>
+
+<body>
+  <div class="grid-container">
+    <div style="background-color:#eea668" class="A1">Team #</div>
+    <div style="background-color:#fff4e4" class="B1"></div>
+    <div style="background-color:#dc6d18" class="C1H1">Auton</div>
+    <div style="background-color:#fff4e4" class="I1"></div>
+    <div style="background-color:#eea668" class="J1">Match #</div>
+    <div style="background-color:#fff4e4" class="A2J2">GAP</div>
+    <div style="background-color:#fff4e4" class="A3A4">GAP</div>
+    <div style="background-color:#dc6d18" class="B3C4">GAME FUNNNN</div>
+    <div style="background-color:#fff4e4" class="D3D4">GAP</div>
+    <div style="background-color:#ffa268" class="E3F4">Undo</div>
+    <div style="background-color:#fff4e4" class="G3G4">GAP</div>
+    <div style="background-color:#dc6d18" class="H3I4">Foul</div>
+    <div style="background-color:#fff4e4" class="J3J4"> GAP</div>
+    <div style="background-color:#fff4e4" class="A5J5">GAP</div>
+    <div style="background-color:#ffa268" class="A6B8">Speaker</div>
+    <div style="background-color:#fff4e4" class="C6C8">GAP</div>
+    <div style="background-color:#dc6d18" class="D6G8">Terminal</div>
+    <div style="background-color:#fff4e4" class="H6H8">GAP</div>
+    <div style="background-color:#ffa268" class="I6J8">Amp</div>
+    <div style="background-color:#fff4e4" class="A9J9">GAP</div>
+    <div style="background-color:#eea668" class="A10B10">🔙</div>
+    <div style="background-color:#fff4e4" class="C10">GAP</div>
+    <div style="background-color:#ffa268" class="D10G10"> Score</div>
+    <div style="background-color:#fff4e4" class="H10">GAP</div>
+    <div style="background-color:#eea668" class="I10J10">🔜</div>
+  </div>
+</body>
+
+</html>
