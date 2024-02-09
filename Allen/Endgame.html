@@ -1,97 +1,117 @@
-<!DOCTYPE html> 
- <html> 
- <head> 
- <title>Allen Endgame</title> 
- </head> 
- 
- <style> 
- .grid-container { 
- display: grid; 
- grid-template-areas: 'A1 B1D1 B1D1 B1D1 E1 ' 'A2 B2 C2 D2 E2 ' 'A3A4 B3B5 C3C4 D3D5 E3 ' 'A3A4 B3B5 C3C4 D3D5 E4 ' 'A5 B3B5 C5 D3D5 E5 ' ;
- grid-gap: 0px; 
- background-color: white; 
- padding: 10px; 
- height: 100vh; 
- width: 100vw; 
- } 
-.A1 { 
- grid-area: A1; 
- } 
-.B1D1 { 
- grid-area: B1D1; 
- } 
-.E1 { 
- grid-area: E1; 
- } 
-.A2 { 
- grid-area: A2; 
- } 
-.B2 { 
- grid-area: B2; 
- } 
-.C2 { 
- grid-area: C2; 
- } 
-.D2 { 
- grid-area: D2; 
- } 
-.E2 { 
- grid-area: E2; 
- } 
-.A3A4 { 
- grid-area: A3A4; 
- } 
-.B3B5 { 
- grid-area: B3B5; 
- } 
-.C3C4 { 
- grid-area: C3C4; 
- } 
-.D3D5 { 
- grid-area: D3D5; 
- } 
-.E3 { 
- grid-area: E3; 
- } 
-.E4 { 
- grid-area: E4; 
- } 
-.A5 { 
- grid-area: A5; 
- } 
-.C5 { 
- grid-area: C5; 
- } 
-.E5 { 
- grid-area: E5; 
- } 
-.grid-container > div { 
- background-color: rgba(255, 255, 255, 0.8); 
- text-align: center; 
- padding: 20px 0; 
- font-size: 30px; 
- } 
-</style> 
- 
- <body> 
-  <div class="grid-container"> 
-<div style="background-color:#ff9900" class="A1">Team #</div> 
-<div style="background-color:#000000" class="B1D1">CRESCENDO</div> 
-<div style="background-color:#ff9900" class="E1">Match #</div> 
-<div style="background-color:#000000" class="A2"></div> 
-<div style="background-color:#00ff00" class="B2">TRAP</div> 
-<div style="background-color:#ea4335" class="C2">UNDO</div> 
-<div style="background-color:#00ff00" class="D2">FOUL</div> 
-<div style="background-color:#000000" class="E2"></div> 
-<div style="background-color:#ffff00" class="A3A4">HUMAN PLAYER NOTE</div> 
-<div style="background-color:#000000" class="B3B5"></div> 
-<div style="background-color:#ffffff" class="C3C4">TERMINAL</div> 
-<div style="background-color:#000000" class="D3D5"></div> 
-<div style="background-color:#9900ff" class="E3">CLIMB</div> 
-<div style="background-color:#9900ff" class="E4">HARMONY</div> 
-<div style="background-color:#4285f4" class="A5">BACK</div> 
-<div style="background-color:#000000" class="C5"></div> 
-<div style="background-color:#4285f4" class="E5">NEXT</div> 
- </div> 
- </body> 
- </html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Allen Endgame</title>
+</head>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-areas: 'A1 B1D1 B1D1 B1D1 E1 ' 'A2 B2 C2 D2 E2 ' 'A3A4 B3B5 C3C4 D3D5 E3 ' 'A3A4 B3B5 C3C4 D3D5 E4 ' 'A5 B3B5 C5 D3D5 E5 ';
+    grid-gap: 0px;
+    background-color: white;
+    padding: 10px;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .A1 {
+    grid-area: A1;
+  }
+
+  .B1D1 {
+    grid-area: B1D1;
+  }
+
+  .E1 {
+    grid-area: E1;
+  }
+
+  .A2 {
+    grid-area: A2;
+  }
+
+  .B2 {
+    grid-area: B2;
+  }
+
+  .C2 {
+    grid-area: C2;
+  }
+
+  .D2 {
+    grid-area: D2;
+  }
+
+  .E2 {
+    grid-area: E2;
+  }
+
+  .A3A4 {
+    grid-area: A3A4;
+  }
+
+  .B3B5 {
+    grid-area: B3B5;
+  }
+
+  .C3C4 {
+    grid-area: C3C4;
+  }
+
+  .D3D5 {
+    grid-area: D3D5;
+  }
+
+  .E3 {
+    grid-area: E3;
+  }
+
+  .E4 {
+    grid-area: E4;
+  }
+
+  .A5 {
+    grid-area: A5;
+  }
+
+  .C5 {
+    grid-area: C5;
+  }
+
+  .E5 {
+    grid-area: E5;
+  }
+
+  .grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+</style>
+
+<body>
+  <div class="grid-container">
+    <div style="background-color:#ff9900" class="A1">Team #</div>
+    <div style="background-color:#000000" class="B1D1">CRESCENDO</div>
+    <div style="background-color:#ff9900" class="E1">Match #</div>
+    <div style="background-color:#000000" class="A2"></div>
+    <div style="background-color:#00ff00" class="B2">TRAP</div>
+    <div style="background-color:#ea4335" class="C2">UNDO</div>
+    <div style="background-color:#00ff00" class="D2">FOUL</div>
+    <div style="background-color:#000000" class="E2"></div>
+    <div style="background-color:#ffff00" class="A3A4">HP NOTE</div>
+    <div style="background-color:#000000" class="B3B5"></div>
+    <div style="background-color:#ffffff" class="C3C4">TERMINAL</div>
+    <div style="background-color:#000000" class="D3D5"></div>
+    <div style="background-color:#9900ff" class="E3">CLIMB</div>
+    <div style="background-color:#9900ff" class="E4">HARMONY</div>
+    <div style="background-color:#4285f4" class="A5">BACK</div>
+    <div style="background-color:#000000" class="C5"></div>
+    <div style="background-color:#4285f4" class="E5">NEXT</div>
+  </div>
+</body>
+
+</html>
