@@ -1,102 +1,124 @@
-<!DOCTYPE html> 
- <html> 
- <head> 
- <title>Allen Title</title> 
- </head> 
- 
- <style> 
- .grid-container { 
- display: grid; 
- grid-template-areas: 'A1 B1D1 B1D1 B1D1 E1 ' 'A2 B2 C2 D2 E2 ' 'A3 B3D4 B3D4 B3D4 E3 ' 'A4 B3D4 B3D4 B3D4 E4 ' 'A5 B5 C5 D5 E5 ' ;
- grid-gap: 0px; 
- background-color: white; 
- padding: 10px; 
- height: 100vh; 
- width: 100vw; 
- } 
-.A1 { 
- grid-area: A1; 
- } 
-.B1D1 { 
- grid-area: B1D1; 
- } 
-.E1 { 
- grid-area: E1; 
- } 
-.A2 { 
- grid-area: A2; 
- } 
-.B2 { 
- grid-area: B2; 
- } 
-.C2 { 
- grid-area: C2; 
- } 
-.D2 { 
- grid-area: D2; 
- } 
-.E2 { 
- grid-area: E2; 
- } 
-.A3 { 
- grid-area: A3; 
- } 
-.B3D4 { 
- grid-area: B3D4; 
- } 
-.E3 { 
- grid-area: E3; 
- } 
-.A4 { 
- grid-area: A4; 
- } 
-.E4 { 
- grid-area: E4; 
- } 
-.A5 { 
- grid-area: A5; 
- } 
-.B5 { 
- grid-area: B5; 
- } 
-.C5 { 
- grid-area: C5; 
- } 
-.D5 { 
- grid-area: D5; 
- } 
-.E5 { 
- grid-area: E5; 
- } 
-.grid-container > div { 
- background-color: rgba(255, 255, 255, 0.8); 
- text-align: center; 
- padding: 20px 0; 
- font-size: 30px; 
- } 
-</style> 
- <B1D1 style = color:white;>
- <B3D4 style = color:white>
- <body> 
-  <div class="grid-container"> 
-<div style="background-color:#ff9900" class="A1">TEAM #</div> 
-<div style="background-color:#000000" class="B1D1">CRESCENDO</div> 
-<div style="background-color:#ff9900" class="E1">MATCH #</div> 
-<div style="background-color:#000000" class="A2"></div> 
-<div style="background-color:#000000" class="B2">TEAM #</div> 
-<div style="background-color:#000000" class="C2">INITIALS</div> 
-<div style="background-color:#000000" class="D2">MATCH #</div> 
-<div style="background-color:#000000" class="E2"></div> 
-<div style="background-color:#000000" class="A3"></div> 
-<div style="background-color:#000000" class="B3D4">SCHEDULE?</div> 
-<div style="background-color:#000000" class="E3"></div> 
-<div style="background-color:#000000" class="A4"></div> 
-<div style="background-color:#000000" class="E4"></div> 
-<div style="background-color:#000000" class="A5"></div> 
-<div style="background-color:#000000" class="B5"></div> 
-<div style="background-color:#000000" class="C5"></div> 
-<div style="background-color:#000000" class="D5"></div> 
-<div style="background-color:#4a86e8" class="E5">NEXT</div> 
- </div> 
- </body> 
- </html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Allen Title</title>
+</head>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-areas: 'A1 B1D1 B1D1 B1D1 E1 ' 'A2 B2 C2 D2 E2 ' 'A3 B3D4 B3D4 B3D4 E3 ' 'A4 B3D4 B3D4 B3D4 E4 ' 'A5 B5 C5 D5 E5 ';
+    grid-gap: 0px;
+    background-color: white;
+    padding: 10px;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .A1 {
+    grid-area: A1;
+  }
+
+  .B1D1 {
+    grid-area: B1D1;
+  }
+
+  .E1 {
+    grid-area: E1;
+  }
+
+  .A2 {
+    grid-area: A2;
+  }
+
+  .B2 {
+    grid-area: B2;
+  }
+
+  .C2 {
+    grid-area: C2;
+  }
+
+  .D2 {
+    grid-area: D2;
+  }
+
+  .E2 {
+    grid-area: E2;
+  }
+
+  .A3 {
+    grid-area: A3;
+  }
+
+  .B3D4 {
+    grid-area: B3D4;
+  }
+
+  .E3 {
+    grid-area: E3;
+  }
+
+  .A4 {
+    grid-area: A4;
+  }
+
+  .E4 {
+    grid-area: E4;
+  }
+
+  .A5 {
+    grid-area: A5;
+  }
+
+  .B5 {
+    grid-area: B5;
+  }
+
+  .C5 {
+    grid-area: C5;
+  }
+
+  .D5 {
+    grid-area: D5;
+  }
+
+  .E5 {
+    grid-area: E5;
+  }
+
+  .grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+</style>
+<B1D1 style=color:white;>
+  <B3D4 style=color:white>
+
+    <body>
+      <div class="grid-container">
+        <div style="background-color:#ff9900" class="A1">TEAM #</div>
+        <div style="background-color:#000000" class="B1D1">CRESCENDO</div>
+        <div style="background-color:#ff9900" class="E1">MATCH #</div>
+        <div style="background-color:#000000" class="A2"></div>
+        <div style="background-color:#ff9900" class="B2">TEAM #</div>
+        <div style="background-color:#ff9900" class="C2">INITIALS</div>
+        <div style="background-color:#ff9900" class="D2">MATCH #</div>
+        <div style="background-color:#000000" class="E2"></div>
+        <div style="background-color:#000000" class="A3"></div>
+        <div style="background-color:hsl(109, 100%, 50%)" class="B3D4">SCHEDULE?</div>
+        <div style="background-color:#000000" class="E3"></div>
+        <div style="background-color:#000000" class="A4"></div>
+        <div style="background-color:#000000" class="E4"></div>
+        <div style="background-color:#000000" class="A5"></div>
+        <div style="background-color:#000000" class="B5"></div>
+        <div style="background-color:#000000" class="C5"></div>
+        <div style="background-color:#000000" class="D5"></div>
+        <div style="background-color:#4a86e8" class="E5">NEXT</div>
+      </div>
+    </body>
+
+</html>
