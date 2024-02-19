@@ -1,1 +1,118 @@
+<html>
+	<head style="color:white">
+		<title class="title">Teleop</title>
+		<link id="theme" rel="stylesheet" type="text/css" href="newStyleing.css" />
+		<script src="./app.js"></script>
+		<style>
+			.grid-container {
+				display: grid;
+				width: 100vw;
+				height: 100vh;
+				/* place-items: center;  */
+				grid-template-areas:
+					"teamNum header header header matchNum"
+					"leftbuttongroup button1 button2 button3 rightbuttongroup"
+					"leftbuttongroup comment comment comment rightbuttongroup"
+					"leftbuttongroup . terminal . rightbuttongroup"
+					"leftbuttongroup . score . rightbuttongroup";
+			}
+		</style>
+	</head>
+
+	<body onload="pullArray();" class="body">
+		<div class="grid-container" onload="setValues()">
+			<div class="teamNum">
+				<input class="genericBox" type="text" id="teamnum" readonly />
+			</div>
+			<div class="header">
+				<h1 id="auton" onClick="antonMode()">Teleop</h1>
+			</div>
+
+			<div class="matchNumber">
+				<input class="genericBox" type="text" id="matchnum" readonly />
+			</div>
+			<div class="button1">
+				<button id="Trap" onclick="addAction(this.id,10);saveArray()" class="foul">
+					Trap
+				</button>
+			</div>
+
+			<div class="button2">
+				<button onclick="Undo();saveArray()" class="undo">
+					Undo
+				</button>
+			</div>
+
+			<div class="button3">
+				<button
+					id="Foul"
+					onclick="addAction(this.id,1);saveArray()"
+					class="techFoul"
+				>
+					Foul
+				</button>
+			</div>
+			<div class="leftbuttongroup">
+				<br />
+				<button
+					id="Amp Miss (T)"
+					onclick="addAction(this.id,9);saveArray()"
+					class="coneHigh"
+				>
+					Amp Miss</button
+				><br />
+				<button
+					id="Amp (T)"
+					onclick="addAction(this.id,8);saveArray()"
+					class="coneMid"
+				>
+					Amp</button
+				><br />
+				
+				<button
+					onclick="window.location.href='./Auton.html';saveArray();"
+					class="leftArrow"
+				>
+					&larr;
+				</button>
+			</div>
+			<div class="rightbuttongroup">
+				
+				<br />
+				<button
+					id="Speaker Miss (T)"
+					onclick="addAction(this.id,7);saveArray()"
+					class="cubeHigh"
+				>
+					Speaker Miss</button
+				><br />
+				<button
+					id="Speaker (T)"
+					onclick="addAction(this.id,6);saveArray()"
+					class="cubeMid"
+				>
+					Speaker</button
+				><br />
+				
+				<button
+					onclick="window.location.href='./Endgame.html';commentBox();saveArray();"
+					class="rightArrow"
+				>
+					&rarr;
+				</button>
+			</div>
+			<div class="terminal">
+				<textarea
+					placeholder="Nothing to Undo"
+					id="teamLog1"
+					readonly
+					style="height: 45vh;width: 20vw;resize: none;"
+				></textarea>
+			</div>
+			
+
+			
+		</div>
+	</body>
+</html>
 

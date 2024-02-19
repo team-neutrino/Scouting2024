@@ -1,1 +1,125 @@
+<!doctype html>
+<html>
+	<head>
+		<link id="theme" rel="stylesheet" type="text/css" href="newStyleing.css" />
+		<title> Auton</title>
+		<script src="./app.js"></script>
+		<style>
+			.grid-container {
+				display: grid;
+				width: 100vw;
+				height: 100vh;
+				/* place-items: center;  */
+				grid-template-areas:
+					"teamNum header header header matchNum"
+					"leftbuttongroup button1 button2 button3 rightbuttongroup"
+					"leftbuttongroup leftGap button5 rightGap rightbuttongroup"
+					"leftbuttongroup leftGap terminal rightGap rightbuttongroup"
+					"leftbuttongroup leftGap score rightGap rightbuttongroup";
+			}
+		</style>
+	</head>
 
+	<body onload="pullArray();" class="body">
+	  </body>
+	  
+		<div class="grid-container">
+			<div class="teamNum">
+				
+				<input class="genericBox" type="text" id="teamnum" readonly />
+			</div>
+			<div class="header">
+				<h1 id="auton" onClick="antonMode()" class ="title">Auton</h1>
+			</div>
+
+			<div class="matchNumber">
+				<input class="genericBox" type="text" id="matchnum" readonly />
+			</div>
+			<div class="button1">
+				<button
+					id="Leave"
+					onclick="leave();addAction(this.id,20);saveArray()"
+					class="docked"
+				>
+					Leave
+				</button>
+			</div>
+			<div class="button2">
+				<button
+					id="Undo"
+					onclick="Undo();saveArray()"
+					class="undo"
+				>
+					Undo
+				</button>
+			</div>
+			<div class="button3">
+				<button
+					id="Foul"
+					onclick="addAction(this.id,1);saveArray()"
+					class="dockedAndEngaged"
+				>
+					Foul
+					<br />
+					
+				</button>
+			</div>
+			
+			<div class="leftbuttongroup">
+				<br />
+				<button
+					onclick="addAction(this.id,5);saveArray();score()"
+					id="Amp Miss (A)"
+					class="coneHigh"
+				>
+					Amp Miss</button
+				><br />
+				<button
+					id="Amp (A)"
+					onclick="addAction(this.id,4);saveArray()"
+					class="coneMid"
+				>
+					Amp</button
+				><br />
+			
+			</div>
+			<div class="rightbuttongroup">
+				
+				<br />
+				<button
+					id="Speaker Miss (A)"
+					onclick="addAction(this.id,3);saveArray();"
+					class="cubeHigh"
+					
+				>
+					Speaker Miss</button
+				><br />
+				<button
+					id="Speaker (A)"
+					onclick="addAction(this.id,2);saveArray()"
+					class="cubeMid"
+				>
+					Speaker</button
+				><br />
+				
+				<button
+					id="a"
+					onclick="window.location.href='./Teleop.html';saveArray();score()"
+					class="rightArrow"
+				>
+					&rarr;
+				</button>
+			</div>
+			<div class="terminal">
+				<textarea
+					placeholder="Nothing to Undo"
+					id="teamLog1"
+					readonly
+					style="height: 45vh;width: 20vw;resize: none;"
+				></textarea>
+			</div>
+
+			
+		</div>
+	</body>
+</html>

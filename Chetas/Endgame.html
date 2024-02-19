@@ -1,1 +1,118 @@
+<html>
+	<head>
+		<title class="title">Endgame</title>
+		<link id="theme" rel="stylesheet" type="text/css" href="newStyleing.css" />
+		<script src="./app.js"></script>
+		<style>
+			.grid-container {
+				display: grid;
+				width: 100vw;
+				height: 100vh;
+				/* place-items: center;  */
+				grid-template-areas:
+					"teamNum header header header matchNum"
+					"leftbuttongroup button1 button2 button3 rightbuttongroup"
+					"leftbuttongroup comment comment comment rightbuttongroup"
+					"leftbuttongroup . terminal . rightbuttongroup"
+					"leftbuttongroup . score . rightbuttongroup";
+			}
+		</style>
+	</head>
+
+	<body onload="pullArray();" class="body">
+	      <div class="grid-container" onload="setValues()">
+			<div class="teamNum">
+				<input class="genericBox" type="text" id="teamnum" readonly />
+			</div>
+			<div class="header">
+				<h1 id="auton" onClick="antonMode()">Endgame</h1>
+			</div>
+			<div class="matchNumber">
+				<input class="genericBox" type="text" id="matchnum" readonly />
+			</div>
+			<div class="leftbuttongroup">
+			<button
+          onclick="replaceFail();addAction(this.id,12);"
+          id="Failed Climb"
+		  class="parked"
+        >
+		Failed Climb</button
+        ><br />
+        
+		<button
+          onclick="replacePark();addAction(this.id,13);"
+          id="Parked"
+		  class="gridFull"
+        >
+          Parked</button
+        ><br />
+        <button
+          onclick="window.location.href='./Teleop.html';commentBox();saveArray()"
+		  class="leftArrow"
+        >
+          &larr;
+        </button>
+      </div>
+			<div class="rightbuttongroup">
+			      <button
+          onclick="replacePark();replaceFail();addAction(this.id,11);"
+          id="Climb"
+		  class="failedToDock"
+        >
+          Climb</button
+        ><br />
+		<button
+          onclick="Defense();addAction(this.id,16);"
+          id="Defense"
+		  class="defense"
+        >
+          Defense</button
+        ><br />
+        <button
+          id="a"
+          onclick="window.location.href='./QRcode.html';commentBox();saveArray();saveQR()"
+		  class="rightArrow"
+        >
+          &rarr;
+        </button>
+			</div>
+			<div class="button1">
+				<button id="Foul" onclick="addAction(this.id,1);saveArray();" class="foul">
+					Foul
+				</button>
+			</div>
+
+			<div class="button2">
+				<button onclick="Undo();saveArray();" class="undo">Undo</button>
+			</div>
+
+			<div class="button3">
+				<button
+					id="Trap"
+					onclick="addAction(this.id,10);saveArray();"
+					class="techFoul"
+				>
+					Trap
+				</button>
+			</div>
+			<div class="comment">
+			      <textarea 
+            id="comments"
+            rows="6"
+            cols="50"
+            name="name"
+            placeholder="Put your comments here!"
+            oninput="this.value = this.value.replace(/[<>]/g, '').replace(/&/g, '&amp;').replace(/\\/g,'').replace(/=/g,'&#61;').replace(/-/g,'').replace(/'/g,'')"
+          ></textarea>
+			</div>
+			<div class="terminal">
+				<textarea
+					placeholder="Nothing to Undo"
+					id="teamLog1"
+					readonly
+					style="height: 45vh;width: 20vw;resize: none;"
+				></textarea>
+			</div>
+			
+	      
 
