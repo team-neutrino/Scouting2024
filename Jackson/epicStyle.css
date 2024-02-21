@@ -1,0 +1,189 @@
+/* Global Styles */
+table {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+    text-align: center;
+    font-family: Monospace; 
+  }
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-image: url(background2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+  }
+  button {
+    height: 10vh;
+    width: 12vw;
+    border: 3px solid black;
+    border-radius: 5px;
+    color: black;
+    font-size: 100%;
+    font-family: inherit;
+    box-shadow: 0px 0px 10px black;
+    font-size: 2.5vh;
+  }
+  textarea {
+    resize: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border: 3px solid white;
+    color: white;
+    text-align: left;
+    font-size: 1.25vh;
+  }
+
+/* Size Styleing */
+  .top {
+    height: 20vh;
+  }
+  .footer {
+    height: 20vh;
+  }
+  .topSideBox {
+    width: 20vw;
+  }
+  .midButton {
+    width:20vw;
+  }
+  .tallButton {
+    height: 45vh;
+  }
+  .undo, .termnial, .termnialEndgame {
+    width: 13vw; 
+    box-sizing: border-box;
+  }
+  .coments {
+    height: 12vh;
+    width: 30vw;
+  }
+  .termnialEndgame {
+    height: 45vh;
+  }
+  .headerImg {
+    height: 20vh;
+    padding: 0px;;
+    margin: 0px;
+  }
+  .headerIndex {
+    height: 15vw;
+    width: 100vw;
+  }
+  .headerSpacerIndex {
+    width: 30vw;
+  }
+  .infoBox {
+    height: 4vh;
+    width: 5vw;
+  }
+  .inputBox {
+    height: 4vh;
+    width: 7vw;
+  }
+  .inputRow {
+    height: 15vh;
+  }
+  .buttonRow {
+    height: 17.5vh;
+  }
+/* Everything Else */
+  .undo {
+    height: 4.5vh;
+    padding: 0;
+    margin: 0;
+    border: 3px solid white;
+    border-radius: 0px;
+    backdrop-filter: blur(15px);
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white;
+    font-size: 3vh;
+  }
+  .termnial {
+    height: 27vw;
+    resize: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border: 3px solid white;
+    text-align: left;
+    color: white;
+    font-size: 1.25vh;
+    scrollbar-width: thin;
+    scrollbar-color: white rgba(0, 0, 0, 0.2);
+  }
+  
+  .infoBox, .inputBox {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border: 3px solid white;
+    color: white;
+    text-align: center;
+    font-size: 3vh;
+  }
+  .header {
+    color: white;
+    font-size: 15vh;
+  }
+  .allianceOfTheRedColour {
+    background-color: rgb(107, 1, 1);
+  }
+  .allianceOfTheBlueColour {
+    background-color: rgb(0, 62, 143)
+  }
+  .goButton {
+    background-color: rgb(22, 151, 22);
+  }
+  /* Colours */ 
+
+  #speaker {
+    background-color: #9AEBA3;
+  }
+  #speakerMiss {
+    background-color: #578a5d;
+  }
+  #amp {
+    background-color: #DAFDBA;
+  }
+  #ampMiss {
+    background-color: #8ea876;
+  }
+  #foul {
+    background-color: #005d8b;
+  }
+  #disabled {
+    background-color: #3ab0e2;
+  }
+  #next {
+    background-color: #45C4B0;
+  }
+  #climbFail {
+    background-color: rgb(183, 75, 187);
+  }
+  #trap {
+    background-color: rgb(105, 181, 216);
+  }
+    /* alternate colours 
+  #speaker {
+    background-color: #8CBEB2;
+  }
+  #speakerMiss {
+    background-color: #7cc484;
+  }
+  #amp {
+    background-color: #F06060;
+  }
+  #ampMiss {
+    background-color: #8ea876;
+  }
+  #foul {
+    background-color: #F2EBBF;
+  }
+  #disabled {
+    background-color: #815061;
+  }
+  #next {
+    background-color: #815061;
+  } */
