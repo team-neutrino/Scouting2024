@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Endgame</title>
+    <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
+   
+</head>
+<body>
+<table>
+  <tr class="top">
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" value="3928" placeholder="Team Number" />
+    </th>
+    <th colspan="3" class="header">Endgame</th>
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" value="57" placeholder="Match Number" />
+    </th>
+  </tr>
+  <tr>
+    <td rowspan="2">
+      <button class="tallButton" id="climbFail">Failed Climb</button>
+    </td>
+    <td colspan="3">
+      <textarea class="coments">Coments</textarea>
+    </td>
+    <td rowspan="2">
+      <button class="tallButton" id="trap">Terap</button>  
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2" colspan="3">
+      <textarea class="termnialEndgame">term</textarea>
+      <br>
+      <button class="undo" id="undo">Undo</button>
+    </td>
+  </tr>
+  <tr class="footer">
+    <td>
+      <button class="backForth" id="disabled" onclick="window.location.href='./teleop2.html'">To Teleop</button>
+    </td>
+    <td>
+      <button class="backForth" id="next" onclick="window.location.href='./index.html'">To Index</button>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
