@@ -151,8 +151,8 @@
       }
     </style>
 </head>
-<body>
-<table>
+<body onload=" pullArray(); setValue(); score()">
+<table onload="setValue()">
   <tr class="top">
     <th class="topSideBox">
       <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" value="3928" placeholder="Team Number" />
@@ -164,10 +164,10 @@
   </tr>
   <tr>
     <td rowspan="2">
-      <button class="tallButton" id="speaker">speaker</button>
+      <button class="tallButton" id="speaker" onclick="addAction(this.id, 2); saveArray(); score();">Speaker</button>
     </td>
     <td>
-      <button class="normalButton" id="leave">foul</button>
+      <button class="normalButton" id="leave" onclick="addAction(this.id,1)">foul</button>
     </td>
     <td>
       <button class="normalButton" id="michaButton">miss</button>
