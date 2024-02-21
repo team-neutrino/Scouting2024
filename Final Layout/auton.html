@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auton</title>
+    <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
+</head>
+<body>
+<table>
+  <tr class="top">
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" value="3928" placeholder="Team Number" />
+    </th>
+    <th colspan="3" class="header">Auton</th>
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" value="57" placeholder="Match Number" />
+    </th>
+  </tr>
+  <tr class="buttons">
+    <td rowspan="2">
+      <button class="tallButton" id="speaker">Speaker</button>
+    </td>
+    <td class="midButton">
+      <button class="normalButton" id="speakerMiss">Speaker Miss</button>
+    </td>
+    <td class="midButton"> 
+      <button class="normalButton" id="foul">Foul</button>
+    </td>
+    <td class="midButton">
+      <button class="normalButton" id="ampMiss">Amp Miss</button>
+    </td>
+    <td rowspan="2">
+      <button class="tallButton" id="amp">Amp</button>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" rowspan="2" class="undoTermArea">
+      <textarea class="termnial" placeholder="nothing to undo"></textarea>
+      <br>
+      <button class="undo" id="undo">Undo</button>
+    </td>
+  </tr>
+  <tr class="footer">
+    <td>
+      <button class="backForth" id="disabled" onclick="window.location.href='./endgame.html'">Disabled</button>
+    </td>
+    <td>
+      <button class="backForth" id="next" onclick="window.location.href='./teleop.html'">To Teleop</button>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
