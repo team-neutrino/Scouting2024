@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teleop</title>
+    <style>
+      table {
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        border-spacing: 0;
+        text-align: center;
+        font-family: Monospace; 
+      }
+      body {
+        margin: 0;
+        overflow: hidden;
+        background-image: url(background15.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; 
+      }
+      /*tr, td, th {*/
+      /*  border: 2px solid white;*/
+      /*}*/
+      tr {
+      }
+      
+      .top {
+        height: 20vh;
+      }
+      .footer {
+        height: 20vh;
+      }
+      .topSideBox {
+        width: 20vw;
+      }
+      .midButton {
+        width:20vw;
+      }
+      button {
+        height: 10vh;
+        width: 12vw;
+      }
+      .tallButton {
+        height: 45vh;
+      }
+      .undo {
+        height: 4.5vh;
+        margin: 0;
+        border: 3px solid white;
+        border-radius: 0px;
+        backdrop-filter: blur(15px);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+      .termnial {
+        height: 27vw;
+        resize: none;
+        background-color: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px);
+        border: 3px solid white;
+        text-align: left;
+        color: white;
+      }
+      .undo, .termnial {
+        width: 13vw; 
+        box-sizing: border-box;
+      }
+      .infoBox {
+        height: 4vh;
+        width: 5vw;
+        background-color: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px);
+        border: 3px solid white;
+        color: white;
+        text-align: center;
+        font-size: 3vh;
+      }
+      .header {
+        color: white;
+        font-size: 15vh;
+      }
+      #speaker {
+        background-color: #8CBEB2;
+      }
+      #speakerMiss {
+        background-color: #7cc484;
+      }
+      #amp {
+        background-color: #F06060;
+      }
+      #ampMiss {
+        background-color: #8ea876;
+      }
+      #foul {
+        background-color: #F2EBBF;
+      }
+      #disabled {
+        background-color: #5C4B51;
+      }
+      #next {
+        background-color: #5C4B51;
+      }
+      button {
+        border: 3px solid black;
+        border-radius: 5px;
+        color: black;
+        font-size: 100%;
+        font-family: inherit;
+        box-shadow: 0px 0px 10px black;
+      }
+      div {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+</head>
+<body>
+<table>
+  <tr class="top">
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" value="3928" placeholder="Team Number" />
+    </th>
+    <th colspan="3" class="header">Teleop</th>
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" value="57" placeholder="Match Number" />
+    </th>
+  </tr>
+  <tr class="buttons">
+    <td rowspan="2">
+      <button class="tallButton" id="speaker">Speaker</button>
+    </td>
+    <td class="midButton">
+      <button class="normalButton" id="speakerMiss">Speaker Miss</button>
+    </td>
+    <td class="midButton"> 
+      <button class="normalButton" id="foul">Foul</button>
+    </td>
+    <td class="midButton">
+      <button class="normalButton" id="ampMiss">Amp Miss</button>
+    </td>
+    <td rowspan="2">
+      <button class="tallButton" id="amp">Amp</button>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" rowspan="2" class="undoTermArea">
+      <textarea readonly class="termnial" placeholder="nothing to undo"></textarea>
+      <br>
+      <button class="undo" id="undo">Undo</button>
+    </td>
+  </tr>
+  <tr class="footer">
+    <td>
+      <button class="backForth" id="disabled" onclick="window.location.href='./auton2.html'">To Auton</button>
+    </td>
+    <td>
+      <button class="backForth" id="next" onclick="window.location.href='./auton3.html'">To Teleop</button>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
