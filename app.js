@@ -250,7 +250,7 @@ function GO(team, match, scout) {
     sessionStorage.setItem("ScoutInitials", scout);
     sessionStorage.setItem("matchnumber", incmatchnumber);
     saveArray();
-    window.location.href = "./Auton.html";
+    window.location.href = "./auton2.html";
   }
 }
 
