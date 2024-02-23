@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
+    <script src="./JSFinalLayout.js">
+    </script>
+    <style>
+      table {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-spacing: 0;
+        text-align: center;
+        font-family: Monospace;
+        color: white;
+        animation: LSD 10s none 0s infinite alternate;
+      }
+      tr {
+        height: 20vh;
+      }
+      body {
+        margin: 0;
+        overflow: hidden;
+        background-image: url(background7.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; 
+      }
+      button {  
+        box-shadow: 0 0px 30px rgba(0, 0, 0, 1);
+        background-color: rgba(0, 0, 0, .5);
+        -webkit-backdrop-filter: blur(12.4px);
+        border: 2.5px solid white;
+        font-family: inherit;
+        color: white;
+        
+      }
+      .header {
+        width: 33vw;
+        font-size: 6vw;
+        color: white;
+        text-shadow: 0 0px 30px white;
+      } 
+      .topSideBox {
+        width: 33vw;
+      }
+      .infoBox {
+        background-color: rgba(0, 0, 0, 0.25);
+        box-shadow: 0 0px 20px black;
+        backdrop-filter: blur(12.4px); 
+        -webkit-backdrop-filter: blur(12.4px);
+        border: 2.5px solid white;
+        text-align: center;
+        padding-top: 1vh;
+        height: 5vh;
+        width: 10vw;
+        font-family: inherit;
+        color: white;
+        font-size: 2.5vw;
+        animation: LSD 10s none 0s infinite alternate;
+      }
+      .indexButton {
+        height: 10vh;
+        width: 14vw;
+      }
+      .GO {
+        height: 10vh;
+        width: 14vw;
+        background-color: black;
+        animation: goButton 10s none 0s infinite alternate;
+        font-size: 9vh;
+        padding: 0;
+        box-shadow: none;
+        border: 2px solid black;
+        
+      }
+      @keyframes goButton {
+        0% {
+          background-color: black;
+          transform: rotate(0deg) scale(1,1);
+        }
+        20% {
+          background-color: #883D63;
+          
+        }
+        40% {
+          background-color: #46379F;
+          transform: rotate(2deg) scale(1.15,1.15);
+        }
+        60% {
+          background-color: #37A586;
+          
+        }
+        80% {
+          background-color: #001951;
+          transform: rotate(-2deg) scale(.9,.9);
+        }
+        100% {
+          background-color: black;
+          
+        }
+      }
+      @keyframes LSD {
+        0% {
+          backdrop-filter: hue-rotate(0deg);
+        }
+        10% {
+          backdrop-filter: hue-rotate(36deg);
+        }
+        20% {
+          backdrop-filter: hue-rotate(7deg);
+        }
+        30% {
+          backdrop-filter: hue-rotate(108deg);
+        }
+        40% {
+          backdrop-filter: hue-rotate(144deg);
+        }
+        50% {
+          backdrop-filter: hue-rotate(180deg);
+        }
+        60% {
+          backdrop-filter: hue-rotate(216deg);
+        }
+        70% {
+          backdrop-filter: hue-rotate(252deg);
+        }
+        80% {
+          backdrop-filter: hue-rotate(288deg);
+        }
+        90% {
+          backdrop-filter: hue-rotate(324deg);
+        }
+        100% {
+          backdrop-filter: hue-rotate(360deg);
+        }
+      }
+      #speaker {
+        background-color: rgba(78, 186, 148,  0.25);
+      }
+      #amp {
+        background-color: rgba(2, 38, 13, 0.25);
+      }
+      #leave {
+        background-color: rgba(67, 179, 191,  0.25);
+      }
+      #undo {
+        background-color:  rgba(56, 194, 180,  0.25);
+      }
+  /*    #back {
+        background-color: rgba(34, 2, 38, 0.25);
+      }
+      #next {
+        background-color: rgba(73, 23, 128,  0.25);
+      } */
+      #michaButton {
+        background-color: rgba(25, 145, 25, 0.25);
+      }
+      #disabled {
+        background-color: rgba(25, 27, 145,  0.25);
+      }
+      #blue {
+        background-color: rgba(7, 41, 84, 0.75);
+        backdrop-filter: blur(10px);
+      }
+      #red {
+        background-color: rgba(142, 9, 15, 0.75);
+        backdrop-filter: blur(10px); 
+      }
+      .top {
+        height: 10vh;
+      }
+      .inputs {
+        height: 20vh;
+      }
+      .alianceRow {
+        height: 25vh;
+      }
+      .bottom {
+        height: 20vh;
+      }
+      .nextScoutBox { 
+        height: 7vh;
+        width: 10vw;
+        text-align: center;
+        background-color: rgba(15, 88, 89, 0.5);
+        border: 2px solid white;
+        color: white;
+        font-size: 200%;
+      }
+      .nextScoutText {
+        font-size: 3vh;
+      } 
+      .inputBox {
+        height: 5vh;
+        width: 7vw;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-size: 4vh;
+      }
+      .inputBox, ::placeholder {
+        text-align: center;
+        font-size: 90%;
+      }
+    </style>
+</head>
+<body>
+<table>
+  <tr class="top">
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" value="V0.01" placeholder="Team Number" />
+    </th>
+    <th class="header">Index</th>
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" value="1" placeholder="Match Number" />
+    </th>
+  </tr>
+  <tr class="inputs">
+    <td>
+      <input class="inputBox" type="text" name="inputTeamNum" id="teamnum" value="" placeholder="Team Number" />
+    </td>
+    <td>
+      <input class="inputBox" type="text" name="inputInitials" id="nameInput" value="" placeholder="Initials" />
+    </td>
+    <td>
+      <input class="inputBox" type="text" name="inputMatchNum" id="matchnum" value="" placeholder="Match Number" />
+    </td>
+  </tr>
+  <tr class="alianceRow">
+    <td rowspan="2"></td>
+    <td>
+      <button class="indexButton" id="red" onclick="placebets();addIndexInfo(this.id)">Red Alliance</button>
+    </td>
+    <td rowspan="2"></td>
+  </tr>
+  <tr class="alianceRow">
+    <td>
+      <button class="indexButton" id="blue" onclick="placebets();addIndexInfo(this.id)">Blue Alliance</button>
+    </td>
+  </tr>
+  <tr class="bottom">
+    <td>
+      <button class="indexButton" id="regen">Regen QR</button>
+    </td>
+    <td>
+      <button class="GO" id="go" onclick="window.location.href='./auton.html'" onclick="go()">GO</button>
+    </td>
+    <td>
+      <label for="nextScout" class="nextScoutText">Next Scouter</label><br>
+      <input class="nextScoutBox" type="text" name="nextScout" id="nextScout" value="Matthias" placeholder="Next Scouter" readonly/>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Auton</title>
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
+    <script src="./JSFinalLayout.js"></script>
 </head>
-<body>
-<table>
+<body onload=" pullArray(); setValue(); score()">
+<table onload="setValue()">
   <tr class="top">
     <th class="topSideBox">
       <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" value="3928" placeholder="Team Number" />
@@ -18,7 +19,7 @@
   </tr>
   <tr class="buttons">
     <td rowspan="2">
-      <button class="tallButton" id="speaker">Speaker</button>
+      <button class="tallButton" id="speaker" onclick="addAction(this.id,2);saveArray();score()">Speaker</button>
     </td>
     <td class="midButton">
       <button class="normalButton" id="speakerMiss">Speaker Miss</button>
@@ -35,14 +36,16 @@
   </tr>
   <tr>
     <td colspan="3" rowspan="2" class="undoTermArea">
+      <textarea id="scoreTracker" placeholder="0"></textarea>
+      <br>
       <textarea class="termnial" placeholder="nothing to undo"></textarea>
       <br>
-      <button class="undo" id="undo">Undo</button>
+      <button class="undo" id="undo" onclick="Undo()">Undo</button>
     </td>
   </tr>
   <tr class="footer">
     <td>
-      <button class="backForth" id="disabled" onclick="window.location.href='./endgame.html'">Disabled</button>
+      <button class="backForth" id="disabled" onclick="window.location.href='./index.html'">Disabled</button>
     </td>
     <td>
       <button class="backForth" id="next" onclick="window.location.href='./teleop.html'">To Teleop</button>

@@ -136,6 +136,12 @@ table {
   #trap {
     background-color: rgb(105, 181, 216);
   }
+  #scoreTracker {
+    background-color: whitesmoke;
+    text-align: center;
+    color: black;
+    font-size: 0.9vw;
+  }
     /* alternate colours 
   #speaker {
     background-color: #8CBEB2;

@@ -220,8 +220,6 @@ function addIndexInfo(action) {
   actionList.push(action); //Add it to the actionList (what the scouter sees on the app)
 
   extraData[4] = action; //Add it to the compressedList (QR Code)//
-
- 
 }
 
 
@@ -346,7 +344,7 @@ function GO(team, match, scout) {
     incmatchnumber = match;
     sessionStorage.setItem("ScoutInitials", scout);
     sessionStorage.setItem("matchnumber", incmatchnumber);
-    window.location.href = "./newAuton.html";
+    window.location.href = "./auton.html";
   }
 }
 

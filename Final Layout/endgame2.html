@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Endgame</title>
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
-   
+    <script src="./JSFinalLayout.js"></script>
 </head>
 <body>
 <table>
@@ -25,14 +25,14 @@
       <textarea class="coments">Coments</textarea>
     </td>
     <td rowspan="2">
-      <button class="tallButton" id="trap">Terap</button>  
+      <button class="tallButton" id="trap" onclick="addAction(this.id,10)">Terap</button>  
     </td>
   </tr>
   <tr>
     <td rowspan="2" colspan="3">
       <textarea class="termnialEndgame">term</textarea>
       <br>
-      <button class="undo" id="undo">Undo</button>
+      <button class="undo" id="undo" onclick="Undo()">Undo</button>
     </td>
   </tr>
   <tr class="footer">
@@ -40,7 +40,7 @@
       <button class="backForth" id="disabled" onclick="window.location.href='./teleop2.html'">To Teleop</button>
     </td>
     <td>
-      <button class="backForth" id="next" onclick="window.location.href='./auton2.html'">To Auton</button>
+      <button class="backForth" id="next" onclick="reset()">Reset</button>
     </td>
   </tr>
 </table>
