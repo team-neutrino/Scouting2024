@@ -19,26 +19,26 @@
   </tr>
   <tr class="buttons">
     <td rowspan="2">
-      <button class="tallButton" id="speaker">Speaker</button>
+      <button class="tallButton" id="speaker" onclick="addAction(this.id, 6)">Speaker</button>
     </td>
     <td class="midButton">
-      <button class="normalButton" id="speakerMiss">Speaker Miss</button>
+      <button class="normalButton" id="speakerMiss" onclick="addAction(this.id,7)">Speaker Miss</button>
     </td>
     <td class="midButton"> 
-      <button class="normalButton" id="foul">Foul</button>
+      <button class="normalButton" id="foul" onclick="addAction(this.id,1)">Foul</button>
     </td>
     <td class="midButton">
-      <button class="normalButton" id="ampMiss">Amp Miss</button>
+      <button class="normalButton" id="ampMiss" onclick="addAction(this.id,9)">Amp Miss</button>
     </td>
     <td rowspan="2">
-      <button class="tallButton" id="amp">Amp</button>
+      <button class="tallButton" id="amp" onclick="addAction(this.id,8)">Amp</button>
     </td>
   </tr>
   <tr>
     <td colspan="3" rowspan="2" class="undoTermArea">
       <textarea class="termnial" placeholder="nothing to undo"></textarea>
       <br>
-      <button class="undo" id="undo">Undo</button>
+      <button class="undo" id="undo" onclick="Undo()">Undo</button>
     </td>
   </tr>
   <tr class="footer">

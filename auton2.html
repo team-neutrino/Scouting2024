@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Auton</title>
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
+    <script src="./app.js"></script>
 </head>
 <body>
 <table>
@@ -18,31 +19,31 @@
   </tr>
   <tr class="buttons">
     <td rowspan="2">
-      <button class="tallButton" id="speaker">Speaker</button>
+      <button class="tallButton" id="speaker" onclick="addAction(this.id,2)">Speaker</button>
     </td>
     <td class="midButton">
-      <button class="normalButton" id="speakerMiss">Speaker Miss</button>
+      <button class="normalButton" id="speakerMiss" onclick="addAction(this.id,3)">Speaker Miss</button>
     </td>
     <td class="midButton"> 
-      <button class="normalButton" id="foul">Foul</button>
+      <button class="normalButton" id="foul" onclick="addAction(this.id,1)">Foul</button>
     </td>
     <td class="midButton">
-      <button class="normalButton" id="ampMiss">Amp Miss</button>
+      <button class="normalButton" id="ampMiss" onclick="addAction(this.id,5)">Amp Miss</button>
     </td>
     <td rowspan="2">
-      <button class="tallButton" id="amp">Amp</button>
+      <button class="tallButton" id="amp" onclick="addAction(this.id,4)">Amp</button>
     </td>
   </tr>
   <tr>
     <td colspan="3" rowspan="2" class="undoTermArea">
       <textarea class="termnial" placeholder="nothing to undo"></textarea>
       <br>
-      <button class="undo" id="undo">Undo</button>
+      <button class="undo" id="undo" onclick="Undo()">Undo</button>
     </td>
   </tr>
   <tr class="footer">
     <td>
-      <button class="backForth" id="disabled" onclick="window.location.href='./index.html'">Disabled</button>
+      <button class="backForth" id="disabled" onclick="addAction(this.id,14)">Disabled</button>
     </td>
     <td>
       <button class="backForth" id="next" onclick="window.location.href='./teleop2.html'">&rarr;</button>
