@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="./app.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>Auton</title>
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
+    <script>
+      function redAlliance() {
+        document.getElementById('redAlliance').style.boxShadow = "0px 0px 20vh 5vh red";
+        document.getElementById('blueAlliance').style.boxShadow = "0px 0px 20vh 5vh transparent";
+      }
+      function blueAlliance() {
+        document.getElementById('redAlliance').style.boxShadow = "0px 0px 20vh 5vh transparent";
+        document.getElementById('blueAlliance').style.boxShadow = "0px 0px 20vh 5vh blue";
+      }
+    </script>
 </head>
 <body>
 
@@ -22,24 +31,24 @@
                 <input class="inputBox" type="text" name="matchBox" value="me" placeholder="Scout" />
             </td>
             <td>
-                <input class="inputBox" type="text" name="matchBox" value="789" placeholder="Match" oninput="setTeam(this.value)" />
+                <input class="inputBox" type="text" name="matchBox" value="789" placeholder="Match" />
             </td>
         </tr>
         <tr class="buttonRow">
             <td rowspan="3"></td>
             <td>
-                <button class="allianceOfTheRedColour" onclick="placebets();setAlliance(this.id)">Red Alliance</button>
+                <button class="allianceOfTheRedColour" id="redAlliance" onclick="redAlliance()">Red Alliance</button>
             </td>
             <td rowspan="3"></td>
         </tr>
         <tr class="buttonRow">
             <td>
-                <button class="allianceOfTheBlueColour" onclick="placebets();setAlliance(this.id)">Blue Alliance</button>
+                <button class="allianceOfTheBlueColour" id="blueAlliance" onclick="blueAlliance()">Blue Alliance</button>
             </td>
         </tr>
         <tr>
             <td>
-                <button class="goButton" onclick="GO()">Go!</button>
+                <button class="goButton" onclick="window.location.href='./auton2.html'">Go!</button>
             </td>
         </tr>
     </table>
