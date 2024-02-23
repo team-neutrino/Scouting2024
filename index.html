@@ -25,25 +25,28 @@
         </tr>
         <tr class="inputRow">
             <td>
-                <input class="inputBox" type="text" name="matchBox" value="3928" placeholder="Team" />
+                <input class="inputBox" type="text" name="matchBox" value="3928" placeholder="Team" maxlength="4" oninput="this.value=this.value.replace(/[^0-9]/g,'')"/>
             </td>
             <td>
-                <input class="inputBox" type="text" name="matchBox" value="me" placeholder="Scout" />
+                <input class="inputBox" type="text" name="matchBox" value="me" placeholder="Scout"  maxlength="3" oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase();"/>
             </td>
             <td>
-                <input class="inputBox" type="text" name="matchBox" value="789" placeholder="Match" />
+
+                <input class="inputBox" type="text" name="matchBox" value="789" placeholder="Match" oninput="if(this.value.length > 3) { this.value = this.value.slice(0,3); }"
+                onchange="setTeam(this.value)" />
+
             </td>
         </tr>
         <tr class="buttonRow">
             <td rowspan="3"></td>
             <td>
-                <button class="allianceOfTheRedColour" id="redAlliance" onclick="redAlliance()">Red Alliance</button>
+                <button class="allianceOfTheRedColour" id="redAlliance" onclick="redAlliance();placebets();setAlliance(this.id)">Red Alliance</button>
             </td>
             <td rowspan="3"></td>
         </tr>
         <tr class="buttonRow">
             <td>
-                <button class="allianceOfTheBlueColour" id="blueAlliance" onclick="blueAlliance()">Blue Alliance</button>
+                <button class="allianceOfTheBlueColour" id="blueAlliance" onclick="blueAlliance();placebets();setAlliance(this.id)">Blue Alliance</button>
             </td>
         </tr>
         <tr>
