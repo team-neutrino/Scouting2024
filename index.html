@@ -16,13 +16,14 @@
         </tr>
         <tr class="inputRow">
             <td>
-                <input class="inputBox" type="text" name="matchBox" value="3928" placeholder="Team" />
+                <input class="inputBox" type="text" name="matchBox" value="3928" placeholder="Team" maxlength="4" oninput="this.value=this.value.replace(/[^0-9]/g,'')"/>
             </td>
             <td>
-                <input class="inputBox" type="text" name="matchBox" value="me" placeholder="Scout" />
+                <input class="inputBox" type="text" name="matchBox" value="me" placeholder="Scout"  maxlength="3" oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase();"/>
             </td>
             <td>
-                <input class="inputBox" type="text" name="matchBox" value="789" placeholder="Match" oninput="setTeam(this.value)" />
+                <input class="inputBox" type="text" name="matchBox" value="789" placeholder="Match" oninput="if(this.value.length > 3) { this.value = this.value.slice(0,3); }"
+                onchange="setTeam(this.value)" />
             </td>
         </tr>
         <tr class="buttonRow">
