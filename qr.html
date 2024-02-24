@@ -57,15 +57,13 @@
       );
     }
     window.onload = () => {
-      alert(0);
       console.log("first");
-      loadPage();
       console.log("third");
       initQRCode();
     }; 
     </script>
 </head>
-<body onload="onload2()">
+<body>
 <table>
   <tr class="top">
     <th class="topSideBox">
@@ -85,10 +83,10 @@
   </tr>
   <tr class="footer">
     <td>
-      <button class="backForth" id="next" onclick="window.location.href='./endgame2.html'">&larr;</button>
+      <button class="backForth nextColor" id="next" onclick="window.location.href='./endgame2.html'">&larr;</button>
     </td>
     <td colspan="3">
-      <button onclick="initQRCode()">Test</button>
+      <button onclick="initQRCode()" style="background-color: chocolate">Test</button>
     </td>
     <td>
       <button class="reset" onclick="reset()">Reset</button>
