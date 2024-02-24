@@ -128,12 +128,6 @@ function setAlliance(action) {
  
 }
 
-function addAnton(action) {
-  document.getElementById("auton").style.opacity = "0";
-  document.getElementById("anton").style.opacity = "100";
-}
-
-
 function Undo() {
   var lastAction = actionList.pop();
 
