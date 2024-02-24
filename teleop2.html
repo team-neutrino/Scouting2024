@@ -7,15 +7,15 @@
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
     
 </head>
-<body onload="pullArray()">
+<body onload="loadPage()">
 <table>
   <tr class="top">
     <th class="topSideBox">
-      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" placeholder="Team Number" />
+      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox"/>
     </th>
     <th colspan="3" class="header">Teleop</th>
     <th class="topSideBox">
-      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" placeholder="Match Number" />
+      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox"/>
     </th>
   </tr>
   <tr class="buttons">
@@ -44,10 +44,10 @@
   </tr>
   <tr class="footer">
     <td>
-      <button class="backForth" id="next" onclick="window.location.href='./auton2.html'">&larr;</button>
+      <button class="backForth" id="next" onclick="window.location.href='./auton2.html';saveData()">&larr;</button>
     </td>
     <td>
-      <button class="backForth" id="next" onclick="window.location.href='./endgame2.html'; saveArray()">&rarr;</button>
+      <button class="backForth" id="next" onclick="window.location.href='./endgame2.html';saveData()">&rarr;</button>
     </td>
   </tr>
 </table>
