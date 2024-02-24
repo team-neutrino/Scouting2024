@@ -1,5 +1,5 @@
 var scorer = 0
-var extraData = ['', '', '', '', 'red']; //['teamNum', 'matchNum', 'scout', 'comment', 'red']
+var extraData = []; //['teamNum', 'matchNum', 'scout', 'comment', 'red']
 var matchNumber = []; //Match Number
 var teamNumber = []; //Team Number
 var actionList = ["Red Alliance"]; //This is the list that populates the log with human friendly text.
@@ -39,6 +39,39 @@ updateAvail: This was created to enable/disable (validation) scoring buttons bas
 The updateReview and updateList using the organizedActionList variable in 2022 code was legacy code that was used to show the scouter the total # they put in. This might be useful to have on a review page.
 Combined lowerCounter and raiseCounter functions into the updateAvail function to make it easier.
 */
+
+function replaceFail() {
+  var index7 = actionList.indexOf("Climb");
+  var index8 = actionList.indexOf("Failed Climb");
+
+
+  if (index7 > -1) {
+    actionList.splice(index7, 1);
+  }
+  if (index8 > -1) {
+    actionList.splice(index8, 1);
+  }
+
+
+
+  var compressed7 = compressedList.indexOf(11);
+  var compressed8 = compressedList.indexOf(12);
+
+
+
+  if (compressed7 > -1) {
+    compressedList.splice(compressed7, 1);
+  }
+  if (compressed7 > -1) {
+    compressedList.splice(compressed8, 1);
+  }
+
+  console.log(actionList);
+  updateLog();
+
+}
+
+
 function rgbaFromRgb(rgb, alpha) {
   // Extract RGB values
   const match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
@@ -189,4 +222,3 @@ function Undo() {
   }
 }
 
-function reset
