@@ -175,8 +175,11 @@ textarea {
   backdrop-filter: blur(10px);
 }
 .box-shadow {
-  transition: box-shadow 1s ease-in-out;
+  transition: box-shadow 0.5s ease-in-out;
   z-index: 0;
+}
+.backdropBlur {
+  transition: backdrop-filter 0.5s ease-in-out;
 }
 
 /* Colours */ 
