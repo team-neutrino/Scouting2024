@@ -6,7 +6,7 @@
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
     <script src="./app.js"></script>
 </head>
-<body onload="pullArray();setValues()">
+<body onload="pullArray()">
 <table>
   <tr class="top">
     <th class="topSideBox">
@@ -19,19 +19,19 @@
   </tr>
   <tr class="buttons">
     <td rowspan="2">
-      <button class="tallButton" id="speaker" onclick="addAction(this.id,2)">Speaker</button>
+      <button class="tallButton" id="Speaker (A)" onclick="addAction(this.id,2)">Speaker</button>
     </td>
     <td class="midButton">
-      <button class="normalButton" id="speakerMiss" onclick="addAction(this.id,3)">Speaker Miss</button>
+      <button class="normalButton" id="Speaker Miss (A)" onclick="addAction(this.id,3)">Speaker Miss</button>
     </td>
     <td class="midButton"> 
-      <button class="normalButton" id="foul" onclick="addAction(this.id,1)">Foul</button>
+      <button class="normalButton" id="Foul" onclick="addAction(this.id,1)">Foul</button>
     </td>
     <td class="midButton">
-      <button class="normalButton" id="ampMiss" onclick="addAction(this.id,5)">Amp Miss</button>
+      <button class="normalButton" id="Amp Miss (A)" onclick="addAction(this.id,5)">Amp Miss</button>
     </td>
     <td rowspan="2">
-      <button class="tallButton" id="amp" onclick="addAction(this.id,4)">Amp</button>
+      <button class="tallButton" id="Amp (A)" onclick="addAction(this.id,4)">Amp</button>
     </td>
   </tr>
   <tr>
@@ -46,7 +46,7 @@
       <button id="disabled" onclick="addAction(this.id,14)">Disabled</button>
     </td>
     <td>
-      <button class="backForth" id="next" onclick="window.location.href='./teleop2.html';saveArray()">&rarr;</button>
+      <button class="backForth" id="next" onclick="saveArray();window.location.href='./teleop2.html';saveArray()">&rarr;</button>
     </td>
   </tr>
 </table>

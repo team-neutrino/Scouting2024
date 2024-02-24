@@ -19,8 +19,8 @@
   </tr>
   <tr>
     <td rowspan="2">
-      <button class="halfHeightButton" id="climbGood" onclick=" addAction(this.id,11)">Climb</button>
-      <button class="halfHeightButton" id="climbFail" onclick=" addAction(this.id,12)">climb Fail</button>
+      <button class="halfHeightButton" id="Climb" onclick=" replaceFail();addAction(this.id,11)">Climb</button>
+      <button class="halfHeightButton" id="Failed Climb" onclick=" replaceFail();addAction(this.id,12)">climb Fail</button>
     </td>
     <td colspan="3">
       <textarea class="coments" placeholder="Unleash your imagination"></textarea>
@@ -39,10 +39,10 @@
   </tr>
   <tr class="footer">
     <td>
-      <button class="backForth" id="next" onclick="window.location.href='./teleop2.html'">&larr;</button>
+      <button class="backForth" id="next" onclick="saveArray();window.location.href='./teleop2.html'">&larr;</button>
     </td>
     <td>
-      <button class="backForth" id="next" onclick="window.location.href='./qr.html'">&rarr;</button>
+      <button class="backForth" id="next" onclick="saveArray();window.location.href='./qr.html'">&rarr;</button>
     </td>
   </tr>
 </table>
