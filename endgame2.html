@@ -19,14 +19,14 @@
   </tr>
   <tr>
     <td rowspan="2">
-      <button class="halfHeightButton" id="climbGood" onclick=" addAction(this.id,11)">Climb</button>
-      <button class="halfHeightButton" id="climbFail" onclick=" addAction(this.id,12)">climb Fail</button>
+      <button class="halfHeightButton" id="Climb" onclick=" replaceFail();addAction(this.id,11)">Climb</button>
+      <button class="halfHeightButton" id="Failed Climb" onclick=" replaceFail();addAction(this.id,12)">Failed Climb</button>
     </td>
     <td colspan="3">
       <textarea class="coments" placeholder="Unleash your imagination" onchange="commentEdit(this.value)" id="coment"></textarea>
     </td>
     <td rowspan="2">
-    <button class="halfHeightButton" id="trap" onclick="addAction(this.id,10)">Trap</button>
+    <button class="halfHeightButton" id="Trap" onclick="addAction(this.id,10)">Trap</button>
       <button class="halfHeightButton" id="Microphone" onclick=" addAction(this.id,13)">Microphone</button>
     </td>
   </tr>
@@ -39,10 +39,10 @@
   </tr>
   <tr class="footer">
     <td>
-      <button class="backForth" id="next" onclick="window.location.href='./teleop2.html';saveData()">&larr;</button>
+      <button class="backForth" id="next" onclick="saveData();window.location.href='./teleop2.html';">&larr;</button>
     </td>
     <td>
-      <button class="backForth" id="next" onclick="window.location.href='./qr.html';saveData();">&rarr;</button>
+      <button class="backForth" id="next" onclick="saveData();window.location.href='./qr.html';">&rarr;</button>
     </td>
   </tr>
 </table>
