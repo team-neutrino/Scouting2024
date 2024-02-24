@@ -1,5 +1,5 @@
 var scorer = 0
-var extraData = Array(5).fill("");
+var extraData = ['', '', '', '', 'red']; //['teamNum', 'matchNum', 'scout', 'comment', 'red']
 var matchNumber = []; //Match Number
 var teamNumber = []; //Team Number
 var actionList = ["Red Alliance"]; //This is the list that populates the log with human friendly text.
@@ -39,7 +39,200 @@ updateAvail: This was created to enable/disable (validation) scoring buttons bas
 The updateReview and updateList using the organizedActionList variable in 2022 code was legacy code that was used to show the scouter the total # they put in. This might be useful to have on a review page.
 Combined lowerCounter and raiseCounter functions into the updateAvail function to make it easier.
 */
+function rgbaFromRgb(rgb, alpha) {
+  // Extract RGB values
+  const match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+  if (!match) return rgb;
+  
+  // Convert RGB to RGBA
+  const rgba = `rgba(${match[1]}, ${match[2]}, ${match[3]}, ${alpha})`;
+  return rgba;
+}
 
+function addButtonGlowEffect(id) {
+  const button = document.getElementById(id);
+  const buttonBgColor = window.getComputedStyle(button).getPropertyValue('background-color');
+  const backgroundColorWithAlpha = rgbaFromRgb(buttonBgColor, 0.125);
+  console.log(backgroundColorWithAlpha);
+  console.log(buttonBgColor);
+  // Add box shadow
+  button.classList.add('box-shadow');
+  button.style.boxShadow = `0px 0px 1000vh 50vw ${backgroundColorWithAlpha}`;
+
+  // After 1 second, change the blur to the defualt blur
+  setTimeout(() => {
+    button.removeAttribute('style')
+  }, 1000);
+
+  // After 3 seconds, remove both classes
+  setTimeout(() => {
+    button.classList.remove('box-shadow');
+  }, 2000);
+}
+
+function addAction(action, number) { //Used for buttons that have a data validation script
+  actionList.push(action); //Add it to the actionList (what the scouter sees on the app)
+  compressedList.push(number); //Add it to the compressedList (QR Code)//
+  updateLog(); //Update what the scouter sees on the app (actionList)
+  addButtonGlowEffect(action);
+}
+
+function alliancePick(alliance) {
+  addButtonGlowEffect(alliance);
+  extraData[4] = alliance;
+  console.log(extraData);
+}
+
+function GO() {
+  getBoxData();
+  var message = "You need to add ";
+  var allClear = 1;
+  const team = document.getElementById("teamNum");
+  const match = document.getElementById("matchNum");
+  const scout = document.getElementById("scout");
+  team.removeAttribute('style')
+  match.removeAttribute('style')
+  scout.removeAttribute('style')
+  if (extraData[0] === "" || extraData[1] === "" || extraData[2] === "") {
+        if (extraData[0] === "") {
+              message += "a team number, ";
+              team.style.border = "5px solid red";
+        }
+        if (extraData[1] === "") {
+              message += "a match number, ";
+              match.style.border = "5px solid red";
+        }
+        if (extraData[2] === "") {
+              message += "your initials, ";
+              scout.style.border = "5px solid red";
+        }
+        message = message.substring(0, message.length - 3);
+        message += "!";
+        console.log(message);
+      //  alert(message);
+        allClear = 0;
+  }
+  actionList[0] = extraData[4];
+  saveData();
+  if (allClear == 1) {
+        window.location.href = "./auton2.html";
+  }
+  console.log(displaySavedData());
+
+}
+
+function getBoxData() {
+  extraData[0] = document.getElementById('teamNum').value;
+  extraData[1] = document.getElementById('matchNum').value;
+  extraData[2] = document.getElementById('scout').value;
+  saveData();
+  console.log(extraData);
+}
+
+function saveData() {
+  sessionStorage.setItem("actionList", JSON.stringify(actionList));
+  sessionStorage.setItem("compressedList", JSON.stringify(compressedList));
+  sessionStorage.setItem("extraData", JSON.stringify(extraData));
+}
+
+function displaySavedData() {
+  let compList = sessionStorage.getItem("compressedList");
+  compList = JSON.parse(compList);
+  let actList = sessionStorage.getItem("actionList");
+  actList = JSON.parse(actList);
+  let exData = sessionStorage.getItem("extraData");
+  exData = JSON.parse(exData);
+  return "compressed list: " + compList + " action list: " + actList + " extra data: " + exData;
+}
+function getData() {
+  console.log(displaySavedData());
+  let unparsedActionList = sessionStorage.getItem("actionList");
+  let unparsedExtradata = sessionStorage.getItem("extraData");
+  let unparsedCompressedList = sessionStorage.getItem("compressedList");
+  actionList = JSON.parse(unparsedActionList);
+  compressedList = JSON.parse(unparsedCompressedList);
+  extraData = JSON.parse(unparsedExtradata);
+  console.log(actionList);
+  console.log(compressedList);
+  console.log(extraData);
+  updateLog();
+}
+
+function loadPage() {
+  getData();
+  displayBoxData();
+}
+
+function displayBoxData() {
+  document.getElementById('teamNumberBox').value = extraData[0];
+  document.getElementById('matchNumberBox').value = extraData[1];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Stuff I aint gonna worry about rn */
 
 
 // ---- DIRECT BUTTON FUNCTIONS ---
@@ -60,7 +253,7 @@ function leave() {
 function replaceFail() {
   var index7 = actionList.indexOf("Climb");
   var index8 = actionList.indexOf("Failed Climb");
-  
+
 
   if (index7 > -1) {
     actionList.splice(index7, 1);
@@ -68,14 +261,14 @@ function replaceFail() {
   if (index8 > -1) {
     actionList.splice(index8, 1);
   }
-  
 
-  
+
+
   var compressed7 = compressedList.indexOf(11);
   var compressed8 = compressedList.indexOf(12);
 
-  
-  
+
+
   if (compressed7 > -1) {
     compressedList.splice(compressed7, 1);
   }
@@ -88,18 +281,36 @@ function replaceFail() {
 
 }
 function Defense() {
-var defender = actionList.indexOf("Defense");
-var defendercompressed = compressedList.indexOf(16);
-if (defender > -1) {
-  actionList.splice(defender, 1);
-}
-if (defendercompressed > -1) {
-  compressedList.splice(defendercompressed, 1);
-}
+  var defender = actionList.indexOf("Defense");
+  var defendercompressed = compressedList.indexOf(16);
+  if (defender > -1) {
+    actionList.splice(defender, 1);
+  }
+  if (defendercompressed > -1) {
+    compressedList.splice(defendercompressed, 1);
+  }
+
+
 }
 
 
 
+function pullArrayEnd() {
+  var sessionString = sessionStorage.getItem("ActionList");
+  var extradata = sessionStorage.getItem("extraData");
+  var qrstuff = sessionStorage.getItem("qrlist");
+  actionList = JSON.parse(sessionString);
+  compressedList = JSON.parse(qrstuff);
+  extraData = JSON.parse(extradata);
+  console.log(actionList);
+  console.log(compressedList);
+  console.log(extradata);
+  updateLog();
+  document.getElementById("teamnum").value = extraData[0];
+  document.getElementById("matchnum").value = extraData[1];
+  document.getElementById("comments").value = extraData[3];
+
+}
 function placebets() {
   var red = actionList.indexOf("Red Alliance");
   var blue = actionList.indexOf("Blue Alliance");
@@ -107,14 +318,9 @@ function placebets() {
   if (red > -1 || blue > -1) {
     actionList.splice(red && blue, 1);
   }
+
   console.log(actionList);
   //console.log(compressedList);
-}
-function addAction(action, number) { //Used for buttons that have a data validation script
-    actionList.push(action); //Add it to the actionList (what the scouter sees on the app)
-    compressedList.push(number); //Add it to the compressedList (QR Code)//
-    updateLog(); //Update what the scouter sees on the app (actionList)
-    saveArray();
 }
 
 
@@ -123,7 +329,7 @@ function setAlliance(action) {
 
   extraData[4] = action; //Add it to the compressedList (QR Code)//
 
- 
+
 }
 
 function Undo() {
@@ -145,42 +351,6 @@ function updateLog() {
 }
 //stuff for setting team number and match number values
 
-function saveArray() {
-  sessionStorage.setItem("ActionList", JSON.stringify(actionList));
-  sessionStorage.setItem("qrlist", JSON.stringify(compressedList));
-  sessionStorage.setItem("extraData", JSON.stringify(extraData));
-}
-function pullArrayEnd() {
-  var sessionString = sessionStorage.getItem("ActionList");
-  var extradata = sessionStorage.getItem("extraData");
-  var qrstuff = sessionStorage.getItem("qrlist");
-  actionList = JSON.parse(sessionString);
-  compressedList = JSON.parse(qrstuff);
-  extraData = JSON.parse(extradata);
-  console.log(actionList);
-  console.log(compressedList);
-  console.log(extradata);
-  updateLog();
-  document.getElementById("teamnum").value = extraData[0];
-  document.getElementById("matchnum").value = extraData[1];
-  document.getElementById("comments").value = extraData[3];
-
-}
-function pullArray() {
-  var sessionString = sessionStorage.getItem("ActionList");
-  var extradata = sessionStorage.getItem("extraData");
-  var qrstuff = sessionStorage.getItem("qrlist");
-  actionList = JSON.parse(sessionString);
-  compressedList = JSON.parse(qrstuff);
-  extraData = JSON.parse(extradata);
-  console.log(actionList);
-  console.log(compressedList);
-  console.log(extradata);
-  updateLog();
-  document.getElementById("teamnum").value = extraData[0];
-  document.getElementById("matchnum").value = extraData[1];
-
-}
 function commentBox() {
   extraData[3] = document.getElementById("comments").value;
   console.log(extraData);
@@ -220,49 +390,25 @@ function reset() {
   }
 }
 
-function GO(team, match, scout) {
-  var go = true;
-  if (team == "" || team == "undefined") {
-    alert("Enter a team number!");
-    go = false;
-  }
-  if (match == "") {
-    alert("Enter a match number!");
-    go = false;
-  }
-  if (scout == "") {
-    alert("Enter you initials!");
-    go = false;
-  }
-  if (go == true) {
-    extraData[0] = team;
-    extraData[1] = match;
-    extraData[2] = scout;
-    incmatchnumber = match;
-    sessionStorage.setItem("ScoutInitials", scout);
-    sessionStorage.setItem("matchnumber", incmatchnumber);
-    saveArray();
-    window.location.href = "./auton2.html";
-  }
-}
+
 
 function setipadid(id) {
-    if (rUsure ==  true) {
-        ipadID = id;
-        console.log(ipadID);
-        localStorage.setItem("iPadId", ipadID);
-        setTeam(incmatchnumber);
-        return;
-    } else {
-        alert("Better Luck Next Time!");
-        document.getElementById("iPadID").value = localStorage.getItem("iPadId");
-    }  
-} 
-function Warn() {
-        rUsure = prompt("Do you want REALLY want to edit this?");
-        if (rUsure ==  "y e s") {
-            rUsure = true
+  if (rUsure == true) {
+    ipadID = id;
+    console.log(ipadID);
+    localStorage.setItem("iPadId", ipadID);
+    setTeam(incmatchnumber);
+    return;
+  } else {
+    alert("Better Luck Next Time!");
+    document.getElementById("iPadID").value = localStorage.getItem("iPadId");
+  }
 }
+function Warn() {
+  rUsure = prompt("Do you want REALLY want to edit this?");
+  if (rUsure == "y e s") {
+    rUsure = true
+  }
 }
 function pullIPadID() {
   document.getElementById("iPadID").value = sessionStorage.getItem("iPadId");
@@ -303,12 +449,12 @@ function setTeam(matchnum) {
   }
 }
 
-        
+
 function saveQR() {
-    var compSavename = "comp" + extraData[1];
-    var EDsaveName = "ED" + extraData[1];
-    localStorage.setItem(compSavename,JSON.stringify(compressedList));
-    localStorage.setItem(EDsaveName,JSON.stringify(extraData));
+  var compSavename = "comp" + extraData[1];
+  var EDsaveName = "ED" + extraData[1];
+  localStorage.setItem(compSavename, JSON.stringify(compressedList));
+  localStorage.setItem(EDsaveName, JSON.stringify(extraData));
 }
 
 function redAlliance() {
