@@ -11,7 +11,7 @@ table {
   body {
     margin: 0;
     overflow: hidden;
-    background-image: url(background2.png);
+    background-image: url(background-light.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
@@ -34,7 +34,7 @@ table {
     border: 3px solid white;
     color: white;
     text-align: left;
-    font-size: 1.25vh;
+    font-size: 1.5vh;
   }
 
 /* Size Styleing */
@@ -94,6 +94,10 @@ table {
   .buttonRow {
     height: 17.5vh;
   }
+  .qrHolder {
+    height: 60vh;
+    width: 60vw;
+  }
 /* Everything Else */
   .undo {
     height: 4.5vh;
@@ -114,7 +118,7 @@ table {
     border: 3px solid white;
     text-align: left;
     color: white;
-    font-size: 1.25vh;
+    font-size: 1.5vh;
     scrollbar-width: thin;
     scrollbar-color: white rgba(0, 0, 0, 0.2);
   }
@@ -145,6 +149,26 @@ table {
     background-color: rgb(22, 151, 22);
     border: 2px solid white;
     color: white;
+  }
+  .backForth {
+    text-align: center;
+    font-size: 5vh;
+  }
+  .qrHolder {
+    margin: 0;
+    padding: 0;
+  }
+  .qrArea {
+    height: 300px;
+    width: 300px;
+    margin: auto;
+    padding: 50px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+  }
+  .reset {
+    background-color: #a20909;
   }
   /* Colours */ 
 
