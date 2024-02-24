@@ -6,27 +6,27 @@
     <title>Endgame</title>
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
 </head>
-<body onload="pullArray()">
+<body onload="loadPage()">
 <table>
   <tr class="top">
     <th class="topSideBox">
-      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" value="3928" placeholder="Team Number" />
+      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" placeholder="Team Number" />
     </th>
     <th colspan="3" class="header">Endgame</th>
     <th class="topSideBox">
-      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" value="57" placeholder="Match Number" />
+      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" placeholder="Match Number" />
     </th>
   </tr>
   <tr>
     <td rowspan="2">
-      <button class="halfHeightButton" id="Climb" onclick=" replaceFail();addAction(this.id,11)">Climb</button>
-      <button class="halfHeightButton" id="Failed Climb" onclick=" replaceFail();addAction(this.id,12)">climb Fail</button>
+      <button class="halfHeightButton" id="climbGood" onclick=" addAction(this.id,11)">Climb</button>
+      <button class="halfHeightButton" id="climbFail" onclick=" addAction(this.id,12)">climb Fail</button>
     </td>
     <td colspan="3">
-      <textarea class="coments" placeholder="Unleash your imagination"></textarea>
+      <textarea class="coments" placeholder="Unleash your imagination" onchange="commentEdit(this.value)" id="coment"></textarea>
     </td>
     <td rowspan="2">
-      <button class="halfHeightButton" id="trap" onclick="addAction(this.id,10)">Trap</button>  
+    <button class="halfHeightButton" id="trap" onclick="addAction(this.id,10)">Trap</button>
       <button class="halfHeightButton" id="Microphone" onclick=" addAction(this.id,13)">Microphone</button>
     </td>
   </tr>
@@ -39,10 +39,10 @@
   </tr>
   <tr class="footer">
     <td>
-      <button class="backForth" id="next" onclick="saveArray();window.location.href='./teleop2.html'">&larr;</button>
+      <button class="backForth" id="next" onclick="window.location.href='./teleop2.html';saveData()">&larr;</button>
     </td>
     <td>
-      <button class="backForth" id="next" onclick="saveArray();window.location.href='./qr.html'">&rarr;</button>
+      <button class="backForth" id="next" onclick="window.location.href='./qr.html';saveData();">&rarr;</button>
     </td>
   </tr>
 </table>
