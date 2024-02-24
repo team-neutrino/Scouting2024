@@ -222,6 +222,24 @@ textarea {
 .reset {
   background-color: #a20909;
 }
+.endGameColor1 {
+  background-color: #4A154B;
+}
+.endGameColor2 {
+  background-color: #F4EDE4;
+}
+.endGameColor3 {
+  background-color: #36C5F0;
+}
+.endGameColor4 {
+  background-color: #2EB67D;
+}
+.endGameColor5 {
+  background-color: #ECB22E;
+}
+.endGameColor6 {
+  background-color: #E01E5A;
+}
   /* alternate colours 
 #speaker {
   background-color: #8CBEB2;
