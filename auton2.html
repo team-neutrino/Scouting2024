@@ -6,7 +6,7 @@
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
     <script src="./app.js"></script>
 </head>
-<body>
+<body onload="pullArray();setValues()">
 <table>
   <tr class="top">
     <th class="topSideBox">
@@ -46,7 +46,7 @@
       <button class="backForth" id="disabled" onclick="addAction(this.id,14)">Disabled</button>
     </td>
     <td>
-      <button class="backForth" id="next" onclick="window.location.href='./teleop2.html'">&rarr;</button>
+      <button class="backForth" id="next" onclick="window.location.href='./teleop2.html';saveArray()">&rarr;</button>
     </td>
   </tr>
 </table>

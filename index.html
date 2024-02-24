@@ -7,9 +7,8 @@
     <script src="./app.js">
     </script>
 </head>
-<body>
-
-    <table>
+<body onload="pullArray(); setValues()">
+    <table onload="setValues()">
         <tr>
             <th class="headerIndex" colspan="3">
                 <img src="./header.png" class="headerImg">
@@ -18,8 +17,10 @@
         <tr class="inputRow">
             <td>
                 <input class="inputBox" 
-                type="text" name="matchBox" 
-                placeholder="Team" 
+                type="text" 
+                name="matchBox" 
+                placeholder="Team"
+                id = "teamnum"
                 maxlength="4" 
                 oninput="this.value=this.value.replace(/[^0-9]/g,'')"/>
             </td>
@@ -37,7 +38,7 @@
                 type="text" 
                 name="matchBox" 
                 placeholder="Match"
-                id="entermatch" 
+                id="matchnum" 
                 oninput="if(this.value.length > 3) { this.value = this.value.slice(0,3); }"
                 onchange="setTeam(this.value)" />
 
@@ -75,6 +76,4 @@
     onclick="Warn();this.value=this.value.replace(/[^0-9]/g,'')"
     maxlength="1"
     ></textarea>
-
-
 </html>

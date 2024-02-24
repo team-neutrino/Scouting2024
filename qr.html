@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="./qrcode.js"></script>
+<script src="./app.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Endgame</title>
+    <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
+   <script>
+     function initQRCode() {
+      console.log("fourth");
+      qrcode = new QRCode(document.getElementById("qrArea"), {
+        text: "",
+
+        width: 300,
+
+        height: 300,
+
+        colorDark: "black",
+
+        colorLight: "white",
+
+        correctLevel: QRCode.CorrectLevel.M,
+      });
+      var sums = Array(15).fill(0);
+     var compressedList = [7, 8, 9, 9, 1, 2, 3, 4, 12, 3, 4, 5, 5, 6, 6, 8, 9];
+      for (const item of compressedList) {
+        sums[item]++;
+      }
+      qrcode.clear();
+      // qrcode.makeCode("test me")
+      qrcode.makeCode(
+        "3928" +
+          "\t" +
+          "JD" +
+          "\t" +
+          "67" +
+          "\t" +
+          //encodeURI(extraData[3]) +
+          "nice comment" +
+          "\t" +
+          "Red Alliance" +
+          "\t" +
+          sums.join(",") +
+          "\t" +
+          "disabled" +
+          "\r" 
+      );
+    }
+    window.onload = () => {
+      console.log("first");
+      console.log("third");
+      initQRCode();
+    }; 
+    </script>
+</head>
+<body>
+<table>
+  <tr class="top">
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" value="3928" placeholder="Team Number" />
+    </th>
+    <th colspan="3" class="header">Endgame</th>
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" value="57" placeholder="Match Number" />
+    </th>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="qrHolder" colspan="3">
+      <div class="qrArea" id="qrArea" ></div>
+    </td>
+    <td></td>
+  </tr>
+  <tr class="footer">
+    <td>
+      <button class="backForth" id="next" onclick="window.location.href='./endgame2.html'">&larr;</button>
+    </td>
+    <td colspan="3"></td>
+    <td>
+      <button class="reset" onclick="reset()">Reset</button>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
