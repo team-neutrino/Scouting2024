@@ -39,6 +39,37 @@ updateAvail: This was created to enable/disable (validation) scoring buttons bas
 The updateReview and updateList using the organizedActionList variable in 2022 code was legacy code that was used to show the scouter the total # they put in. This might be useful to have on a review page.
 Combined lowerCounter and raiseCounter functions into the updateAvail function to make it easier.
 */
+function rgbaFromRgb(rgb, alpha) {
+  // Extract RGB values
+  const match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+  if (!match) return rgb;
+  
+  // Convert RGB to RGBA
+  const rgba = `rgba(${match[1]}, ${match[2]}, ${match[3]}, ${alpha})`;
+  return rgba;
+}
+
+function addButtonGlowEffectg(id) {
+  const button = document.getElementById(id);
+  const buttonBgColor = window.getComputedStyle(button).getPropertyValue('background-color');
+  const backgroundColorWithAlpha = rgbaFromRgb(buttonBgColor, 0.125);
+  console.log(backgroundColorWithAlpha);
+  console.log(buttonBgColor);
+  // Add box shadow
+  button.classList.add('box-shadow');
+  button.style.boxShadow = `0px 0px 1000vh 50vw ${backgroundColorWithAlpha}`;
+
+  // After 2 second, change the blur to the defualt blur
+  setTimeout(() => {
+    button.removeAttribute('style')
+  }, 1000);
+
+  // After 3 seconds, remove both classes
+  setTimeout(() => {
+    button.classList.remove('box-shadow');
+  }, 2000);
+}
+
 
 
 
@@ -60,7 +91,7 @@ function leave() {
 function replaceFail() {
   var index7 = actionList.indexOf("Climb");
   var index8 = actionList.indexOf("Failed Climb");
-  
+
 
   if (index7 > -1) {
     actionList.splice(index7, 1);
@@ -68,14 +99,14 @@ function replaceFail() {
   if (index8 > -1) {
     actionList.splice(index8, 1);
   }
-  
 
-  
+
+
   var compressed7 = compressedList.indexOf(11);
   var compressed8 = compressedList.indexOf(12);
 
-  
-  
+
+
   if (compressed7 > -1) {
     compressedList.splice(compressed7, 1);
   }
@@ -88,14 +119,16 @@ function replaceFail() {
 
 }
 function Defense() {
-var defender = actionList.indexOf("Defense");
-var defendercompressed = compressedList.indexOf(16);
-if (defender > -1) {
-  actionList.splice(defender, 1);
-}
-if (defendercompressed > -1) {
-  compressedList.splice(defendercompressed, 1);
-}
+  var defender = actionList.indexOf("Defense");
+  var defendercompressed = compressedList.indexOf(16);
+  if (defender > -1) {
+    actionList.splice(defender, 1);
+  }
+  if (defendercompressed > -1) {
+    compressedList.splice(defendercompressed, 1);
+  }
+
+
 }
 
 
@@ -107,14 +140,16 @@ function placebets() {
   if (red > -1 || blue > -1) {
     actionList.splice(red && blue, 1);
   }
+
   console.log(actionList);
   //console.log(compressedList);
 }
 function addAction(action, number) { //Used for buttons that have a data validation script
-    actionList.push(action); //Add it to the actionList (what the scouter sees on the app)
-    compressedList.push(number); //Add it to the compressedList (QR Code)//
-    updateLog(); //Update what the scouter sees on the app (actionList)
-    saveArray();
+  actionList.push(action); //Add it to the actionList (what the scouter sees on the app)
+  compressedList.push(number); //Add it to the compressedList (QR Code)//
+  updateLog(); //Update what the scouter sees on the app (actionList)
+  saveArray();
+  addButtonGlowEffectg(action);
 }
 
 
@@ -123,7 +158,7 @@ function setAlliance(action) {
 
   extraData[4] = action; //Add it to the compressedList (QR Code)//
 
- 
+
 }
 
 function Undo() {
@@ -247,22 +282,22 @@ function GO(team, match, scout) {
 }
 
 function setipadid(id) {
-    if (rUsure ==  true) {
-        ipadID = id;
-        console.log(ipadID);
-        localStorage.setItem("iPadId", ipadID);
-        setTeam(incmatchnumber);
-        return;
-    } else {
-        alert("Better Luck Next Time!");
-        document.getElementById("iPadID").value = localStorage.getItem("iPadId");
-    }  
-} 
-function Warn() {
-        rUsure = prompt("Do you want REALLY want to edit this?");
-        if (rUsure ==  "y e s") {
-            rUsure = true
+  if (rUsure == true) {
+    ipadID = id;
+    console.log(ipadID);
+    localStorage.setItem("iPadId", ipadID);
+    setTeam(incmatchnumber);
+    return;
+  } else {
+    alert("Better Luck Next Time!");
+    document.getElementById("iPadID").value = localStorage.getItem("iPadId");
+  }
 }
+function Warn() {
+  rUsure = prompt("Do you want REALLY want to edit this?");
+  if (rUsure == "y e s") {
+    rUsure = true
+  }
 }
 function pullIPadID() {
   document.getElementById("iPadID").value = sessionStorage.getItem("iPadId");
@@ -303,12 +338,12 @@ function setTeam(matchnum) {
   }
 }
 
-        
+
 function saveQR() {
-    var compSavename = "comp" + extraData[1];
-    var EDsaveName = "ED" + extraData[1];
-    localStorage.setItem(compSavename,JSON.stringify(compressedList));
-    localStorage.setItem(EDsaveName,JSON.stringify(extraData));
+  var compSavename = "comp" + extraData[1];
+  var EDsaveName = "ED" + extraData[1];
+  localStorage.setItem(compSavename, JSON.stringify(compressedList));
+  localStorage.setItem(EDsaveName, JSON.stringify(extraData));
 }
 
 function redAlliance() {

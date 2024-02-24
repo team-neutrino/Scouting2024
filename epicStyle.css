@@ -170,12 +170,14 @@ table {
     margin: auto;
     padding: 50px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(10px);
   }
-  .reset {
-    background-color: #a20909;
+  .box-shadow {
+    transition: box-shadow 1s ease-in-out;
+    z-index: 0;
   }
+
   /* Colours */ 
 
   #speaker {
@@ -215,6 +217,9 @@ table {
     position: absolute;
     left: 5%; /* Adjust the left position as needed */
     top: 90%; /* Adjust the top position as needed */
+  }
+  .reset {
+    background-color: #a20909;
   }
     /* alternate colours 
   #speaker {
