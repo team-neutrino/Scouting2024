@@ -96,8 +96,6 @@ if (defender > -1) {
 if (defendercompressed > -1) {
   compressedList.splice(defendercompressed, 1);
 }
-
-
 }
 
 
@@ -109,7 +107,6 @@ function placebets() {
   if (red > -1 || blue > -1) {
     actionList.splice(red && blue, 1);
   }
-
   console.log(actionList);
   //console.log(compressedList);
 }
@@ -117,6 +114,7 @@ function addAction(action, number) { //Used for buttons that have a data validat
     actionList.push(action); //Add it to the actionList (what the scouter sees on the app)
     compressedList.push(number); //Add it to the compressedList (QR Code)//
     updateLog(); //Update what the scouter sees on the app (actionList)
+    saveArray();
 }
 
 
