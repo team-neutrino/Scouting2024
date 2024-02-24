@@ -222,3 +222,11 @@ function Undo() {
   }
 }
 
+function reset() {
+  if (confirm("If you could, taking a screenshot would be the right thing to do! :)") == true) {
+    sessionStorage.removeItem("actionList");
+    sessionStorage.removeItem("compressedList");
+    sessionStorage.removeItem("extraData");
+    window.location.href = "./index.html";
+  }
+}

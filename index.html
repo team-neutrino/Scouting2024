@@ -22,7 +22,6 @@
                 placeholder="Team"
                 id = "teamNum"
                 maxlength="4" 
-                value=3928
                 oninput="this.value=this.value.replace(/[^0-9]/g,'')"/>
             </td>
             <td>
@@ -32,7 +31,6 @@
                 placeholder="Scout"  
                 maxlength="3" 
                 id="scout" 
-                value="JD"
                 oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase();"/>
             </td>
             <td>
@@ -42,7 +40,6 @@
                 name="matchBox" 
                 placeholder="Match"
                 id="matchNum" 
-                value=39
                 oninput="if(this.value.length > 3) { this.value = this.value.slice(0,3); }"
                 onchange="setTeam(this.value)" />
 

@@ -171,7 +171,7 @@ textarea {
   margin: auto;
   padding: 50px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.65);
+  background-color: rgb(255, 255, 255);
   backdrop-filter: blur(10px);
 }
 .box-shadow {
@@ -181,37 +181,37 @@ textarea {
 
 /* Colours */ 
 
-#speaker {
+.speakerColor {
   background-color: #9AEBA3;
 }
-#speakerMiss {
+.speakerMissColor {
   background-color: #578a5d;
 }
-#amp {
+.ampColor {
   background-color: #DAFDBA;
 }
-#ampMiss {
+.ampMissColor {
   background-color: #8ea876;
 }
-#foul {
+.foulColor {
   background-color: #005d8b;
 }
-#disabled {
+.disabledColor {
   background-color: #3ab0e2;
 }
-#next {
+.nextColor {
   background-color: #45C4B0;
 }
-#climbFail {
+.climbFailColor {
   background-color: #34A853
 }
-#trap {
+.trapColor {
   background-color: #FBBC05;
 }
-#climbGood {
+.climbGoodColor {
   background-color: #4285F4;
 }
-#Microphone  {
+.MicrophoneColor  {
   background-color: #EA4335;
 }
 #iPadIDarea { 
