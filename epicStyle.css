@@ -64,9 +64,11 @@ table {
   .coments {
     height: 12vh;
     width: 30vw;
+    font-size:2vh;
   }
   .termnialEndgame {
     height: 45vh;
+    font-size:2vh;
   }
   .headerImg {
     height: 20vh;
@@ -93,7 +95,11 @@ table {
   }
   .buttonRow {
     height: 17.5vh;
+  } 
+  .bottomRow {
+    padding-right:50vw;
   }
+
 /* Everything Else */
   .undo {
     height: 4.5vh;
@@ -117,8 +123,9 @@ table {
     font-size: 1.25vh;
     scrollbar-width: thin;
     scrollbar-color: white rgba(0, 0, 0, 0.2);
+    font-size:2vh;
   }
-  
+
   .infoBox, .inputBox {
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(5px);
@@ -180,6 +187,11 @@ table {
   }
   #Microphone  {
     background-color: #EA4335;
+  }
+  #iPadIDarea { 
+    position: absolute;
+    left: 5%; /* Adjust the left position as needed */
+    top: 90%; /* Adjust the top position as needed */
   }
     /* alternate colours 
   #speaker {
