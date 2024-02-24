@@ -148,6 +148,7 @@ function addAction(action, number) { //Used for buttons that have a data validat
   actionList.push(action); //Add it to the actionList (what the scouter sees on the app)
   compressedList.push(number); //Add it to the compressedList (QR Code)//
   updateLog(); //Update what the scouter sees on the app (actionList)
+  saveArray();
   addButtonGlowEffectg(action);
 }
 
