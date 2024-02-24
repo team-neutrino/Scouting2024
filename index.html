@@ -4,15 +4,7 @@
     <meta charset="UTF-8">
     <title>Auton</title>
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
-    <script>
-      function redAlliance() {
-        document.getElementById('redAlliance').style.boxShadow = "0px 0px 20vh 5vh red";
-        document.getElementById('blueAlliance').style.boxShadow = "0px 0px 20vh 5vh transparent";
-      }
-      function blueAlliance() {
-        document.getElementById('redAlliance').style.boxShadow = "0px 0px 20vh 5vh transparent";
-        document.getElementById('blueAlliance').style.boxShadow = "0px 0px 20vh 5vh blue";
-      }
+    <script src="./app.js">
     </script>
 </head>
 <body>
@@ -25,14 +17,28 @@
         </tr>
         <tr class="inputRow">
             <td>
-                <input class="inputBox" type="text" name="matchBox" value="3928" placeholder="Team" maxlength="4" oninput="this.value=this.value.replace(/[^0-9]/g,'')"/>
+                <input class="inputBox" 
+                type="text" name="matchBox" 
+                placeholder="Team" 
+                maxlength="4" 
+                oninput="this.value=this.value.replace(/[^0-9]/g,'')"/>
             </td>
             <td>
-                <input class="inputBox" type="text" name="matchBox" value="me" placeholder="Scout"  maxlength="3" oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase();"/>
+                <input class="inputBox" 
+                type="text" 
+                name="matchBox" 
+                placeholder="Scout"  
+                maxlength="3" 
+                oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase();"/>
             </td>
             <td>
 
-                <input class="inputBox" type="text" name="matchBox" value="789" placeholder="Match" oninput="if(this.value.length > 3) { this.value = this.value.slice(0,3); }"
+                <input class="inputBox" 
+                type="text" 
+                name="matchBox" 
+                placeholder="Match"
+                id="entermatch" 
+                oninput="if(this.value.length > 3) { this.value = this.value.slice(0,3); }"
                 onchange="setTeam(this.value)" />
 
             </td>
@@ -40,21 +46,35 @@
         <tr class="buttonRow">
             <td rowspan="3"></td>
             <td>
-                <button class="allianceOfTheRedColour" id="redAlliance" onclick="redAlliance();placebets();setAlliance(this.id)">Red Alliance</button>
+                <button class="allianceOfTheRedColour" 
+                id="redAlliance" 
+                onclick="redAlliance();placebets();setAlliance(this.id)"
+                >Red Alliance</button>
             </td>
             <td rowspan="3"></td>
         </tr>
         <tr class="buttonRow">
             <td>
-                <button class="allianceOfTheBlueColour" id="blueAlliance" onclick="blueAlliance();placebets();setAlliance(this.id)">Blue Alliance</button>
+                <button class="allianceOfTheBlueColour"
+                id="blueAlliance" 
+                onclick="blueAlliance();placebets();setAlliance(this.id)"
+                >Blue Alliance</button>
             </td>
         </tr>
-        <tr>
+        <trs>
             <td>
-                <button class="goButton" onclick="window.location.href='./auton2.html'">Go!</button>
+                <button class="goButton" onclick="GO()">Go!</button>
             </td>
         </tr>
     </table>
+
+    <textarea 
+    id="iPadIDarea" 
+    class="inputBox" 
+    placeholder="iPad ID"
+    onclick="Warn();this.value=this.value.replace(/[^0-9]/g,'')"
+    maxlength="1"
+    ></textarea>
 
 
 </html>
