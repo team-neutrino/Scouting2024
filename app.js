@@ -248,12 +248,6 @@ function GO(team, match, scout) {
   }
 }
 
-function redall() {
-  document.querySelector(".grid-container").style.backgroundColor = "red";
-}
-function blueall() {
-  document.querySelector(".grid-container").style.backgroundColor = "blue";
-}
 function setipadid(id) {
     if (rUsure ==  true) {
         ipadID = id;
@@ -317,4 +311,13 @@ function saveQR() {
     var EDsaveName = "ED" + extraData[1];
     localStorage.setItem(compSavename,JSON.stringify(compressedList));
     localStorage.setItem(EDsaveName,JSON.stringify(extraData));
+}
+
+function redAlliance() {
+  document.getElementById('redAlliance').style.boxShadow = "0px 0px 20vh 5vh red";
+  document.getElementById('blueAlliance').style.boxShadow = "0px 0px 20vh 5vh transparent";
+}
+function blueAlliance() {
+  document.getElementById('redAlliance').style.boxShadow = "0px 0px 20vh 5vh transparent";
+  document.getElementById('blueAlliance').style.boxShadow = "0px 0px 20vh 5vh blue";
 }
