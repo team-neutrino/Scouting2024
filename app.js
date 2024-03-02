@@ -21,6 +21,8 @@ var curentAction = "";
 var MakeqrExtraData = [];
 var MakeqrCompList = [];
 var rUsure = "";
+var num = 0;
+var quote = "";
 /* Function List
 --- Direct Button Functions ---
 changeMatchNumber: Used to change the match number
@@ -233,8 +235,57 @@ function Undo() {
   }
 }
 
+function getQuote() {
+  num = Math.floor(Math.random() * 13);
+  console.log(num);
+  switch (num){
+    case 1: 
+    quote = "If you trust in yourself. . .and believe in your dreams. . .and follow your star. . . you'll still get beaten by people who spent their time working hard and learning things and weren't so lazy. - Terry Pratchett"
+    break; 
+    case 2: 
+    quote = "I know a bit about leading, I'm the drop leader of my Fortnite squad - Owen McCormick"
+    break;
+    case 3:
+    quote = "Don't quote me on that - Chetas Aduri"
+    break;
+    case 4:
+    quote = "Give a man a fire and he's warm for a day, but set fire to him and he's warm for the rest of his life. - Matthias "
+    break;
+    case 5:
+    quote = "There are two people in this world, winners and losers, and I'm a loser - Anirudh Manimaran"
+    break;
+    case 6:
+    quote = "Ewwwww do you have leprosy? - Adam Zhu"
+    break;
+    case 7:
+    quote = "I like Germany because Matthias is German - Chetas Aduri"
+    break;
+    case 8:
+    quote = "I'm a Chinese crip - Mick Wu"
+    case 9:
+    quote = "I'm dyslexic today - Anton"
+    break;
+    case 10:
+    quote = "you either die a cucumber or live long enough to see yourself become a carrot - Anton"
+    break;
+    case 11:
+    quote = "f"
+    break;
+    case 12:
+    quote = "When life gives you lemons, squirt them right into life's eyes - Logan"
+    break;
+    case 13:
+    quote = "'Sun Tzu Quote' - Matthias"
+    break;
+    default: 
+    quote ="idk"
+    break;
+  }
+  return quote;
+}
+
 function reset() {
-  if (confirm("If you could, taking a screenshot would be the right thing to do! :)") == true) {
+  if (confirm(getQuote()) == true) {
     sessionStorage.removeItem("actionList");
     sessionStorage.removeItem("compressedList");
     sessionStorage.removeItem("extraData");
