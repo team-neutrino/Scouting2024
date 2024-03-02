@@ -21,6 +21,8 @@ var curentAction = "";
 var MakeqrExtraData = [];
 var MakeqrCompList = [];
 var rUsure = "";
+var num = 0;
+var quote = "";
 /* Function List
 --- Direct Button Functions ---
 changeMatchNumber: Used to change the match number
@@ -233,8 +235,52 @@ function Undo() {
   }
 }
 
+function getQuote() {
+  num = Math.random() * 12
+  if (num > 11){
+    quote = "There are two people in this world, winners and losers, and I'm a loser - Anirudh Manimaran" ;
+  }
+  else if (num < 11 & num > 10){
+    quote = "Hope is not a strategy - Team 2472"
+  }
+  else if (num < 10 & num > 9){
+    quote = "If you trust in yourself. . .and believe in your dreams. . .and follow your star. . . you'll still get beaten by people who spent their time working hard and learning things and weren't so lazy. - Terry Pratchett"
+  }
+  else if (num < 9 & num > 8) {
+    quote = "Ewwwww do you have leprosy? - Adam Zhu";
+  }
+  else if (num < 8 & num > 7) {
+    quote = "I'm gonna quit the team if we win spirit award - Micah Steward";
+  }
+  else if (num < 7 & num > 6) {
+    quote = "Don't quote me on that - Chetas Aduri";
+  }
+  else if (num < 6 & num > 5) {
+    quote = "I know a bit about leading, I'm the drop leader of my Fortnite squad - Owen McCormick";
+  }
+  else if (num < 5 & num > 4) {
+    quote = "The bad news is time flies. The good news is you're the pilot. -  Michael Altshuler";
+  }
+  else if (num < 4 & num > 3) {
+    quote = "Nothing is impossible. The word itself says 'I'm possible!' - Audrey Hepburn";
+  }
+  else if (num < 3 & num > 2) {
+    quote = "f";
+  }
+  else if (num < 2 & num > 1) {
+    quote = "you either die a cucumber or live long enough to see yourself become a carrot - Anton Ludes-Bedell";
+  }
+  else if (num < 1 & num > 0) {
+    quote = "Give a man a fire and he's warm for a day, but set fire to him and he's warm for the rest of his life. - Terry Pratchett";
+  }
+  else{
+    quote = "idk how";
+  }
+  return quote + num;
+}
+
 function reset() {
-  if (confirm("If you could, taking a screenshot would be the right thing to do! :)") == true) {
+  if (confirm(getQuote()) == true) {
     sessionStorage.removeItem("actionList");
     sessionStorage.removeItem("compressedList");
     sessionStorage.removeItem("extraData");
