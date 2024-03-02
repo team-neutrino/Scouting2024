@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="./app.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Endgame</title>
+    <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
+</head>
+<body onload="loadPage()">
+<table>
+  <tr class="top">
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" placeholder="Team Number" />
+    </th>
+    <th colspan="3" class="header">Endgame</th>
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" placeholder="Match Number" />
+    </th>
+  </tr>
+  <tr>
+    <td rowspan="2">
+      <button class="halfHeightButton endGameColor1" id="Climb" onclick=" replaceFail();addAction(this.id,10)">Climb</button>
+      <button class="halfHeightButton endGameColor2" id="Failed Climb" onclick=" replaceFail();addAction(this.id,11)">Failed Climb</button>
+        <button class="halfHeightButton endGameColor3" id="Disabled" onclick=" replaceFail();addAction(this.id,13)">Disabled</button>
+    </td>
+    <td colspan="3">
+      <textarea class="coments" placeholder="Unleash your imagination" onchange="commentEdit(this.value)" id="coment"></textarea>
+    </td>
+    <td rowspan="2">
+    <button class="halfHeightButton endGameColor4" id="Trap" onclick="addAction(this.id,9)">Trap</button>
+      <button class="halfHeightButton endGameColor5" id="Microphone" onclick=" addAction(this.id,12)">Microphone</button>
+        <button class="halfHeightButton endGameColor6" id="Park" onclick=" addAction(this.id,15)">Parked</button>
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2" colspan="3">
+      <textarea readonly id="teamLog1" class="termnialEndgame" placeholder="Nothing to undo"></textarea>
+      <br>
+      <button class="undo" id="undo" onclick="Undo()">Undo</button>
+    </td>
+  </tr>
+  <tr class="footer">
+    <td>
+      <button class="backForth nextColor" id="next" onclick="saveData();window.location.href='./teleop2.html';">&larr;</button>
+    </td>
+    <td>
+      <button class="backForth nextColor" id="next" onclick="saveData();window.location.href='./qr.html';">&rarr;</button>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

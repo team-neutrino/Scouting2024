@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="./app.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Teleop</title>
+    <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
+    
+</head>
+<body onload="loadPage()">
+<table>
+  <tr class="top">
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox"/>
+    </th>
+    <th colspan="3" class="header">Teleop</th>
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox"/>
+    </th>
+  </tr>
+  <tr class="buttons">
+    <td rowspan="2">
+      <button class="tallButton speakerColor" id="Speaker (T)" onclick="addAction(this.id, 5)">Speaker</button>
+    </td>
+    <td class="midButton">
+      <button class="normalButton speakerMissColor" id="Speaker Miss (T)" onclick="addAction(this.id,6)">Speaker Miss</button>
+    </td>
+    <td class="midButton"> 
+      <button class="normalButton foulColor" id="Foul" onclick="addAction(this.id,0)">Foul</button>
+    </td>
+    <td class="midButton">
+      <button class="normalButton ampMissColor" id="Amp Miss (T)" onclick="addAction(this.id,8)">Amp Miss</button>
+    </td>
+    <td rowspan="2">
+      <button class="tallButton ampColor" id="Amp (T)" onclick="addAction(this.id,7)">Amp</button>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" rowspan="2" class="undoTermArea">
+      <textarea readonly id="teamLog1" class="termnial" placeholder="Nothing to undo"></textarea>
+      <br>
+      <button class="undo" id="undo" onclick="Undo()">Undo</button>
+    </td>
+  </tr>
+  <tr class="footer">
+    <td>
+      <button class="backForth nextColor" id="next" onclick="saveData();window.location.href='./auton2.html';">&larr;</button>
+    </td>
+    <td>
+      <button class="backForth nextColor" id="next" onclick="saveData();window.location.href='./endgame2.html'">&rarr;</button>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

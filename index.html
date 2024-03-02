@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auton</title>
+    <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
+    <script src="./app.js">
+    </script>
+</head>
+<body>
+    <table >
+        <tr>
+            <th class="headerIndex" colspan="3">
+                <img src="./header.png" class="headerImg">
+            </th>
+        </tr>
+        <tr class="inputRow">
+            <td>
+                <input class="inputBox" 
+                type="text" 
+                name="matchBox" 
+                placeholder="Team"
+                id = "teamNum"
+                maxlength="4" 
+                oninput="this.value=this.value.replace(/[^0-9]/g,'')"/>
+            </td>
+            <td>
+                <input class="inputBox" 
+                type="text" 
+                name="matchBox" 
+                placeholder="Scout"  
+                maxlength="3" 
+                id="scout" 
+                oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase();"/>
+            </td>
+            <td>
 
+                <input class="inputBox" 
+                type="text" 
+                name="matchBox" 
+                placeholder="Match"
+                id="matchNum" 
+                oninput="if(this.value.length > 3) { this.value = this.value.slice(0,3); }"
+                onchange="setTeam(this.value)" />
+
+            </td>
+        </tr>
+        <tr class="buttonRow">
+            <td rowspan="3"></td>
+            <td>
+                <button class="allianceOfTheRedColour" 
+                id="red" 
+                onclick="alliancePick(this.id)"
+                >Red Alliance</button>
+            </td>
+            <td rowspan="3"></td>
+        </tr>
+        <tr class="buttonRow">
+            <td>
+                <button class="allianceOfTheBlueColour"
+                id="blue" 
+                onclick="alliancePick(this.id)"
+                >Blue Alliance</button>
+            </td>
+        </tr>
+        <tr class="buttonRow">
+            <td>
+                <button class="goButton" onclick="GO()">Go!</button>
+            </td>
+        </tr>
+    </table>
+
+    <textarea 
+    id="iPadIDarea" 
+    class="inputBox" 
+    placeholder="iPad ID"
+    onclick="Warn();this.value=this.value.replace(/[^0-9]/g,'')"
+    maxlength="1"
+    ></textarea>
+</html>

@@ -982,8 +982,8 @@ function placebets() {
 
   if (red > -1 || blue > -1) {
     actionList.splice(red && blue, 1);
-  }
-
+  } 
+ 
   console.log(actionList);
   //console.log(compressedList);
 }
