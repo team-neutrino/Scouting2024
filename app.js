@@ -292,3 +292,10 @@ function reset() {
     window.location.href = "./index.html";
   }
 }
+
+function saveQR() {
+  var compSavename = "comp" + extraData[1];
+  var EDsaveName = "ED" + extraData[1];
+  localStorage.setItem(compSavename,JSON.stringify(compressedList));
+  localStorage.setItem(EDsaveName,JSON.stringify(extraData));
+}
