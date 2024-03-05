@@ -7,7 +7,7 @@
     <script src="./app.js">
     </script>
 </head>
-<body onload="pullIPadID()">
+<body onload="pullIPadID();setTeampull(matchNum.value)">
     <table >
         <tr>
             <th class="headerIndex" colspan="3">
@@ -41,7 +41,7 @@
                 placeholder="Match"
                 id="matchNum" 
                 oninput="if(this.value.length > 3) { this.value = this.value.slice(0,3); }"
-                onchange="setTeam(this.value)" />
+                onchange="setTeam(this.value, iPadIDarea.value)" />
 
             </td>
         </tr>
@@ -49,7 +49,7 @@
             <td rowspan="3"></td>
             <td>
                 <button class="allianceOfTheRedColour" 
-                id="red" 
+                id="Red Alliance" 
                 onclick="alliancePick(this.id)"
                 >Red Alliance</button>
             </td>
@@ -58,7 +58,7 @@
         <tr class="buttonRow">
             <td>
                 <button class="allianceOfTheBlueColour"
-                id="blue" 
+                id="Blue Alliance" 
                 onclick="alliancePick(this.id)"
                 >Blue Alliance</button>
             </td>
@@ -72,9 +72,10 @@
 
     <textarea 
     id="iPadIDarea" 
+    type = "number"
     class="inputBox" 
     placeholder="iPad ID"
-    onclick="Warn();this.value=this.value.replace(/[^0-9]/g,'')"
+    onchange="setTeam(matchNum.value, this.value)"
     maxlength="1"
     ></textarea>
 </html>

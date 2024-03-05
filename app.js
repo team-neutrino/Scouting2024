@@ -23,7 +23,7 @@ var curentAction = "";
 var MakeqrExtraData = [];
 var MakeqrCompList = [];
 var rUsure = "";
-
+var matchnum = 1;
 var team = "";
 var match = "";
 var savescout = sessionStorage.getItem("scoutInitials");
@@ -328,32 +328,75 @@ function reset() {
 }
 
 
-function setTeam(matchnum) {
+function setTeam(matchnumb, id) {
+  
   var teamnumb = document.getElementById("teamNum");
-  var ipadID = sessionStorage.getItem("iPadId");
-  if (blue1[0] != undefined) {
+  
+   var ipadID = id
+  
+  matchnum = parseInt(matchnumb);
+  
+  if (blue1[0] != -12) {
     if (ipadID == 1) {
-      teamnumb.value = blue1[matchnum - 1];
+      
+      document.getElementById("teamNum").value = blue1[matchnum - 1];
       console.log(blue1[matchnum - 1]);
     }
     if (ipadID == 2) {
-      teamnumb.value = blue2[matchnum - 1];
+      document.getElementById("teamNum").value = blue2[matchnum - 1];
       console.log(blue2[matchnum - 1]);
     }
     if (ipadID == 3) {
-      teamnumb.value = blue3[matchnum - 1];
+      document.getElementById("teamNum").value = blue3[matchnum - 1];
       console.log(blue3[matchnum - 1]);
     }
     if (ipadID == 4) {
-      teamnumb.value = red1[matchnum - 1];
+      document.getElementById("teamNum").value = red1[matchnum - 1];
       console.log(red1[matchnum - 1]);
     }
     if (ipadID == 5) {
-      teamnumb.value = red2[matchnum - 1];
+      document.getElementById("teamNum").value = red2[matchnum - 1];
       console.log(red2[matchnum - 1]);
     }
     if (ipadID == 6) {
-      teamnumb.value = red3[matchnum - 1];
+      document.getElementById("teamNum").value = red3[matchnum - 1];
+      console.log(red3[matchnum - 1]);
+    }
+  }
+}
+
+function setTeampull(matchnumb) {
+  console.log("test")
+  var teamnumb = document.getElementById("teamNum");
+  
+   var ipadID = sessionStorage.getItem("iPadId")
+  
+  matchnum = parseInt(matchnumb);
+  
+  if (blue1[0] != -12) {
+    if (ipadID == 1) {
+      console.log("testagain")
+      document.getElementById("teamNum").value = blue1[matchnum - 1];
+      console.log(blue1[matchnum - 1]);
+    }
+    if (ipadID == 2) {
+      document.getElementById("teamNum").value = blue2[matchnum - 1];
+      console.log(blue2[matchnum - 1]);
+    }
+    if (ipadID == 3) {
+      document.getElementById("teamNum").value = blue3[matchnum - 1];
+      console.log(blue3[matchnum - 1]);
+    }
+    if (ipadID == 4) {
+      document.getElementById("teamNum").value = red1[matchnum - 1];
+      console.log(red1[matchnum - 1]);
+    }
+    if (ipadID == 5) {
+      document.getElementById("teamNum").value = red2[matchnum - 1];
+      console.log(red2[matchnum - 1]);
+    }
+    if (ipadID == 6) {
+      document.getElementById("teamNum").value = red3[matchnum - 1];
       console.log(red3[matchnum - 1]);
     }
   }
