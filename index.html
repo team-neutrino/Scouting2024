@@ -8,23 +8,23 @@
     </script>
 </head>
 <body onload="pullIPadID();setTeampull(matchNum.value)">
-    <table >
+    <table class="indexTable" id='indexTable'>
         <tr>
             <th class="headerIndex" colspan="3">
                 <img src="./header.png" class="headerImg">
             </th>
         </tr>
         <tr class="inputRow">
-            <td>
+            <td class="oneThrid">
                 <input class="inputBox" 
-                type="number" 
+                type="text" 
                 name="matchBox" 
                 placeholder="Team"
                 id = "teamNum"
                 maxlength="4" 
                 oninput="this.value=this.value.replace(/[^0-9]/g,'')"/>
             </td>
-            <td>
+            <td class="oneThrid">
                 <input class="inputBox" 
                 type="text" 
                 name="matchBox" 
@@ -33,10 +33,10 @@
                 id="scout" 
                 oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase();"/>
             </td>
-            <td>
+            <td class="oneThrid">
 
                 <input class="inputBox" 
-                type="number" 
+                type="text" 
                 name="matchBox" 
                 placeholder="Match"
                 id="matchNum" 
@@ -46,16 +46,17 @@
             </td>
         </tr>
         <tr class="buttonRow">
-            <td rowspan="3"></td>
+            <td rowspan="2"></td>
             <td>
                 <button class="allianceOfTheRedColour" 
                 id="Red Alliance" 
                 onclick="alliancePick(this.id)"
                 >Red Alliance</button>
             </td>
-            <td rowspan="3"></td>
+            <td rowspan="2"></td>
         </tr>
         <tr class="buttonRow">
+          
             <td>
                 <button class="allianceOfTheBlueColour"
                 id="Blue Alliance" 
@@ -64,18 +65,20 @@
             </td>
         </tr>
         <tr class="buttonRow">
+          <td>
+              <input
+              id="iPadIDarea" 
+              type = "text"
+              class="inputBox" 
+              placeholder="ID"
+              onchange="setTeam(matchNum.value, this.value)"
+              maxlength="1"
+              />
+          </td>
             <td>
                 <button class="goButton" onclick="GO(iPadIDarea.value,matchNum.value,scout.value);">Go!</button>
             </td>
+            <td></td>
         </tr>
     </table>
-
-    <textarea 
-    id="iPadIDarea" 
-    type = "number"
-    class="inputBox" 
-    placeholder="iPad ID"
-    onchange="setTeam(matchNum.value, this.value)"
-    maxlength="1"
-    ></textarea>
 </html>
