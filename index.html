@@ -7,7 +7,7 @@
     <script src="./app.js">
     </script>
 </head>
-<body>
+<body onload="pullIPadID()">
     <table >
         <tr>
             <th class="headerIndex" colspan="3">
@@ -17,7 +17,7 @@
         <tr class="inputRow">
             <td>
                 <input class="inputBox" 
-                type="text" 
+                type="number" 
                 name="matchBox" 
                 placeholder="Team"
                 id = "teamNum"
@@ -36,7 +36,7 @@
             <td>
 
                 <input class="inputBox" 
-                type="text" 
+                type="number" 
                 name="matchBox" 
                 placeholder="Match"
                 id="matchNum" 
@@ -65,7 +65,7 @@
         </tr>
         <tr class="buttonRow">
             <td>
-                <button class="goButton" onclick="GO()">Go!</button>
+                <button class="goButton" onclick="GO(iPadIDarea.value,matchNum.value,scout.value);">Go!</button>
             </td>
         </tr>
     </table>
