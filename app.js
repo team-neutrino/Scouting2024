@@ -95,31 +95,20 @@ function rgbaFromRgb(rgb, alpha) {
 function addButtonGlowEffect(id) {
   const button = document.getElementById(id);
   const buttonBgColor = window.getComputedStyle(button).getPropertyValue('background-color');
-  const backgroundColorWithAlpha = rgbaFromRgb(buttonBgColor, 0.25);
-  const table = document.getElementsByTagName('table')[0];
+  const backgroundColorWithAlpha = rgbaFromRgb(buttonBgColor, 0.5);
   console.log(backgroundColorWithAlpha);
   console.log(buttonBgColor);
-  button.classList.add('box-shadow');
-  table.classList.add('backdropBlur');
-  button.style.boxShadow = `0px 0px 100vh 5vw ${backgroundColorWithAlpha}`;
-  table.style.backdropFilter = 'blur(.1vh)';
+  button.style.boxShadow = `0px 0px 100vh 10vw ${backgroundColorWithAlpha}`;
 
   // After 1 second, change the blur to the defualt blur
   setTimeout(() => {
     button.style.boxShadow = `0px 0px 0px rgba(0, 0, 0, 0)`;
-    table.style.backdropFilter = 'blur(0vh)';
-  }, 500);
+  }, 1000);
   
   // After 3 seconds, remove both classes
   setTimeout(() => {
     button.removeAttribute('style');
-    table.removeAttribute('style');
-  }, 1000);
-
-  setTimeout(() => {
-    button.classList.remove('box-shadow');
-    table.classList.remove('backdropBlur');
-  }, 1500);
+  }, 2000);
   
 }
 
@@ -133,6 +122,12 @@ function addAction(action, number) { //Used for buttons that have a data validat
 
 function alliancePick(alliance) {
   addButtonGlowEffect(alliance);
+  if(alliance == "Red Alliance") {
+    document.getElementById('indexTable').style.backdropFilter = 'hue-rotate(170deg)';
+  }
+  if(alliance == "Blue Alliance") {
+    document.getElementById('indexTable').style.backdropFilter = 'hue-rotate(40deg)';
+  }
   extraData[4] = alliance;
   console.log(extraData);
 }

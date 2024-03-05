@@ -7,6 +7,7 @@ table {
   border-spacing: 0;
   text-align: center;
   font-family: Monospace; 
+  transition: backdrop-filter 1s ease-in-out;
 }
 body {
   margin: 0;
@@ -26,6 +27,7 @@ button {
   font-family: inherit;
   box-shadow: 0px 0px 10px black;
   font-size: 2.5vh;
+  transition: box-shadow 1s ease-in-out, transform 1s ease-in-out;
 }
 textarea {
   resize: none;
@@ -36,7 +38,6 @@ textarea {
   text-align: left;
   font-size: 1.5vh;
 }
-
 /* Size Styleing */
 .top {
   height: 20vh;
@@ -65,6 +66,7 @@ textarea {
   height: 12vh;
   width: 30vw;
   font-size:2vh;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .termnialEndgame {
   height: 45vh;
@@ -103,6 +105,9 @@ textarea {
   height: 60vh;
   width: 60vw;
 }
+.oneThrid {
+  width: 33.3vw;
+}
 /* Everything Else */
 .undo {
   height: 4.5vh;
@@ -130,17 +135,21 @@ textarea {
 }
 
 .infoBox, .inputBox {
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(50px);
   border: 3px solid white;
   color: white;
   text-align: center;
   font-size: 3vh;
   transition: border 0.25s ease-in-out;
 }
+.infoBox {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .header {
   color: white;
   font-size: 15vh;
+  text-shadow: 0px 0px 50px black;
 }
 .allianceOfTheRedColour {
   background-color: rgb(107, 1, 1);
@@ -150,7 +159,7 @@ textarea {
 .allianceOfTheBlueColour {
   background-color: rgb(0, 62, 143);
   border: 2px solid white;
-  color: white
+  color: white;
 }
 .goButton {
   background-color: rgb(22, 151, 22);
@@ -174,14 +183,25 @@ textarea {
   background-color: rgb(255, 255, 255);
   backdrop-filter: blur(10px);
 }
-.box-shadow {
-  transition: box-shadow 0.5s ease-in-out;
-  z-index: 0;
-}
-.backdropBlur {
-  transition: backdrop-filter 0.5s ease-in-out;
-}
 
+.indexTable {
+  backdrop-filter: hue-rotate(105deg);
+}
+.autonTable {
+  background: linear-gradient(0deg, rgba(255,255,255,0) 60%, rgba(9,129,162,0.5) 100%);
+}
+.teleopTable {
+  background: linear-gradient(0deg, rgba(255,255,255,0) 60%, rgba(82,9,162,0.5) 100%);
+  backdrop-filter: hue-rotate(90deg);
+}
+.endGameTable {
+  background: linear-gradient(0deg, rgba(255,255,255,0) 60%, rgba(232,23,194,0.5) 100%);
+  backdrop-filter: hue-rotate(140deg);
+}
+.qrTable {
+background: linear-gradient(0deg, rgba(255,255,255,0) 60%, rgba(23,232,101,0.5) 100%);
+backdrop-filter: hue-rotate(-30deg);
+}
 /* Colours */ 
 
 .speakerColor {
@@ -217,13 +237,8 @@ textarea {
 .MicrophoneColor  {
   background-color: #EA4335;
 }
-#iPadIDarea { 
-  position: absolute;
-  left: 5%; /* Adjust the left position as needed */
-  top: 90%; /* Adjust the top position as needed */
-}
 .reset {
-  background-color: #a20909;
+  background-color: red;
 }
 .endGameColor1 {
   background-color: #4A154B;
@@ -236,13 +251,13 @@ textarea {
   background-color: #36C5F0;
 }
 .endGameColor4 {
-  background-color: #2EB67D;
+  background-color: #e55683;
 }
 .endGameColor5 {
   background-color: #ECB22E;
 }
 .endGameColor6 {
-  background-color: #e55683;
+  background-color: #2EB67D;
 }
   /* alternate colours 
 #speaker {
