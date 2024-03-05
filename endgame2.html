@@ -14,7 +14,7 @@
     </th>
     <th colspan="3" class="header">Endgame</th>
     <th class="topSideBox">
-      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" placeholder="Match Number" />
+      <input class="infoBox" type="number" name="matchBox" id="matchNumberBox" placeholder="Match Number" />
     </th>
   </tr>
   <tr>
@@ -44,7 +44,7 @@
       <button class="backForth nextColor" id="next" onclick="saveData();window.location.href='./teleop2.html';">&larr;</button>
     </td>
     <td>
-      <button class="backForth nextColor" id="next" onclick="saveData();window.location.href='./qr.html';">&rarr;</button>
+      <button class="backForth nextColor" id="next" onclick="saveData();window.location.href='./qr.html';saveQR();">&rarr;</button>
     </td>
   </tr>
 </table>

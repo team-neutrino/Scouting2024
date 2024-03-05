@@ -10,6 +10,8 @@
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
    <script>
      function initQRCode() {
+
+    console.log('here ', localStorage);
       console.log("fourth");
       qrcode = new QRCode(document.getElementById("qrArea"), {
         text: "",
@@ -61,17 +63,37 @@
       console.log("third");
       initQRCode();
     }; 
+
+    function regenOldQR() {
+    var matchToregen = prompt("What Match?");
+    var oldCompList = localStorage.getItem("comp" + matchToregen);
+    var oldED = localStorage.getItem("ED" + matchToregen);
+    OldCompressedList = JSON.parse(oldCompList);
+    OldExtraDataList = JSON.parse(oldED);
+    console.log('local storage: ', localStorage);
+    console.log('oldCompList: ', oldCompList);
+    if (OldExtraDataList == null) {
+        alert("No match with this number!");
+        return;
+    }
+    qrcode.clear();
+    var sums = Array(25).fill(0);  
+        for (const item of OldCompressedList) {
+          sums[item-1]++;
+        }
+    qrcode.makeCode(OldExtraDataList[0] + "\t" + OldExtraDataList[1] + "\t" + OldExtraDataList[2] + "\t" + OldExtraDataList[3] + "\t" + OldExtraDataList[4] + "\t" + sums.join(",") + "\r")
+    }
     </script>
 </head>
 <body>
 <table>
   <tr class="top">
     <th class="topSideBox">
-      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" value="3928" placeholder="Team Number" />
+      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" placeholder="Team Number" />
     </th>
     <th colspan="3" class="header">Qr Code</th>
     <th class="topSideBox">
-      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" value="57" placeholder="Match Number" />
+      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" placeholder="Match Number" />
     </th>
   </tr>
   <tr>
@@ -86,7 +108,7 @@
       <button class="backForth nextColor" id="next" onclick="window.location.href='./endgame2.html'">&larr;</button>
     </td>
     <td colspan="3">
-      <button onclick="initQRCode()" style="background-color: chocolate">Test</button>
+      <button onclick="regenOldQR()" style="background-color: chocolate">Regen QR</button>
     </td>
     <td>
       <button class="reset" onclick="reset()">Reset</button>
