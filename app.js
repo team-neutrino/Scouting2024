@@ -127,10 +127,12 @@ function addAction(action, number) { //Used for buttons that have a data validat
 function alliancePick(alliance) {
   addButtonGlowEffect(alliance);
   if(alliance == "Red Alliance") {
-    document.getElementById('indexTable').style.backdropFilter = '-webkit-hue-rotate(170deg);hue-rotate(170deg)';
+    document.getElementById('indexTable').style['-webkit-backdrop-filter'] = 'hue-rotate(170deg)';
+    document.getElementById('indexTable').style['backdrop-filter'] = 'hue-rotate(170deg)';
   }
   if(alliance == "Blue Alliance") {
-    document.getElementById('indexTable').style.backdropFilter = '-webkit-hue-rotate(40deg);hue-rotate(40deg)';
+    document.getElementById('indexTable').style['-webkit-backdrop-filter'] = 'hue-rotate(40deg)';
+    document.getElementById('indexTable').style['backdrop-filter'] = 'hue-rotate(40deg)';
   }
   extraData[4] = alliance;
   console.log(extraData);
