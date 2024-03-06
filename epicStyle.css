@@ -12,7 +12,7 @@ table {
 body {
   margin: 0;
   overflow: hidden;
-  background-image: url(background-light.png);
+  background-image: url(background.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; 
