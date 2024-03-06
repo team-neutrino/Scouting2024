@@ -257,6 +257,9 @@ function pullIPadID() {
   incmatchnumber = parseInt(sessionStorage.getItem("matchNum"));
   savescout = sessionStorage.getItem("scoutInitials");
   console.log(incmatchnumber);
+  if (incmatchnumber == NaN) {
+    incmatchnumber = 1;
+  }
   document.getElementById("matchNum").value = incmatchnumber;
   document.getElementById("scout").value = savescout;
   //document.getElementById("iPadID").value = localStorage.getItem("iPadId");
