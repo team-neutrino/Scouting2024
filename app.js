@@ -1,3 +1,4 @@
+
 var scorer = 0
 var extraData = []; //['teamNum', 'matchNum', 'scout', 'comment', 'red']
 var matchNumber = []; //Match Number
@@ -130,14 +131,13 @@ function alliancePick(alliance) {
     document.getElementById('indexTable').style['-webkit-backdrop-filter'] = 'hue-rotate(170deg)';
     document.getElementById('indexTable').style['backdrop-filter'] = 'hue-rotate(170deg)';
   }
-  if(alliance == "Blue Alliance") {
+  else(alliance == "Blue Alliance"){
     document.getElementById('indexTable').style['-webkit-backdrop-filter'] = 'hue-rotate(40deg)';
     document.getElementById('indexTable').style['backdrop-filter'] = 'hue-rotate(40deg)';
   }
   extraData[4] = alliance;
   console.log(extraData);
 }
-
 function GO(iPadID,matchsaver,scoutsaver) {
   getBoxData();
   var message = "You need to add ";
@@ -150,7 +150,6 @@ function GO(iPadID,matchsaver,scoutsaver) {
   team.removeAttribute('style')
   match.removeAttribute('style')
   scout.removeAttribute('style')
-  if (extraData[0] === "" || extraData[1] === "" || extraData[2] === "") {
         if (extraData[0] === "") {
               message += "a team number, ";
               team.style.border = "5px solid red";
@@ -165,10 +164,7 @@ function GO(iPadID,matchsaver,scoutsaver) {
         }
         message = message.substring(0, message.length - 3);
         message += "!";
-        //console.log(message);
-      //  alert(message);
         allClear = 0;
-        
         console.log(sessionStorage);
 
   }
@@ -180,9 +176,6 @@ function GO(iPadID,matchsaver,scoutsaver) {
   if (allClear == 1) {
         window.location.href = "./auton2.html";
   }
-  //console.log(displaySavedData());
-
-}
 
 function getBoxData() {
   extraData[0] = document.getElementById('teamNum').value;
@@ -263,7 +256,6 @@ function pullIPadID() {
   }
   document.getElementById("matchNum").value = incmatchnumber;
   document.getElementById("scout").value = savescout;
-  //document.getElementById("iPadID").value = localStorage.getItem("iPadId");
 }
 
 function getQuote() {
@@ -316,7 +308,7 @@ function getQuote() {
 }
 
 function reset() {
-  if (confirm(getQuote()) == true) {
+  if (confirm(getQuote())) {
     sessionStorage.removeItem("actionList");
     sessionStorage.removeItem("compressedList");
     sessionStorage.removeItem("extraData");
@@ -324,7 +316,7 @@ function reset() {
     incmatchnumber = parseInt(sessionStorage.getItem("matchNum"));
     console.log('2: ', incmatchnumber);
     savescout = sessionStorage.getItem("scoutInitials");
-    incmatchnumber++; //increses the variable by one
+    incmatchnumber++;
     console.log('3: ', incmatchnumber);
     sessionStorage.setItem("matchNum", incmatchnumber);
     sessionStorage.setItem("scoutInitials", savescout)
@@ -333,12 +325,8 @@ function reset() {
 }
 
 
-function setTeam(matchnumb, id) {
-  
+function setTeamLogic(){
   var teamnumb = document.getElementById("teamNum");
-  
-   var ipadID = id
-  
   matchnum = parseInt(matchnumb);
   
   if (blue1[0] != -12) {
@@ -347,65 +335,43 @@ function setTeam(matchnumb, id) {
       document.getElementById("teamNum").value = blue1[matchnum - 1];
       console.log(blue1[matchnum - 1]);
     }
-    if (ipadID == 2) {
+    else if (ipadID == 2) {
       document.getElementById("teamNum").value = blue2[matchnum - 1];
       console.log(blue2[matchnum - 1]);
     }
-    if (ipadID == 3) {
+    else if (ipadID == 3) {
       document.getElementById("teamNum").value = blue3[matchnum - 1];
       console.log(blue3[matchnum - 1]);
     }
-    if (ipadID == 4) {
+    else if (ipadID == 4) {
       document.getElementById("teamNum").value = red1[matchnum - 1];
       console.log(red1[matchnum - 1]);
     }
-    if (ipadID == 5) {
+    else if (ipadID == 5) {
       document.getElementById("teamNum").value = red2[matchnum - 1];
       console.log(red2[matchnum - 1]);
     }
-    if (ipadID == 6) {
+    else if (ipadID == 6) {
       document.getElementById("teamNum").value = red3[matchnum - 1];
       console.log(red3[matchnum - 1]);
     }
   }
 }
+function setTeam(matchnumb, id) {
+  
+   var ipadID = id
+  
+   setTeamLogic();
+
+  }
 
 function setTeampull(matchnumb) {
-  console.log("test")
-  var teamnumb = document.getElementById("teamNum");
+
   
    var ipadID = sessionStorage.getItem("iPadId")
+   setTeamLogic();
   
-  matchnum = parseInt(matchnumb);
-  
-  if (blue1[0] != -12) {
-    if (ipadID == 1) {
-      console.log("testagain")
-      document.getElementById("teamNum").value = blue1[matchnum - 1];
-      console.log(blue1[matchnum - 1]);
-    }
-    if (ipadID == 2) {
-      document.getElementById("teamNum").value = blue2[matchnum - 1];
-      console.log(blue2[matchnum - 1]);
-    }
-    if (ipadID == 3) {
-      document.getElementById("teamNum").value = blue3[matchnum - 1];
-      console.log(blue3[matchnum - 1]);
-    }
-    if (ipadID == 4) {
-      document.getElementById("teamNum").value = red1[matchnum - 1];
-      console.log(red1[matchnum - 1]);
-    }
-    if (ipadID == 5) {
-      document.getElementById("teamNum").value = red2[matchnum - 1];
-      console.log(red2[matchnum - 1]);
-    }
-    if (ipadID == 6) {
-      document.getElementById("teamNum").value = red3[matchnum - 1];
-      console.log(red3[matchnum - 1]);
-    }
   }
-}
 
 
 
