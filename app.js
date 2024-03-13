@@ -5,12 +5,12 @@ var teamNumber = []; //Team Number
 var actionList = ["Red Alliance"]; //This is the list that populates the log with human friendly text.
 var compressedList = []; //This is the list that collects all the IDs for the QR Code.
 var comments = ""; //Comments Box
-var blue1 = [3928,525];
-var blue2 = [2207,676];
-var blue3 = [3434,989];
-var red1 = [4544,877];
-var red2 = [8567,900];
-var red3 = [989,8887];
+var blue1 = [];
+var blue2 = [];
+var blue3 = [];
+var red1 = [];
+var red2 = [];
+var red3 = [];
 var ipadID = sessionStorage.getItem("iPadId");
 let savedComments = [];
 var incmatchnumber = "1";
@@ -51,6 +51,8 @@ The updateReview and updateList using the organizedActionList variable in 2022 c
 Combined lowerCounter and raiseCounter functions into the updateAvail function to make it easier.
 */
 
+
+
 function replaceFail() {
   var index7 = actionList.indexOf("Climb");
   var index8 = actionList.indexOf("Failed Climb");
@@ -66,14 +68,14 @@ function replaceFail() {
 
 
   var compressed7 = compressedList.indexOf(11);
-  var compressed8 = compressedList.indexOf(12);
+  var compressed8 = compressedList.indexOf(10);
 
 
 
   if (compressed7 > -1) {
     compressedList.splice(compressed7, 1);
   }
-  if (compressed7 > -1) {
+  if (compressed8 > -1) {
     compressedList.splice(compressed8, 1);
   }
 
@@ -82,6 +84,74 @@ function replaceFail() {
 
 }
 
+function replaceHarmony() {
+  var index9 = actionList.indexOf("Harmony");
+  var index8 = actionList.indexOf("Failed Climb");
+
+
+  if (index9 > -1) {
+    actionList.splice(index9, 1);
+  }
+  if (index8 > -1) {
+    actionList.splice(index8, 1);
+  }
+
+
+
+  var compressed9 = compressedList.indexOf(15);
+  var compressed8 = compressedList.indexOf(10);
+
+
+
+  if (compressed9 > -1) {
+    compressedList.splice(compressed9, 1);
+  }
+  if (compressed8 > -1) {
+    compressedList.splice(compressed8, 1);
+  }
+
+  console.log(actionList);
+  updateLog();
+
+}
+
+function replaceLeave() {
+  var leaveAction = actionList.indexOf("Leave");
+  
+
+
+  if (leaveAction > -1) {
+    actionList.splice(leaveAction, 1);
+  }
+  var leaveCompressed = compressedList.indexOf(14);
+
+  if (leaveCompressed > -1) {
+    compressedList.splice(leaveCompressed, 1);
+  }
+  
+  console.log(actionList);
+  updateLog();
+
+}
+
+function replaceDisabled() {
+  var disabledAction = actionList.indexOf("Disabled");
+  
+
+
+  if (disabledAction > -1) {
+    actionList.splice(disabledAction, 1);
+  }
+  var disabledCompressed = compressedList.indexOf(13);
+
+  if (disabledCompressed > -1) {
+    compressedList.splice(disabledCompressed, 1);
+  }
+  
+  console.log(actionList);
+  updateLog();
+
+}
 
 function rgbaFromRgb(rgb, alpha) {
   // Extract RGB values
