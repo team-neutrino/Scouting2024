@@ -20,16 +20,16 @@
   <tr id="row2">
     <td rowspan="2">
       <button class="halfHeightButton endGameColor1" id="Climb" onclick=" replaceFail();addAction(this.id,10)">Climb</button>
-      <button class="halfHeightButton endGameColor2" id="Failed Climb" onclick=" replaceFail();addAction(this.id,11)">Failed Climb</button>
-        <button class="halfHeightButton endGameColor3" id="Disabled" onclick=" replaceFail();addAction(this.id,13)">Disabled</button>
+      <button class="halfHeightButton endGameColor2" id="Failed Climb" onclick=" replaceHarmony();replaceFail();addAction(this.id,11)">Failed Climb</button>
+        <button class="halfHeightButton endGameColor3" id="Harmony" onclick=" replaceHarmony();addAction(this.id,15)">Harmony</button>
     </td>
     <td colspan="3">
       <textarea class="coments" placeholder="Unleash your imagination" onchange="commentEdit(this.value)" id="coment"></textarea>
     </td>
     <td rowspan="2">
     <button class="halfHeightButton endGameColor4" id="Trap" onclick="addAction(this.id,9)">Trap</button>
-      <button class="halfHeightButton endGameColor5" id="Microphone" onclick=" addAction(this.id,12)">Microphone</button>
-        <button class="halfHeightButton endGameColor6" id="Park" onclick=" addAction(this.id,15)">Parked</button>
+      <button class="halfHeightButton endGameColor5" id="Failed Trap" onclick="addAction(this.id,12)">Failed Trap</button>
+        <button class="halfHeightButton endGameColor6" id="Disabled" onclick=" replaceDisabled();addAction(this.id,13)">Disabled</button>
     </td>
   </tr>
   <tr id="row3">
