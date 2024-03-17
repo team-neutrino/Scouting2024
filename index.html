@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Auton</title>
+    <title>Index</title>
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
     <script src="./app.js">
     </script>
 </head>
-<body onload="pullIPadID();setTeampull(matchNum.value)">
-    <table class="indexTable" id='indexTable'>
-        <tr>
+<body onload="pullIPadID();setTeampull(matchNum.value);loadTransition(5, 0)" id="body">
+    <table  class="indexTable" id="indexTable">
+        <tr id="row1">
             <th class="headerIndex" colspan="3">
                 <img src="./header.png" class="headerImg">
             </th>
         </tr>
-        <tr class="inputRow">
+        <tr class="inputRow" id="row2">
             <td class="oneThrid">
                 <input class="inputBox" 
                 type="text" 
@@ -45,7 +45,7 @@
 
             </td>
         </tr>
-        <tr class="buttonRow">
+        <tr class="buttonRow" id="row3">
             <td rowspan="2"></td>
             <td>
                 <button class="allianceOfTheRedColour" 
@@ -55,7 +55,7 @@
             </td>
             <td rowspan="2"></td>
         </tr>
-        <tr class="buttonRow">
+        <tr class="buttonRow" id="row4">
           
             <td>
                 <button class="allianceOfTheBlueColour"
@@ -64,21 +64,22 @@
                 >Blue Alliance</button>
             </td>
         </tr>
-        <tr class="buttonRow">
-          <td>
-              <input
-              id="iPadIDarea" 
-              type = "text"
-              class="inputBox" 
-              placeholder="ID"
-              onchange="setTeam(matchNum.value, this.value)"
-              maxlength="1"
-              />
-          </td>
-            <td>
-                <button class="goButton" onclick="GO(iPadIDarea.value,matchNum.value,scout.value);">Go!</button>
-            </td>
-            <td></td>
-        </tr>
+        <tr class="buttonRow" id="row5" style="position: relative;">
+    <td>
+        <input
+        id="iPadIDarea" 
+        type="text"
+        class="inputBox" 
+        placeholder="ID"
+        onchange="setTeam(matchNum.value, this.value)"
+        maxlength="1"
+        style="position: relative; z-index: 1;"
+        />
+    </td>
+    <td>
+        <button class="goButton" onclick="GO(iPadIDarea.value, matchNum.value, scout.value, this.id);" id="goButton" style="position: relative; z-index: 2;">Go!</button>
+    </td>
+    <td></td>
+</tr>
     </table>
 </html>

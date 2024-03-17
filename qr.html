@@ -61,7 +61,8 @@
     window.onload = () => {
       console.log("first");
       console.log("third");
-      initQRCode();
+     initQRCode();
+      loadTransition(3, 4);
       displayBoxData();
     }; 
 
@@ -84,11 +85,80 @@
         }
     qrcode.makeCode(OldExtraDataList[0] + "\t" + OldExtraDataList[1] + "\t" + OldExtraDataList[2] + "\t" + OldExtraDataList[3] + "\t" + OldExtraDataList[4] + "\t" + sums.join(",") + "\r")
     }
+    
+    function reset() {
+      let QR = document.getElementById('qrArea');
+      QR.style.opacity = "0";
+      QR.style.transform = 'scale(0)';
+      let resetStuff =  "<div class=\'confirmDIV\' id=\'confirmDIV\'> <p>Reset?</p> <button class=\'confirm yes\' id=\'yes\' onclick=\'resetConf(this.id)\' style=\'position: relative; z-index: 2\'>Yes</button> <button class='confirm no\' id=\'no\' onclick=\'resetConf(this.id)\' style=\'position: relative; z-index: 1\'>No</button> </div> ";
+      setTimeout(() => {
+        document.getElementById('displayArea').innerHTML = resetStuff;
+      }, 1000);
+      setTimeout(() => {
+        document.getElementById('confirmDIV').style.opacity = "1";
+        document.getElementById('confirmDIV').style.transform = "scale(1)";
+      }, 1100);
+      
+    }
+    
+    function resetConf(id) {
+      if(id == "no") {
+        document.getElementById('confirmDIV').style.opacity = "0";
+        setTimeout(() => {
+          document.getElementById('displayArea').innerHTML = "";
+          document.getElementById('displayArea').innerHTML = "<div class=\'qrArea\' id=\'qrArea\' style=\'opacity: 0\'></div>";
+          initQRCode();
+        }, 1100);
+        setTimeout(() => {
+        document.getElementById('qrArea').style.opacity = "1";
+        }, 1200);
+      }
+      if(id == "yes") {
+        document.getElementById('next').style.opacity = '0';
+        document.getElementById('regen').style.opacity = '0';
+        document.getElementById('reset').style.opacity = '0';
+        document.getElementById('yes').style.boxShadow = '0px 0px 100vh 100vw black';
+        document.getElementById('yes').style.transform = 'scale(1.2)';
+        document.getElementById('yes').style.borderColor = 'white';
+        document.getElementById('yes').style.backgroundColor = 'white';
+        document.getElementById('yes').style.color = 'white';
+        document.getElementById('yes').style.fontSize = 'auto';
+        setTimeout(() => {
+          
+          document.getElementById('yes').style.width = '40vw';
+          document.getElementById('yes').style.height = '15vh';
+        }, 1000);
+         setTimeout(() => {
+          document.getElementById('yes').innerHTML = getQuote();
+          document.getElementById('yes').style.color = 'black';
+          document.getElementById('tableQR').opacity = '0';
+          document.getElementById('QrBody').backgroundColor = "black";
+        }, 2200);
+        setTimeout(() => {
+          document.getElementById('QrBody').style.opacity = '0';
+        }, 5000);
+      }
+      setTimeout(() => {
+        sessionStorage.removeItem("actionList");
+    sessionStorage.removeItem("compressedList");
+    sessionStorage.removeItem("extraData");
+    console.log('1: ', sessionStorage.getItem("matchNum"));
+    incmatchnumber = parseInt(sessionStorage.getItem("matchNum"));
+    console.log('2: ', incmatchnumber);
+    savescout = sessionStorage.getItem("scoutInitials");
+    incmatchnumber++; //increses the variable by one
+    console.log('3: ', incmatchnumber);
+    sessionStorage.setItem("matchNum", incmatchnumber);
+    sessionStorage.setItem("scoutInitials", savescout); 
+    window.location.href ='./index.html';
+      }, 8000);
+      
+    }
     </script>
 </head>
-<body>
-<table class="qrTable">
-  <tr class="top">
+<body id="QrBody">
+<table class="qrTable" id="tableQR table">
+  <tr class="top" id="row1">
     <th class="topSideBox">
       <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" readonly/>
     </th>
@@ -97,22 +167,28 @@
       <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" readonly/>
     </th>
   </tr>
-  <tr>
+  <tr id="row2">
     <td></td>
-    <td class="qrHolder" colspan="3">
-      <div class="qrArea" id="qrArea" ></div>
+    <td class="qrHolder" colspan="3" id="displayArea">
+      <div class="qrArea" id="qrArea">
+      </div>
+     <!-- <div class='confirmDIV' id='confirmDIV'> 
+      <p>Reset?</p> 
+      <button class='confirm yes' id='yes' onclick='resetConf(this.id)' style="position: relative; z-index: 2;">Yes</button> 
+      <button class='confirm no' id='no' onclick='resetConf(this.id)' style="position: relative; z-index: 1;">No</button> 
+      </div> -->
     </td>
     <td></td>
   </tr>
-  <tr class="footer">
+  <tr class="footer" id="row3">
     <td>
-      <button class="backForth nextColor" id="next" onclick="window.location.href='./endgame2.html'">&larr;</button>
+      <button class="backForth nextColor" id="next" onclick="window.location.href='./endgame2.html'" style="position: relative; z-index: 1;">&larr;</button>
     </td>
     <td colspan="3">
-      <button onclick="regenOldQR()" style="background-color: green">Regen QR</button>
+      <button onclick="regenOldQR()" style="background-color: green" id="regen">Regen QR</button>
     </td>
     <td>
-      <button class="reset" onclick="reset()">Reset</button>
+      <button class="reset" onclick="reset()" id="reset">Reset</button>
     </td>
   </tr>
 </table>
