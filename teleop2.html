@@ -7,9 +7,9 @@
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
     
 </head>
-<body onload="loadPage()">
-<table class="teleopTable">
-  <tr class="top">
+<body onload="loadTransition(4, 2);loadPage()">
+<table class="teleopTable" id="table">
+  <tr class="top" id="row1">
     <th class="topSideBox">
       <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" readonly/>
     </th>
@@ -18,7 +18,7 @@
       <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" readonly/>
     </th>
   </tr>
-  <tr class="buttons">
+  <tr class="buttons" id="row2">
     <td rowspan="2">
       <button class="tallButton speakerColor" id="Speaker (T)" onclick="addAction(this.id, 5)">Speaker</button>
     </td>
@@ -35,19 +35,19 @@
       <button class="tallButton ampColor" id="Amp (T)" onclick="addAction(this.id,7)">Amp</button>
     </td>
   </tr>
-  <tr>
+  <tr id="row3">
     <td colspan="3" rowspan="2" class="undoTermArea">
       <textarea readonly id="teamLog1" class="termnial" placeholder="Nothing to undo"></textarea>
       <br>
       <button class="undo" id="undo" onclick="Undo()">Undo</button>
     </td>
-  </tr>
-  <tr class="footer">
+  </tr >
+  <tr class="footer" id="row4">
     <td>
-      <button class="backForth nextColor" id="next" onclick="saveData();window.location.href='./auton2.html';">&larr;</button>
+      <button class="backForth nextColor" id="next" onclick="saveData();leaveTransition(4, 'auton2')">&larr;</button>
     </td>
     <td>
-      <button class="backForth nextColor" id="next" onclick="saveData();window.location.href='./endgame2.html'">&rarr;</button>
+      <button class="backForth nextColor" id="next" onclick="saveData();leaveTransition(4, 'endgame2')">&rarr;</button>
     </td>
   </tr>
 </table>

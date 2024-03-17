@@ -11,11 +11,13 @@ table {
 }
 body {
   margin: 0;
+  background-color: #1d1e1e;
   overflow: hidden;
-  background-image: url(background.png);
+  background-image: url(background-light.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; 
+  transition: opacity 3s ease-in-out;
 }
 button {
   height: 10vh;
@@ -38,6 +40,9 @@ textarea {
   color: white;
   text-align: left;
   font-size: 1.5vh;
+}
+tr {
+  transition: opacity 1s ease-in-out, transform 1s cubic-bezier(.11,.54,.11,1);   
 }
 /* Size Styleing */
 .top {
@@ -146,7 +151,7 @@ textarea {
   color: white;
   text-align: center;
   font-size: 3vh;
-  transition: border 0.25s ease-in-out;
+  transition: border 0.25s ease-in-out, text-shadow 1s ease-in-out, opacity  1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out, font-size 1s ease-in-out, box-shadow 2s ease-in-out;
 }
 .infoBox {
   background-color: rgba(0, 0, 0, 0.5);
@@ -170,6 +175,7 @@ textarea {
   background-color: rgb(22, 151, 22);
   border: 2px solid white;
   color: white;
+  transition: all 1s ease-in-out; 
 }
 .backForth {
   text-align: center;
@@ -188,8 +194,39 @@ textarea {
   background-color: rgb(255, 255, 255);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  transition: opacity 1s ease-in-out, transform 1.25s ease-in-out;
 }
-
+.confirm {
+  height: 5vh;
+  width: 5vw;
+  margin: 5%;
+  box-shadow: none;
+  border: 3px solid black;
+}
+.yes {
+  background-color: #6cdb65;
+  transition: all 1s ease-in-out;
+}
+.no {
+  background-color: #ba554e;
+}
+.confirmDIV {
+  height: fit-content;
+  width: fit-content;
+  padding: 7%;
+  color: white;
+  margin: auto;
+  background: rgba(46, 46, 46, 0.75);
+  -webkit-backdrop-filter: blur(10vh);
+  backdrop-filter: blur(20vh);
+  border-radius: 10%;
+  box-shadow: 0px 0px 10vh black;
+  font-size: 2vh;
+  text-shadow: 0px 0px 2vh white;
+  transition: transform 1s cubic-bezier(.13,.53,0,1.19), opacity 1s ease-in-out;
+  transform: scale(0);
+  opacity: 0;
+}
 .indexTable {
   -webkit-backdrop-filter: hue-rotate(105deg);
   backdrop-filter: hue-rotate(105deg);
@@ -208,9 +245,9 @@ textarea {
   backdrop-filter: hue-rotate(140deg);
 }
 .qrTable {
-background: linear-gradient(0deg, rgba(255,255,255,0) 60%, rgba(23,232,101,0.5) 100%);
--webkit-backdrop-filter: hue-rotate(-30deg);
-backdrop-filter: hue-rotate(-30deg);
+  background: linear-gradient(0deg, rgba(255,255,255,0) 60%, rgba(23,232,101,0.5) 100%);
+  -webkit-backdrop-filter: hue-rotate(-30deg);
+  backdrop-filter: hue-rotate(-30deg);
 }
 /* Colours */ 
 
@@ -291,3 +328,15 @@ backdrop-filter: hue-rotate(-30deg);
 #next {
   background-color: #815061;
 } */
+
+
+/* transitions */
+
+#row1, #row2, #row3, #row4, #row5 {
+  opacity: 0;
+  transform: scale(1.5); 
+}
+
+#next, #regen, #reset {
+  transition: opacity .5s ease-in-out;
+}

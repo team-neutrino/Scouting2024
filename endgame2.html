@@ -6,9 +6,9 @@
     <title>Endgame</title>
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
 </head>
-<body onload="loadPage()">
-<table class="endGameTable">
-  <tr class="top">
+<body onload="loadTransition(4, 3);loadPage()">
+<table class="endGameTable" id="table">
+  <tr class="top" id="row1">
     <th class="topSideBox">
       <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" readonly/>
     </th>
@@ -17,34 +17,34 @@
       <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" readonly/>
     </th>
   </tr>
-  <tr>
+  <tr id="row2">
     <td rowspan="2">
       <button class="halfHeightButton endGameColor1" id="Climb" onclick=" replaceFail();addAction(this.id,10)">Climb</button>
-      <button class="halfHeightButton endGameColor2" id="Failed Climb" onclick=" replaceHarmony();replaceFail();addAction(this.id,11)">Failed Climb</button>
-        <button class="halfHeightButton endGameColor3" id="Harmony" onclick=" replaceHarmony();addAction(this.id,15)">Harmony</button>
+      <button class="halfHeightButton endGameColor2" id="Failed Climb" onclick=" replaceFail();addAction(this.id,11)">Failed Climb</button>
+        <button class="halfHeightButton endGameColor3" id="Disabled" onclick=" replaceFail();addAction(this.id,13)">Disabled</button>
     </td>
     <td colspan="3">
       <textarea class="coments" placeholder="Unleash your imagination" onchange="commentEdit(this.value)" id="coment"></textarea>
     </td>
     <td rowspan="2">
     <button class="halfHeightButton endGameColor4" id="Trap" onclick="addAction(this.id,9)">Trap</button>
-      <button class="halfHeightButton endGameColor5" id="Failed Trap" onclick="addAction(this.id,12)">Failed Trap</button>
-        <button class="halfHeightButton endGameColor6" id="Disabled" onclick=" replaceDisabled();addAction(this.id,13)">Disabled</button>
+      <button class="halfHeightButton endGameColor5" id="Microphone" onclick=" addAction(this.id,12)">Microphone</button>
+        <button class="halfHeightButton endGameColor6" id="Park" onclick=" addAction(this.id,15)">Parked</button>
     </td>
   </tr>
-  <tr>
+  <tr id="row3">
     <td rowspan="2" colspan="3">
       <textarea readonly id="teamLog1" class="termnialEndgame" placeholder="Nothing to undo"></textarea>
       <br>
       <button class="undo" id="undo" onclick="Undo()">Undo</button>
     </td>
   </tr>
-  <tr class="footer">
+  <tr class="footer" id="row4">
     <td>
-      <button class="backForth nextColor" id="next" onclick="saveData();window.location.href='./teleop2.html';">&larr;</button>
+      <button class="backForth nextColor" id="next" onclick="saveData();leaveTransition(4, 'teleop2')">&larr;</button>
     </td>
     <td>
-      <button class="backForth nextColor" id="next" onclick="saveData();window.location.href='./qr.html';saveQR();">&rarr;</button>
+      <button class="backForth nextColor" id="next" onclick="saveData();leaveTransition(4, 'qr');saveQR();">&rarr;</button>
     </td>
   </tr>
 </table>
