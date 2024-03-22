@@ -190,10 +190,10 @@ tr {
   padding: 0;
 }
 .qrArea {
-  height: 300px;
-  width: 300px;
+  height: 150px;
+  width: 150px;
   margin: auto;
-  padding: 50px;
+  padding: 25px;
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   -webkit-backdrop-filter: blur(10px);
@@ -201,8 +201,8 @@ tr {
   transition: opacity 1s ease-in-out, transform 1.25s ease-in-out;
 }
 .confirm {
-  height: 90px;
-  width: 125px;
+  height: 45px;
+  width: 62.5;
   box-shadow: none;
   border: 3px solid black;
   display: block;
@@ -213,15 +213,15 @@ tr {
   transition: all 1s ease-in-out;
 }
 .no {
-  margin-top: 28px;
+  margin-top: 14px;
   background-color: #ba554e;
 }
 p {
-  margin: 28px auto;
+  margin: 14px auto;
 }
 .confirmDIV {
-  height: 350px;
-  width: 350px;
+  height: 150px;
+  width: 150px;
   padding: 5px;
   color: white;
   margin: auto;
@@ -230,7 +230,7 @@ p {
   backdrop-filter: blur(20vh);
   border-radius: 10%;
   box-shadow: 0px 0px 10vh black;
-  font-size: 50px;
+  font-size: 25px;
   text-shadow: 0px 0px 2vh white;
   transition: transform 1s cubic-bezier(.13,.53,0,1.19), opacity 1s ease-in-out;
   transform: scale(0);
