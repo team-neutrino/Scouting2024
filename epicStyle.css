@@ -20,8 +20,8 @@ body {
   transition: opacity 3s ease-in-out;
 }
 button {
-  height: 10vh;
-  width: 12vw;
+  height: 11vh;
+  width: 13vw;
   border: 3px solid black;
   border-radius: 5px;
   color: black;
@@ -63,10 +63,13 @@ tr {
 .halfHeightButton {
   margin-top: 2vh;
   height: 15vh;
+  width: 13vw;  
 }
 .undo, .termnial, .termnialEndgame {
   width: 14vw; 
+  display: block; 
   box-sizing: border-box;
+  margin: auto;
 }
 .coments {
   height: 12vh;
@@ -118,7 +121,6 @@ tr {
 .undo {
   height: 4.5vh;
   padding: 0;
-  margin: 0;
   border: 3px solid white;
   border-radius: 0px;
   -webkit-backdrop-filter: blur(15px);
@@ -180,6 +182,8 @@ tr {
 .backForth {
   text-align: center;
   font-size: 5vh;
+  height: 11vh;
+  width: 13vw;
 }
 .qrHolder {
   margin: 0;
@@ -197,23 +201,28 @@ tr {
   transition: opacity 1s ease-in-out, transform 1.25s ease-in-out;
 }
 .confirm {
-  height: 5vh;
-  width: 5vw;
-  margin: 5%;
+  height: 90px;
+  width: 125px;
   box-shadow: none;
   border: 3px solid black;
+  display: block;
+  margin: auto;
 }
 .yes {
   background-color: #6cdb65;
   transition: all 1s ease-in-out;
 }
 .no {
+  margin-top: 28px;
   background-color: #ba554e;
 }
+p {
+  margin: 28px auto;
+}
 .confirmDIV {
-  height: fit-content;
-  width: fit-content;
-  padding: 7%;
+  height: 350px;
+  width: 350px;
+  padding: 5px;
   color: white;
   margin: auto;
   background: rgba(46, 46, 46, 0.75);
@@ -221,7 +230,7 @@ tr {
   backdrop-filter: blur(20vh);
   border-radius: 10%;
   box-shadow: 0px 0px 10vh black;
-  font-size: 2vh;
+  font-size: 50px;
   text-shadow: 0px 0px 2vh white;
   transition: transform 1s cubic-bezier(.13,.53,0,1.19), opacity 1s ease-in-out;
   transform: scale(0);
@@ -332,7 +341,7 @@ tr {
 
 /* transitions */
 
-#row1, #row2, #row3, #row4, #row5 {
+#row1, #row2, #row3, #row4, #row5 {`
   opacity: 0;
   transform: scale(1.5); 
 }
