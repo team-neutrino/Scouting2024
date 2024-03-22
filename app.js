@@ -640,7 +640,7 @@ function addButtonGlowEffect(id) {
     activeAnimations.push(id);
   const button = document.getElementById(id);
   const buttonBgColor = window.getComputedStyle(button).getPropertyValue('background-color');
-  const backgroundColorWithAlpha = rgbaFromRgb(buttonBgColor, 0.5);
+  const backgroundColorWithAlpha = rgbaFromRgb(buttonBgColor, 0.75);
   console.log(backgroundColorWithAlpha);
   console.log(buttonBgColor);
   button.style.boxShadow = `0px 0px 100vh 10vw ${backgroundColorWithAlpha}`;
@@ -899,9 +899,15 @@ function loadPage() {
 }
 
 function displayBoxData() {
-  document.getElementById('teamNumberBox').value = extraData[0];
-  document.getElementById('matchNumberBox').value = extraData[1];
+  if(extraData[0] !== undefined) {
+    document.getElementById('teamNumberBox').value = extraData[0];
+  }
+  if(extraData[1] !== undefined) {
+    document.getElementById('matchNumberBox').value = extraData[1];
+  }
+  if(extraData[3] !== undefined) {
   document.getElementById('coment').value = extraData[3];
+  }
 }
 
 function updateLog() {
