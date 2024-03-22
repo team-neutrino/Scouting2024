@@ -341,7 +341,7 @@ p {
 
 /* transitions */
 
-#row1, #row2, #row3, #row4, #row5 {`
+#row1, #row2, #row3, #row4, #row5 {
   opacity: 0;
   transform: scale(1.5); 
 }
