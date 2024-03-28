@@ -485,7 +485,7 @@ var red3 = [6706,
   9092,
   7021,
   7531,];
-var ipadID = sessionStorage.getItem("iPadId");
+var ipadID = localStorage.getItem("iPadId");
 let savedComments = [];
 var incmatchnumber = "1";
 var matchSave = 0;
@@ -504,7 +504,7 @@ var savescout = sessionStorage.getItem("scoutInitials");
 var num = 0;
 var quote = "";
 let activeAnimations = [];
-
+let nonDblClick = true;
 /* Function List
 --- Direct Button Functions ---
 changeMatchNumber: Used to change the match number
@@ -681,7 +681,6 @@ function alliancePick(alliance) {
 }
 
 function GO(iPadID,matchsaver,scoutsaver, id) {
-  
   getBoxData();
   var message = "You need to add ";
   var allClear = 1;
@@ -720,10 +719,25 @@ function GO(iPadID,matchsaver,scoutsaver, id) {
   sessionStorage.setItem("matchNum", matchsaver)  
   actionList[0] = extraData[4];
   saveData();
-  if (allClear == 1) {
-    indexOut(id);
-  }
+  setTimeout(() => {
+    if(nonDblClick) {
+      if (allClear == 1) {
+        indexOut("auton2");
+      }
+    }
+  }, 200);
+  
   //console.log(displaySavedData());
+}
+
+function skipToQr(iPadID, scoutsaver, matchsaver) {
+  nonDblClick = false;
+  getBoxData();
+  sessionStorage.setItem("iPadId",iPadID);
+  sessionStorage.setItem("scoutInitials", scoutsaver);
+  sessionStorage.setItem("matchNum", matchsaver);  
+  saveQR();
+  indexOut("qr");
 }
 
 /* function indexOut(id) {
@@ -786,10 +800,15 @@ function GO(iPadID,matchsaver,scoutsaver, id) {
     }, 800);
   }, 2000);
 } */
-function indexOut(id) {
+
+function flip() {
+  document.getElementById('flit').style.transform
+}
+function indexOut(page) {
   let team = document.getElementById('teamNum');
   let scout = document.getElementById('scout');
   let match = document.getElementById('matchNum');
+  document.getElementById('indexTable').setAttribute("onclick", "window.location.href ='./" + page + ".html'");
   team.style.textShadow = "0px 0px 2vh white";
   team.style.boxShadow = "0px 0px 200vh 2vw white";
   setTimeout (() => {
@@ -816,7 +835,7 @@ function indexOut(id) {
   }, 250);
   }, 300);
   setTimeout(() => {
-  let button = document.getElementById(id);
+  let button = document.getElementById('goButton');
   button.style.transform = "scale(1.2)";
   button.style.boxShadow = `0px 0px 1000vh 100vw black`;
   document.getElementById('iPadIDarea').style.transition = "opacity 0.5s ease-in-out";
@@ -839,7 +858,7 @@ function indexOut(id) {
       document.getElementById('body').style.background = "black";
     }, 450);
     setTimeout(() => {
-      window.location.href = "./auton2.html";
+      window.location.href = "./" + page + ".html";
     }, 800);
   }, 500);
 } 
@@ -938,7 +957,7 @@ function Undo() {
   }
 }
 function pullIPadID() {
-  document.getElementById("iPadIDarea").value = sessionStorage.getItem("iPadId");
+  document.getElementById("iPadIDarea").value = localStorage.getItem("iPadId");
   console.log(sessionStorage.getItem("matchNum"));
   incmatchnumber = parseInt(sessionStorage.getItem("matchNum"));
   savescout = sessionStorage.getItem("scoutInitials");
@@ -949,7 +968,6 @@ function pullIPadID() {
   }
   document.getElementById("matchNum").value = incmatchnumber;
   document.getElementById("scout").value = savescout;
-  //document.getElementById("iPadID").value = localStorage.getItem("iPadId");
 }
 
 function getQuote() {
@@ -1060,7 +1078,7 @@ function setTeampull(matchnumb) {
   console.log("test")
   var teamnumb = document.getElementById("teamNum");
   
-   var ipadID = sessionStorage.getItem("iPadId")
+   var ipadID = localStorage.getItem("iPadId")
   
   matchnum = parseInt(matchnumb);
   
@@ -1126,3 +1144,5 @@ function leaveTransition(times, page) {
     }, times*100); 
     
 }
+
+
