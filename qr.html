@@ -2,30 +2,32 @@
 <html lang="en">
   <script src="./app.js"></script>
   <script src="./qrcode.js"></script>
-
-
 <head>
   
     <meta charset="UTF-8">
     <title>Qr Code</title>
-    <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
-    <style>
-      #row1, #row2, #row3, #row4, #row5 {
-    opacity: 1;
-    transform: scale(1); 
-  }
-    </style>
+     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
    <script>
+   let zoom = false;
+   let going = false;
      function initQRCode() {
-
-    console.log('here ', localStorage);
+      console.log('here ', localStorage);
       console.log("fourth");
+      let height = document.body.clientHeight;
+      let width = document.body.clientWidth;
+      let qrSize = 300;
+      if(height <= width) {
+        qrSize = height/2;
+      }
+      if(width < height) {
+        qrSize = width/2;
+      }
       qrcode = new QRCode(document.getElementById("qrArea"), {
         text: "",
 
-        width: 150,
+        width: qrSize,
 
-        height: 150,
+        height: qrSize,
 
         colorDark: "black",
 
@@ -33,6 +35,7 @@
 
         correctLevel: QRCode.CorrectLevel.M,
       });
+      document.getElementById('qrArea').style.width = qrSize + "px";
       console.log(displaySavedData());
       let unparsedActionList = sessionStorage.getItem("actionList");
       let unparsedExtradata = sessionStorage.getItem("extraData");
@@ -65,11 +68,12 @@
           sums.join(",")
       );
     }
+   
     window.onload = () => {
       console.log("first");
       console.log("third");
-     initQRCode();
       loadTransition(3, 4);
+        initQRCode();
       displayBoxData();
     }; 
 
@@ -96,29 +100,31 @@
     function reset() {
       let QR = document.getElementById('qrArea');
       QR.style.opacity = "0";
-      QR.style.transform = 'scale(0)';
+      QR.style.transform = "scale(1.1)";
       let resetStuff =  "<div class=\'confirmDIV\' id=\'confirmDIV\'> <p>Reset?</p> <button class=\'confirm yes\' id=\'yes\' onclick=\'resetConf(this.id)\' style=\'position: relative; z-index: 2\'>Yes</button> <button class='confirm no\' id=\'no\' onclick=\'resetConf(this.id)\' style=\'position: relative; z-index: 1\'>No</button> </div> ";
       setTimeout(() => {
         document.getElementById('displayArea').innerHTML = resetStuff;
-      }, 1000);
+      }, 525);
       setTimeout(() => {
         document.getElementById('confirmDIV').style.opacity = "1";
         document.getElementById('confirmDIV').style.transform = "scale(1)";
-      }, 1100);
+      }, 550);
       
     }
     
     function resetConf(id) {
       if(id == "no") {
         document.getElementById('confirmDIV').style.opacity = "0";
+        document.getElementById('confirmDIV').style.transform = "scale(0.9)";
         setTimeout(() => {
           document.getElementById('displayArea').innerHTML = "";
-          document.getElementById('displayArea').innerHTML = "<div class=\'qrArea\' id=\'qrArea\' style=\'opacity: 0\'></div>";
+          document.getElementById('displayArea').innerHTML = "<div class=\'qrArea\' id=\'qrArea\' style=\'opacity: 0; transform: scale(1.1)\' onclick=\"qrBig()\"></div>";
           initQRCode();
-        }, 1100);
+        }, 500);
         setTimeout(() => {
         document.getElementById('qrArea').style.opacity = "1";
-        }, 1200);
+        document.getElementById('qrArea').style.transform = "scale(1)";
+        }, 525);
       }
       if(id == "yes") {
         document.getElementById('next').style.opacity = '0';
@@ -131,19 +137,23 @@
         document.getElementById('yes').style.color = 'white';
         document.getElementById('yes').style.fontSize = 'auto';
         setTimeout(() => {
-          
-          document.getElementById('yes').style.width = '40vw';
-          document.getElementById('yes').style.height = '15vh';
-        }, 1000);
+          document.getElementById('QrBody').setAttribute("onclick", "skip();");
+          document.getElementById('confirmDIV').style.width = '70vw';
+          document.getElementById('yes').style.width = '60vw';
+          document.getElementById('yes').style.height = '20vh';
+          document.getElementById('yes').style.transform = 'translate(0, -5vh)';
+        }, 500);
          setTimeout(() => {
           document.getElementById('yes').innerHTML = getQuote();
           document.getElementById('yes').style.color = 'black';
           document.getElementById('tableQR').opacity = '0';
           document.getElementById('QrBody').backgroundColor = "black";
-        }, 2200);
+        }, 1500);
         setTimeout(() => {
-          document.getElementById('QrBody').style.opacity = '0';
-        }, 3000);
+          document.getElementById('QrBody').style.background = 'white';
+          document.getElementById('tableQR').style.transition = 'opacity 1s ease-in-out';
+          document.getElementById('tableQR').style.opacity = '0';
+        }, 3500);
       }
       setTimeout(() => {
         sessionStorage.removeItem("actionList");
@@ -157,44 +167,108 @@
     console.log('3: ', incmatchnumber);
     sessionStorage.setItem("matchNum", incmatchnumber);
     sessionStorage.setItem("scoutInitials", savescout); 
-    window.location.href ='./index.html';
-      }, 6000);
+    window.location.href ='./index.html'; 
+  //  window.location.href ='./qr.html';
+      }, 4500);
       
     }
+    function qrBig() {
+      zoom = !zoom;
+      if(zoom) {
+        document.getElementById('qrArea').style.transform = "scale(1.75)";
+        document.getElementById('topLeft').style.transform = "translate(-20vh, -20vh)";
+        document.getElementById('topCentre').style.transition = "";
+        document.getElementById('topCentre').style.transform = "translate(0vh, -20vh)";
+        document.getElementById('topRight').style.transform = "translate(20vh, -20vh)";
+        document.getElementById('bottomLeft').style.transform = "translate(-20vh, 20vh)";
+        document.getElementById('bottomCentre').style.transform = "translate(0vh, 20vh)";
+        document.getElementById('bottomRight').style.transform = "translate(20vh, 20vh)";
+        document.getElementById('QrBody').style.backdropFilter = "brightness(50%)";
+      } 
+      if(!zoom) {
+        document.getElementById('qrArea').style.transform = "scale(1)";
+        document.getElementById('topLeft').style.transform = "";
+        document.getElementById('topCentre').style.transform = "";
+        document.getElementById('topRight').style.transform = "";
+        document.getElementById('bottomLeft').style.transform = "";
+        document.getElementById('bottomCentre').style.transform = "";
+        document.getElementById('bottomRight').style.transform = "";
+        document.getElementById('QrBody').style.backdropFilter = "";
+      }
+    }
+    function skip() {
+      sessionStorage.removeItem("actionList");
+      sessionStorage.removeItem("compressedList");
+      sessionStorage.removeItem("extraData");
+      console.log('1: ', sessionStorage.getItem("matchNum"));
+      incmatchnumber = parseInt(sessionStorage.getItem("matchNum"));
+      console.log('2: ', incmatchnumber);
+      savescout = sessionStorage.getItem("scoutInitials");
+      incmatchnumber++; //increses the variable by one
+      console.log('3: ', incmatchnumber);
+      sessionStorage.setItem("matchNum", incmatchnumber);
+      sessionStorage.setItem("scoutInitials", savescout); 
+      window.location.href ='./index.html'; 
+    }
+    
+    function spinTitle(id) {
+      if(!going) {
+        going = true
+      let title = document.getElementById(id);
+      title.style.transition = 'transform 5s ease-in-out';
+      title.style.transform = 'rotateY(1800deg)';
+      setTimeout(() => {
+          title.style.transition = 'transform 0s ease-in-out';
+      title.style.transform = '';
+        }, 5100);
+        setTimeout(() => {
+          title.style.transition = '';
+          going = false
+        }, 5150);
+    }
+    }
     </script>
+    <style>
+      body {
+        background-image: url(endgameBG.png);
+      }
+      #QrBody {
+   transition: backdrop-filter 0.5s ease-in-out;
+}
+    </style>
 </head>
 <body id="QrBody">
-<table class="qrTable" id="tableQR table">
+  <table class="qrTable" id="tableQR">
   <tr class="top" id="row1">
-    <th class="topSideBox">
+    <th class="topSideBox" id="topLeft">
       <input class="infoBox" type="text" name="teamBox" id="teamNumberBox" readonly/>
     </th>
-    <th colspan="3" class="header">Qr Code</th>
-    <th class="topSideBox">
+    <th colspan="3" class="header" id="topCentre" onclick="spinTitle(this.id)">Qr Code</th>
+    <th class="topSideBox" id="topRight">
       <input class="infoBox" type="text" name="matchBox" id="matchNumberBox" readonly/>
     </th>
   </tr>
   <tr id="row2">
     <td></td>
     <td class="qrHolder" colspan="3" id="displayArea">
-      <div class="qrArea" id="qrArea">
+      <div class="qrArea" id="qrArea" onclick="qrBig()" style="position: relative; z-index: 2;">
       </div>
-     <!-- <div class='confirmDIV' id='confirmDIV'> 
-      <p>Reset?</p> 
-      <button class='confirm yes' id='yes' onclick='resetConf(this.id)' style="position: relative; z-index: 2;">Yes</button> 
-      <button class='confirm no' id='no' onclick='resetConf(this.id)' style="position: relative; z-index: 1;">No</button> 
+  <!--    <div class='confirmDIV' id='confirmDIV'>
+      <p>Reset?</p>
+      <button class='confirm yes' id='yes' onclick='resetConf(this.id)' style="position: relative; z-index: 2;">Yes</button>
+      <button class='confirm no' id='no' onclick='resetConf(this.id)' style="position: relative; z-index: 1;">No</button>
       </div> -->
     </td>
     <td></td>
   </tr>
   <tr class="footer" id="row3">
-    <td>
+    <td id="bottomLeft">
       <button class="backForth nextColor" id="next" onclick="window.location.href='./endgame2.html'" style="position: relative; z-index: 1;">&larr;</button>
     </td>
-    <td colspan="3">
-      <button onclick="regenOldQR()" style="background-color: green" id="regen">Regen QR</button>
+    <td colspan="3" id="bottomCentre">
+      <button onclick="regenOldQR()" style="background-color: green;position: relative; z-index: 1;" id="regen">Regen QR</button>
     </td>
-    <td>
+    <td id="bottomRight">
       <button class="reset" onclick="reset()" id="reset">Reset</button>
     </td>
   </tr>

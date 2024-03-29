@@ -5,6 +5,30 @@
     <title>Auton</title>
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
     <script src="./app.js"></script>
+    <script>
+    let isAnimated = false;
+      function flip() {
+        if(!isAnimated) {
+        document.getElementById('flip').style.transform = "rotateY(180deg)";
+        setTimeout(() => {
+          document.getElementById('flip').style.transform = "rotateZ(180deg)";
+        }, 1000);
+        setTimeout(() => {
+          document.getElementById('color').style.animation = "10s infinite alternate orangeBlack";
+          isAnimated = true;
+        }, 2000);
+      } else {
+        document.getElementById('flip').style.transform = "rotateY(0deg)";
+        setTimeout(() => {
+          document.getElementById('flip').style.transform = "rotateZ(0deg)";
+        }, 1000);
+        setTimeout(() => {
+          document.getElementById('color').removeAttribute('style');
+          isAnimated = false;
+        }, 2000);
+      }
+      }
+    </script>
 </head>
 <body onload="loadTransition(4, 1);loadPage()">
 <table class="autonTable" id="table">
@@ -12,7 +36,7 @@
     <th class="topSideBox">
       <input class="infoBox" type="text" name="teamBox" id="teamNumberBox"/>
     </th>
-    <th colspan="3" class="header">Auton</th>
+    <th colspan="3" class="header" id="color">A<span onclick="flip()" id="flip" style="display: inline-block;">u</span>ton</th>
     <th class="topSideBox">
       <input class="infoBox" type="text" name="matchBox" id="matchNumberBox"/>
     </th>

@@ -30,6 +30,7 @@ button {
   box-shadow: 0px 0px 10px black;
   font-size: 2.5vh;
   transition: box-shadow 1s ease-in-out, transform 1s ease-in-out;
+  text-overflow: clip;
 }
 textarea {
   resize: none;
@@ -167,11 +168,13 @@ tr {
   background-color: rgb(107, 1, 1);
   border: 2px solid white;
   color: white;
+  transition: all 1s ease-in-out;
 }
 .allianceOfTheBlueColour {
   background-color: rgb(0, 62, 143);
   border: 2px solid white;
   color: white;
+  transition: all 1s ease-in-out;
 }
 .goButton {
   background-color: rgb(22, 151, 22);
@@ -190,50 +193,51 @@ tr {
   padding: 0;
 }
 .qrArea {
-  height: 150px;
-  width: 150px;
+  height: auto;
+  width: 0px;
   margin: auto;
   padding: 25px;
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  transition: opacity 1s ease-in-out, transform 1.25s ease-in-out;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-out;
 }
 .confirm {
-  height: 45px;
-  width: 62.5;
-  box-shadow: none;
+  height: 3em;
+  width: 5em;
   border: 3px solid black;
+  color: white;
   display: block;
   margin: auto;
+  margin-top: 1em;
+  text-overflow: clip;
 }
-.yes {
-  background-color: #6cdb65;
+.yes {  
+  background-color: ForestGreen;
   transition: all 1s ease-in-out;
 }
 .no {
-  margin-top: 14px;
-  background-color: #ba554e;
+  background-color: DarkRed;
 }
 p {
   margin: 14px auto;
 }
 .confirmDIV {
-  height: 150px;
-  width: 150px;
-  padding: 5px;
+  height: 5em;
+  width: 5em;
+  padding: 0.5em;
   color: white;
   margin: auto;
-  background: rgba(46, 46, 46, 0.75);
+  background: rgba(46, 46, 46, 0.2);
   -webkit-backdrop-filter: blur(10vh);
-  backdrop-filter: blur(20vh);
-  border-radius: 10%;
+  backdrop-filter: blur(5vh);
   box-shadow: 0px 0px 10vh black;
-  font-size: 25px;
+  font-size: 4em;
+  border-radius: 1em;
   text-shadow: 0px 0px 2vh white;
-  transition: transform 1s cubic-bezier(.13,.53,0,1.19), opacity 1s ease-in-out;
-  transform: scale(0);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-in-out;
+  transform: scale(0.9);
   opacity: 0;
 }
 .indexTable {
@@ -252,11 +256,6 @@ p {
   background: linear-gradient(0deg, rgba(255,255,255,0) 60%, rgba(232,23,194,0.5) 100%);
   -webkit-backdrop-filter: hue-rotate(140deg);
   backdrop-filter: hue-rotate(140deg);
-}
-.qrTable {
-  background: linear-gradient(0deg, rgba(255,255,255,0) 60%, rgba(23,232,101,0.5) 100%);
-  -webkit-backdrop-filter: hue-rotate(-30deg);
-  backdrop-filter: hue-rotate(-30deg);
 }
 /* Colours */ 
 
@@ -348,4 +347,34 @@ p {
 
 #next, #regen, #reset {
   transition: opacity .5s ease-in-out;
+}
+#tableQR {
+  transition: transform 0.5s cubic-bezier(.5,0,.39,1.3);
+}
+td, th {
+  transition: transform 0.5s ease-in-out;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#teamNum, #matchNum {
+  transition: all 1s ease-in-out;
+}
+#scout {
+  transition: all 0.75s ease-in-out;
+}
+#flip {
+  transition: transform 1s ease-in-out;
+}
+@keyframes orangeBlack {
+  0% {
+    color: black;
+  }
+
+  100% {
+    color: orange;
+  }
 }
