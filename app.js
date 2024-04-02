@@ -485,7 +485,7 @@ var red3 = [6706,
   9092,
   7021,
   7531,];
-var ipadID = sessionStorage.getItem("iPadId");
+var ipadID = localStorage.getItem("iPadId");
 let savedComments = [];
 var incmatchnumber = "1";
 var matchSave = 0;
@@ -504,7 +504,7 @@ var savescout = sessionStorage.getItem("scoutInitials");
 var num = 0;
 var quote = "";
 let activeAnimations = [];
-
+let nonDblClick = true;
 /* Function List
 --- Direct Button Functions ---
 changeMatchNumber: Used to change the match number
@@ -681,7 +681,6 @@ function alliancePick(alliance) {
 }
 
 function GO(iPadID,matchsaver,scoutsaver, id) {
-  
   getBoxData();
   var message = "You need to add ";
   var allClear = 1;
@@ -690,9 +689,9 @@ function GO(iPadID,matchsaver,scoutsaver, id) {
   var scout = document.getElementById("scout");
   scoutSave = document.getElementById("scout").value;
   matchSave = document.getElementById("matchNum").value;
-  team.removeAttribute('style')
-  match.removeAttribute('style')
-  scout.removeAttribute('style')
+  team.removeAttribute('style');
+  match.removeAttribute('style');
+  scout.removeAttribute('style');
   if (extraData[0] === "" || extraData[1] === "" || extraData[2] === "") {
         if (extraData[0] === "") {
               message += "a team number, ";
@@ -720,10 +719,25 @@ function GO(iPadID,matchsaver,scoutsaver, id) {
   sessionStorage.setItem("matchNum", matchsaver)  
   actionList[0] = extraData[4];
   saveData();
-  if (allClear == 1) {
-    indexOut(id);
-  }
+  setTimeout(() => {
+    if(nonDblClick) {
+      if (allClear == 1) {
+        indexOut("auton2");
+      }
+    }
+  }, 200);
+  
   //console.log(displaySavedData());
+}
+
+function skipToQr(iPadID, scoutsaver, matchsaver) {
+  nonDblClick = false;
+  getBoxData();
+  sessionStorage.setItem("iPadId",iPadID);
+  sessionStorage.setItem("scoutInitials", scoutsaver);
+  sessionStorage.setItem("matchNum", matchsaver);  
+  saveQR();
+  indexOut("qr");
 }
 
 /* function indexOut(id) {
@@ -786,10 +800,15 @@ function GO(iPadID,matchsaver,scoutsaver, id) {
     }, 800);
   }, 2000);
 } */
-function indexOut(id) {
+
+function flip() {
+  document.getElementById('flit').style.transform
+}
+function indexOut(page) {
   let team = document.getElementById('teamNum');
   let scout = document.getElementById('scout');
   let match = document.getElementById('matchNum');
+  document.getElementById('indexTable').setAttribute("onclick", "window.location.href ='./" + page + ".html'");
   team.style.textShadow = "0px 0px 2vh white";
   team.style.boxShadow = "0px 0px 200vh 2vw white";
   setTimeout (() => {
@@ -816,11 +835,13 @@ function indexOut(id) {
   }, 250);
   }, 300);
   setTimeout(() => {
-  let button = document.getElementById(id);
+  let button = document.getElementById('goButton');
   button.style.transform = "scale(1.2)";
   button.style.boxShadow = `0px 0px 1000vh 100vw black`;
   document.getElementById('iPadIDarea').style.transition = "opacity 0.5s ease-in-out";
   document.getElementById('iPadIDarea').style.opacity = "0";
+  document.getElementById('regenMatch').style.transition = "opacity 0.5s ease-in-out";
+  document.getElementById('regenMatch').style.opacity = "0";
   document.getElementById('row1').style.transition = "opacity 0.5s ease-in-out";
   document.getElementById('row2').style.transition = "opacity 0.5s ease-in-out";
   document.getElementById('row3').style.transition = "opacity 0.5s ease-in-out";
@@ -839,7 +860,7 @@ function indexOut(id) {
       document.getElementById('body').style.background = "black";
     }, 450);
     setTimeout(() => {
-      window.location.href = "./auton2.html";
+      window.location.href = "./" + page + ".html";
     }, 800);
   }, 500);
 } 
@@ -850,7 +871,7 @@ function qrOut(id) {
   button.style.boxShadow = `0px 0px 1000vh 100vw black`;
  setTimeout(() => {
    document.getElementById('tableQR').style.opacity = '0';
-   document.getElementById('QrBody').style.background = 'black';
+   document.getElementById('body').style.background = 'black';
     button.style.opacity = "0";
   }, 1200); 
   
@@ -938,7 +959,7 @@ function Undo() {
   }
 }
 function pullIPadID() {
-  document.getElementById("iPadIDarea").value = sessionStorage.getItem("iPadId");
+  document.getElementById("iPadIDarea").value = localStorage.getItem("iPadId");
   console.log(sessionStorage.getItem("matchNum"));
   incmatchnumber = parseInt(sessionStorage.getItem("matchNum"));
   savescout = sessionStorage.getItem("scoutInitials");
@@ -949,7 +970,6 @@ function pullIPadID() {
   }
   document.getElementById("matchNum").value = incmatchnumber;
   document.getElementById("scout").value = savescout;
-  //document.getElementById("iPadID").value = localStorage.getItem("iPadId");
 }
 
 function getQuote() {
@@ -1060,7 +1080,7 @@ function setTeampull(matchnumb) {
   console.log("test")
   var teamnumb = document.getElementById("teamNum");
   
-   var ipadID = sessionStorage.getItem("iPadId")
+   var ipadID = localStorage.getItem("iPadId")
   
   matchnum = parseInt(matchnumb);
   
@@ -1103,6 +1123,14 @@ function saveQR() {
 }
 
 function loadTransition(times, page) {
+  if(sessionStorage.getItem("fastLoad") == 'true') {
+    for(let i = 1; i < times+1; i++) {
+      document.getElementById('row' + i).style.transition = "none";
+      document.getElementById('row' + i).style.opacity = "1";
+      document.getElementById('row' + i).style.transform = "scale(1)";
+    }
+    sessionStorage.setItem("fastLoad", false);
+  } else { 
   for(let i = 1; i < times+1; i++) {
     setTimeout(() => {
       document.getElementById('row' + i).style.opacity = "1";
@@ -1110,8 +1138,12 @@ function loadTransition(times, page) {
     }, i*10);
     }
 }
+}
 
 function leaveTransition(times, page) {
+  setTimeout(() => {
+      document.getElementById('body').setAttribute("onclick", "skipTransition('" + page + "');");
+    }, 10); 
   let k = times;
   for(let i = 1; i < times+1; i++) {
     setTimeout(() => {
@@ -1126,3 +1158,9 @@ function leaveTransition(times, page) {
     }, times*100); 
     
 }
+function skipTransition(page) {
+  window.location.href = window.location.href = './' + page + '.html';
+  sessionStorage.setItem("fastLoad", true);
+}
+
+
