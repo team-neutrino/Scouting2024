@@ -91,7 +91,7 @@
         return;
     }
     qrcode.clear();
-    var sums = Array(25).fill(0);  
+    var sums = Array(16).fill(0);  
         for (const item of OldCompressedList) {
           sums[item-1]++;
         }
@@ -168,8 +168,8 @@
         console.log('3: ', incmatchnumber);
         sessionStorage.setItem("matchNum", incmatchnumber);
         sessionStorage.setItem("scoutInitials", savescout); 
-        //window.location.href ='./index.html'; 
-        window.location.href ='./qr.html';
+        window.location.href ='./index.html'; 
+        //window.location.href ='./qr.html';
       }, quotePack[1]+2100);
       }
     }
@@ -211,6 +211,7 @@
       sessionStorage.setItem("matchNum", incmatchnumber);
       sessionStorage.setItem("scoutInitials", savescout); 
       window.location.href ='./index.html'; 
+      //window.location.href ='./qr.html'; 
     }
     
     function spinTitle(id) {
