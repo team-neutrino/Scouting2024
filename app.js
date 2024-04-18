@@ -984,7 +984,7 @@ function GO(iPadID,matchsaver,scoutsaver, id) {
         console.log(sessionStorage);
 
   }
-  sessionStorage.setItem("iPadId",iPadID)
+  localStorage.setItem("iPadId",iPadID)
   sessionStorage.setItem("scoutInitials", scoutsaver)
   sessionStorage.setItem("matchNum", matchsaver)  
   actionList[0] = extraData[4];
