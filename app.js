@@ -1082,7 +1082,7 @@ function indexOut(page) {
   team.style.textShadow = "0px 0px 2vh white";
   team.style.boxShadow = "0px 0px 200vh 2vw white";
   setTimeout (() => {
-    team.style.fontSize = "0vh";
+    team.style.fontSize = "0vw";
     team.style.width = "0vw";
     team.style.opacity = "0";
   }, 250);
@@ -1090,7 +1090,7 @@ function indexOut(page) {
   scout.style.textShadow = "0px 0px 2vh white";
   scout.style.boxShadow = "0px 0px 200vh 2vw white";
   setTimeout (() => {
-    scout.style.fontSize = "0vh";
+    scout.style.fontSize = "0vw";
     scout.style.width = "0vw";
     scout.style.opacity = "0";
   }, 250);
@@ -1099,7 +1099,7 @@ function indexOut(page) {
   match.style.textShadow = "0px 0px 2vh white";
   match.style.boxShadow = "0px 0px 200vh 2vw white";
   setTimeout (() => {
-    match.style.fontSize = "0vh";
+    match.style.fontSize = "0vw";
     match.style.width = "0vw";
     match.style.opacity = "0";
   }, 250);

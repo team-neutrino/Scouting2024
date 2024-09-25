@@ -131,11 +131,11 @@ text-align: center;
 	position: absolute;
 	bottom:3vh;
 	margin-left:-6.0%;
-	font-size: 5vh;
+	font-size: 5vw;
 }
 .QRArrow{
 	background-color: #31a289;
-	font-size: 5vh;
+	font-size: 5vw;
 	position: relative;
 }
 .rightArrow{
@@ -143,7 +143,7 @@ text-align: center;
 	position: absolute;
 	bottom:3vh;
 	margin-left:-6%;
-	font-size: 5vh;
+	font-size: 5vw;
 }
 .parked{
 	background-color: #97dae6;
@@ -170,7 +170,7 @@ text-align: center;
 }
 .score{
 	color: #FFFFFF;
-	font-size: 2.1vh;
+	font-size: 2.1vw;
 }
 .regenerateQR{
 	background-color: #c5ff00;

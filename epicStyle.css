@@ -134,7 +134,7 @@ tr {
   backdrop-filter: blur(15px);
   background-color: rgba(255, 0, 0, 0.5);
   color: white;
-  font-size: 3vh;
+  font-size: 3vw;
 }
 .termnial {
   height: 27vw;
