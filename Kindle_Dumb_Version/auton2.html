@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auton</title>
+    <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
+    <script src="./app.js"></script>
+    <script>
+    let isAnimated = false;
+      function flip() {
+        if(!isAnimated) {
+        document.getElementById('flip').style.transform = "rotateY(180deg)";
+        setTimeout(() => {
+          document.getElementById('flip').style.transform = "rotateZ(180deg)";
+        }, 1000);
+        setTimeout(() => {
+          document.getElementById('color').style.animation = "10s infinite alternate orangeBlack ease-in-out";
+          isAnimated = true;
+        }, 2000);
+      } else {
+        document.getElementById('flip').style.transform = "rotateY(0deg)";
+        setTimeout(() => {
+          document.getElementById('flip').style.transform = "rotateZ(0deg)";
+        }, 1000);
+        setTimeout(() => {
+          document.getElementById('color').removeAttribute('style');
+          isAnimated = false;
+        }, 2000);
+      }
+      }
+    </script>
+</head>
+<body onload="loadTransition(4, 1);loadPage()" id='body'  style="overflow: scroll;">
+<table class="autonTable" id="table">
+  <tr class="top" id="row1">
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="teamBox" id="teamNumberBox"/>
+    </th>
+    <th colspan="3" class="header" id="color">A<span onclick="flip()" id="flip" style="display: inline-block;">u</span>ton</th>
+    <th class="topSideBox">
+      <input class="infoBox" type="text" name="matchBox" id="matchNumberBox"/>
+    </th>
+  </tr>
+  <tr class="buttons" id="row2">
+    <td rowspan="2">
+      <button class="tallButton speakerColor" id="Speaker (A)" onclick="addAction(this.id,1)">Speaker</button>
+    </td>
+    <td class="midButton">
+      <button class="normalButton speakerMissColor" id="Speaker Miss (A)" onclick="addAction(this.id,2)">Speaker Miss</button>
+    </td>
+    <td class="midButton">
+      <button class="normalButton invisibleButton"></button>
+    </td>
+    <td class="midButton">
+      <button class="normalButton ampMissColor" id="Amp Miss (A)" onclick="addAction(this.id,4)">Amp Miss</button>
+    </td>
+    <td rowspan="2">
+      <button class="tallButton ampColor" id="Amp (A)" onclick="addAction(this.id,3)">Amp</button>
+    </td>
+  </tr>
+  <tr id="row3">
+    <td colspan="3" rowspan="2" class="undoTermArea">
+      <textarea readonly id="teamLog1" class="termnial" placeholder="Nothing to undo"></textarea>
+      <br>
+      <button class="undo" id="undo" onclick="Undo()">Undo</button>
+    </td>
+  </tr>
+  <tr class="footer" id="row4">
+    <td>
+      <button class="disabledColor" id="Leave" onclick="replaceLeave();addAction(this.id,14)" ondblclick="saveData();window.location.href = './index.html';">Leave</button>
+    </td>
+    <td>
+      <button class="backForth nextColor" id="next" onclick="saveData();saveData();window.location.href = './' + 'teleop2' + '.html';">&rarr;</button>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
