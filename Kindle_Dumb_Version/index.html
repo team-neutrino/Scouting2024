@@ -8,6 +8,7 @@
     <link href="./epicStyle.css" rel="stylesheet" type="text/css"><link>
    
     <script>
+      
       let inRegenDisplay = false;
       let zoom = false;
       function regenMatch(matchNumber) {
@@ -126,7 +127,7 @@
     }
     </script>
 </head>
-<body onload="pullIPadID();setTeampull(matchNum.value);loadTransition(5, 0)" id="body" style="overflow: scroll;">
+<body onload="getOU();pullIPadID();setTeampull(matchNum.value);loadTransition(5, 0)" id="body" style="overflow: scroll;">
     <table  class="indexTable" id="indexTable">
         <tr id="row1">
             <th class="headerIndex" colspan="3" id="topCentre">
@@ -164,13 +165,14 @@
 
             </td>
         </tr>
-        <tr class="buttonRow" id="row3">
+        <tr class="buttonRow" id="row4">
             <td rowspan="2"></td>
             <td>
-                <button class="allianceOfTheRedColour" 
-                id="Red Alliance" 
-                onclick="alliancePick(this.id)"
-                >Red Alliance</button>
+              <textarea id = "OU" style = "font-size: 24px;text-align: center; " readonly>
+                
+              
+              </textarea>
+                
             </td>
             <td rowspan="2"></td>
         </tr>
@@ -180,7 +182,11 @@
                 <button class="allianceOfTheBlueColour"
                 id="Blue Alliance" 
                 onclick="alliancePick(this.id)"
-                >Blue Alliance</button>
+                >Over</button>
+                <button class="allianceOfTheRedColour" 
+                id="Red Alliance" 
+                onclick="alliancePick(this.id)"
+                >Under</button>
             </td>
         </tr>
         <tr class="buttonRow" id="row5" style="position: relative;">
