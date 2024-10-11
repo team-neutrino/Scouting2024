@@ -5,6 +5,7 @@ var teamNumber = []; //Team Number
 var actionList = ["Red Alliance"]; //This is the list that populates the log with human friendly text.
 var compressedList = []; //This is the list that collects all the IDs for the QR Code.
 var comments = ""; //Comments Box
+var OU = "1";
 var blue1 = [2122,
   1296,
   9450,
@@ -1369,36 +1370,35 @@ function skipTransition(page) {
   sessionStorage.setItem("fastLoad", true);
 }
 
-const min = 3;
-const max = 11;
-const Notes = (Math.random() * (max - min) + min).toFixed(2); // Rounds to 2 decimal places
-const min2 = 6;
-const max2 = 15;
-const Notes2 = (Math.random() * (max2 - min2) + min2).toFixed(2); // Rounds to 2 decimal places
 
-const options = ["Teleop Speaker", "Teleop Amp", "Total Notes"];
+function getOU() {
+  const min = 3;
+  const max = 11;
+  const Notes = (Math.random() * (max - min) + min).toFixed(2); // Rounds to 2 decimal places
+  const min2 = 6;
+  const max2 = 15;
+  const Notes2 = (Math.random() * (max2 - min2) + min2).toFixed(2); // Rounds to 2 decimal places
+
+  const options = ["Teleop Speaker", "Teleop Amp", "Total Notes"];
 
 // Function to pick a random option
-function getRandomOption() {
+  function getRandomOption() {
     const randomIndex = Math.floor(Math.random() * options.length);
     return options[randomIndex];
 }
 
 // Assign the random option to a variable
-const selectedOption = getRandomOption();
+  const selectedOption = getRandomOption();
 
 // Create the OU variable based on the selected option
-let OU;
-if (selectedOption === "Teleop Speaker" || selectedOption === "Teleop Amp") {
-    OU = `${"Over or Under"} ${Notes} ${selectedOption} ${"?"}`;
-} else if (selectedOption === "Total Notes") {
-    OU = `${"Over or Under"} ${Notes2} ${selectedOption} ${"?"}`;
-}
-console.log(OU);
-function getOU() {
+  let OU;
+    if (selectedOption === "Teleop Speaker" || selectedOption === "Teleop Amp") {
+      OU = `${"Over or Under"} ${Notes} ${selectedOption} ${"?"}`;
+    } else if (selectedOption === "Total Notes") {
+      OU = `${"Over or Under"} ${Notes2} ${selectedOption} ${"?"}`;
+  }
   document.getElementById('OU').value = OU
-}
-
+  }
 
 
 
