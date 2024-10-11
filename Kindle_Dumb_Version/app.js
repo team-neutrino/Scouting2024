@@ -6,6 +6,7 @@ var actionList = ["Red Alliance"]; //This is the list that populates the log wit
 var compressedList = []; //This is the list that collects all the IDs for the QR Code.
 var comments = ""; //Comments Box
 var OU = "1";
+var selectedOption = "";
 var blue1 = [2122,
   1296,
   9450,
@@ -775,6 +776,8 @@ var savescout = sessionStorage.getItem("scoutInitials");
 var num = 0;
 let activeAnimations = [];
 let nonDblClick = true;
+var Notes = ""
+var Notes2 =""
 
 /* Function List
 --- Direct Button Functions ---
@@ -978,9 +981,11 @@ function GO(iPadID,matchsaver,scoutsaver, id) {
         //console.log(message);
       //  alert(message);
         allClear = 0;
-        
-        console.log(sessionStorage);
+        sessionStorage.setItem("selectedOption", JSON.stringify(selectedOption))
 
+        console.log(sessionStorage);
+        
+        extraData[4] = "red";
   }
   localStorage.setItem("iPadId",iPadID)
   sessionStorage.setItem("scoutInitials", scoutsaver)
@@ -1144,6 +1149,7 @@ function saveData() {
   sessionStorage.setItem("actionList", JSON.stringify(actionList));
   sessionStorage.setItem("compressedList", JSON.stringify(compressedList));
   sessionStorage.setItem("extraData", JSON.stringify(extraData));
+  sessionStorage.setItem("selectedOption", JSON.stringify(selectedOption))
 }
 
 function displaySavedData() {
@@ -1160,6 +1166,8 @@ function getData() {
   let unparsedActionList = sessionStorage.getItem("actionList");
   let unparsedExtradata = sessionStorage.getItem("extraData");
   let unparsedCompressedList = sessionStorage.getItem("compressedList");
+  let unparsedSoption = sessionStorage.getItem("selectedOption");
+  selectedOption = JSON.parse(unparsedSoption);
   actionList = JSON.parse(unparsedActionList);
   compressedList = JSON.parse(unparsedCompressedList);
   extraData = JSON.parse(unparsedExtradata);
@@ -1374,10 +1382,10 @@ function skipTransition(page) {
 function getOU() {
   const min = 3;
   const max = 11;
-  const Notes = (Math.random() * (max - min) + min).toFixed(2); // Rounds to 2 decimal places
+  Notes = (Math.random() * (max - min) + min).toFixed(2); // Rounds to 2 decimal places
   const min2 = 6;
   const max2 = 15;
-  const Notes2 = (Math.random() * (max2 - min2) + min2).toFixed(2); // Rounds to 2 decimal places
+  Notes2 = (Math.random() * (max2 - min2) + min2).toFixed(2); // Rounds to 2 decimal places
 
   const options = ["Teleop Speaker", "Teleop Amp", "Total Notes"];
 
@@ -1388,7 +1396,7 @@ function getOU() {
 }
 
 // Assign the random option to a variable
-  const selectedOption = getRandomOption();
+   selectedOption = getRandomOption();
 
 // Create the OU variable based on the selected option
   let OU;
@@ -1400,5 +1408,23 @@ function getOU() {
   document.getElementById('OU').value = OU
   }
 
+function check() {
+  console.log("check")
+  var Aspeakercount = actionList.filter(item => item === "Speaker (A)").length;
+  var Aampcount = actionList.filter(item => item === "Amp (A)").length;
+  var Tspeakercount = actionList.filter(item => item === "Speaker (T)").length;
+  var Tampcount = actionList.filter(item => item === "Amp (T)").length;
+  var answer =""
+  if (selectedOption === "Teleop Speaker") {
+    if (Tspeakercount > Notes) {
+       answer = "Over";
+       console.log("Over");
+    } else {
+       answer = "Under";
+       console.log("Under");
 
+    }
+  }
+
+}
 
