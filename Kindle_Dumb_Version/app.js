@@ -2,7 +2,7 @@ var scorer = 0
 var extraData = []; //['teamNum', 'matchNum', 'scout', 'comment', 'red']
 var matchNumber = []; //Match Number
 var teamNumber = []; //Team Number
-var actionList = ["Red Alliance"]; //This is the list that populates the log with human friendly text.
+var actionList = [""]; //This is the list that populates the log with human friendly text.
 var compressedList = []; //This is the list that collects all the IDs for the QR Code.
 var comments = ""; //Comments Box
 var OU = "1";
@@ -776,8 +776,9 @@ var savescout = sessionStorage.getItem("scoutInitials");
 var num = 0;
 let activeAnimations = [];
 let nonDblClick = true;
-var Notes = ""
-var Notes2 =""
+var Notes = "";
+var Notes2 ="";
+var answer = "";
 
 /* Function List
 --- Direct Button Functions ---
@@ -1149,7 +1150,9 @@ function saveData() {
   sessionStorage.setItem("actionList", JSON.stringify(actionList));
   sessionStorage.setItem("compressedList", JSON.stringify(compressedList));
   sessionStorage.setItem("extraData", JSON.stringify(extraData));
-  sessionStorage.setItem("selectedOption", JSON.stringify(selectedOption))
+  sessionStorage.setItem("selectedOption", JSON.stringify(selectedOption));
+  sessionStorage.setItem("Notes", JSON.stringify(Notes));
+  sessionStorage.setItem("Notes2", JSON.stringify(Notes2));
 }
 
 function displaySavedData() {
@@ -1167,7 +1170,11 @@ function getData() {
   let unparsedExtradata = sessionStorage.getItem("extraData");
   let unparsedCompressedList = sessionStorage.getItem("compressedList");
   let unparsedSoption = sessionStorage.getItem("selectedOption");
+  let unparsedNotes = sessionStorage.getItem("Notes");
+  let unparsedNotes2 = sessionStorage.getItem("Notes2");
   selectedOption = JSON.parse(unparsedSoption);
+  Notes = JSON.parse(unparsedNotes);
+  Notes2 = JSON.parse(unparsedNotes2)
   actionList = JSON.parse(unparsedActionList);
   compressedList = JSON.parse(unparsedCompressedList);
   extraData = JSON.parse(unparsedExtradata);
@@ -1414,17 +1421,54 @@ function check() {
   var Aampcount = actionList.filter(item => item === "Amp (A)").length;
   var Tspeakercount = actionList.filter(item => item === "Speaker (T)").length;
   var Tampcount = actionList.filter(item => item === "Amp (T)").length;
-  var answer =""
+  var Totalnotes = Aspeakercount + Aampcount + Tspeakercount + Tampcount;
   if (selectedOption === "Teleop Speaker") {
     if (Tspeakercount > Notes) {
        answer = "Over";
        console.log("Over");
+       console.log(selectedOption);
+       console.log(Notes);
     } else {
        answer = "Under";
+       console.log(selectedOption);
+       console.log(Notes);
        console.log("Under");
 
     }
+  } else if (selectedOption === "Teleop Amp") {
+    if (Tampcount > Notes) {
+       answer = "Over";
+       console.log(selectedOption);
+       console.log(Notes);
+       console.log("Over");
+    } else {
+       answer = "Under";
+       console.log(selectedOption);
+       console.log(Notes);
+       console.log("Under");
+
+    }
+
+  } else if (selectedOption === "Total Notes") {
+    if (Totalnotes > Notes2) {
+       answer = "Over";
+       console.log(selectedOption);
+       console.log(Notes2);
+       console.log("Answer: Over");
+    } else {
+       answer = "Under";
+       console.log(selectedOption);
+       console.log(Notes2);
+       console.log("Answer: Under");
+
+    }
+
   }
-
+  if (answer == extraData[4]) {
+    extraData[4] = "Correct";
+    console.log(extraData[4]);
+  } else {
+    extraData[4] = "Wrong";
+    console.log(extraData[4]);
+  }
 }
-
