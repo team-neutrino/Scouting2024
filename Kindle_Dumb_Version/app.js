@@ -2,9 +2,11 @@ var scorer = 0
 var extraData = []; //['teamNum', 'matchNum', 'scout', 'comment', 'red']
 var matchNumber = []; //Match Number
 var teamNumber = []; //Team Number
-var actionList = ["Red Alliance"]; //This is the list that populates the log with human friendly text.
+var actionList = [""]; //This is the list that populates the log with human friendly text.
 var compressedList = []; //This is the list that collects all the IDs for the QR Code.
 var comments = ""; //Comments Box
+var OU = "1";
+var selectedOption = "";
 var blue1 = [2122,
   1296,
   9450,
@@ -774,6 +776,9 @@ var savescout = sessionStorage.getItem("scoutInitials");
 var num = 0;
 let activeAnimations = [];
 let nonDblClick = true;
+var Notes = "";
+var Notes2 ="";
+var answer = "";
 
 /* Function List
 --- Direct Button Functions ---
@@ -977,9 +982,11 @@ function GO(iPadID,matchsaver,scoutsaver, id) {
         //console.log(message);
       //  alert(message);
         allClear = 0;
-        
-        console.log(sessionStorage);
+        sessionStorage.setItem("selectedOption", JSON.stringify(selectedOption))
 
+        console.log(sessionStorage);
+        
+        extraData[4] = "red";
   }
   localStorage.setItem("iPadId",iPadID)
   sessionStorage.setItem("scoutInitials", scoutsaver)
@@ -1143,6 +1150,9 @@ function saveData() {
   sessionStorage.setItem("actionList", JSON.stringify(actionList));
   sessionStorage.setItem("compressedList", JSON.stringify(compressedList));
   sessionStorage.setItem("extraData", JSON.stringify(extraData));
+  sessionStorage.setItem("selectedOption", JSON.stringify(selectedOption));
+  sessionStorage.setItem("Notes", JSON.stringify(Notes));
+  sessionStorage.setItem("Notes2", JSON.stringify(Notes2));
 }
 
 function displaySavedData() {
@@ -1159,6 +1169,12 @@ function getData() {
   let unparsedActionList = sessionStorage.getItem("actionList");
   let unparsedExtradata = sessionStorage.getItem("extraData");
   let unparsedCompressedList = sessionStorage.getItem("compressedList");
+  let unparsedSoption = sessionStorage.getItem("selectedOption");
+  let unparsedNotes = sessionStorage.getItem("Notes");
+  let unparsedNotes2 = sessionStorage.getItem("Notes2");
+  selectedOption = JSON.parse(unparsedSoption);
+  Notes = JSON.parse(unparsedNotes);
+  Notes2 = JSON.parse(unparsedNotes2)
   actionList = JSON.parse(unparsedActionList);
   compressedList = JSON.parse(unparsedCompressedList);
   extraData = JSON.parse(unparsedExtradata);
@@ -1370,5 +1386,89 @@ function skipTransition(page) {
 }
 
 
+function getOU() {
+  const min = 3;
+  const max = 11;
+  Notes = (Math.random() * (max - min) + min).toFixed(2); // Rounds to 2 decimal places
+  const min2 = 6;
+  const max2 = 15;
+  Notes2 = (Math.random() * (max2 - min2) + min2).toFixed(2); // Rounds to 2 decimal places
 
+  const options = ["Teleop Speaker", "Teleop Amp", "Total Notes"];
 
+// Function to pick a random option
+  function getRandomOption() {
+    const randomIndex = Math.floor(Math.random() * options.length);
+    return options[randomIndex];
+}
+
+// Assign the random option to a variable
+   selectedOption = getRandomOption();
+
+// Create the OU variable based on the selected option
+  let OU;
+    if (selectedOption === "Teleop Speaker" || selectedOption === "Teleop Amp") {
+      OU = `${"Over or Under"} ${Notes} ${selectedOption} ${"?"}`;
+    } else if (selectedOption === "Total Notes") {
+      OU = `${"Over or Under"} ${Notes2} ${selectedOption} ${"?"}`;
+  }
+  document.getElementById('OU').value = OU
+  }
+
+function check() {
+  console.log("check")
+  var Aspeakercount = actionList.filter(item => item === "Speaker (A)").length;
+  var Aampcount = actionList.filter(item => item === "Amp (A)").length;
+  var Tspeakercount = actionList.filter(item => item === "Speaker (T)").length;
+  var Tampcount = actionList.filter(item => item === "Amp (T)").length;
+  var Totalnotes = Aspeakercount + Aampcount + Tspeakercount + Tampcount;
+  if (selectedOption === "Teleop Speaker") {
+    if (Tspeakercount > Notes) {
+       answer = "Over";
+       console.log("Over");
+       console.log(selectedOption);
+       console.log(Notes);
+    } else {
+       answer = "Under";
+       console.log(selectedOption);
+       console.log(Notes);
+       console.log("Under");
+
+    }
+  } else if (selectedOption === "Teleop Amp") {
+    if (Tampcount > Notes) {
+       answer = "Over";
+       console.log(selectedOption);
+       console.log(Notes);
+       console.log("Over");
+    } else {
+       answer = "Under";
+       console.log(selectedOption);
+       console.log(Notes);
+       console.log("Under");
+
+    }
+
+  } else if (selectedOption === "Total Notes") {
+    if (Totalnotes > Notes2) {
+       answer = "Over";
+       console.log(selectedOption);
+       console.log(Notes2);
+       console.log("Answer: Over");
+    } else {
+       answer = "Under";
+       console.log(selectedOption);
+       console.log(Notes2);
+       console.log("Answer: Under");
+
+    }
+
+  }
+  if (answer == extraData[4]) {
+    extraData[4] = "Correct";
+    console.log(extraData[4]);
+  } else {
+    extraData[4] = "Wrong";
+    console.log(extraData[4]);
+  }
+}
